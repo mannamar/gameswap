@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 // import logo from './logo.svg';
 import './App.css';
 import { HomePage } from './Components/Homepage';
+import { SignUp } from './Components/SignUp';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
         <Container>
           <Row>
             <Col>
-              <HomePage />
+              {/* <HomePage /> */}
+              <SignUp />
             </Col>
           </Row>
         </Container>

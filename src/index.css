@@ -49,3 +49,43 @@ code {
   display: flex;
   justify-content: right;
 }
+
+.signup-page-text{
+  
+  background-color: rgba(0, 0, 0, 70%);
+  margin: inherit;
+  height: 100%;
+}
+
+.signup-hero-bg{
+  background-image: url(./Assets/Images/Login\ BG.jpg);
+  background-size: 65em;
+}
+
+.signup-page-sections{
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.hero-bg-overlay{
+  background-color: black;
+}
+
+.for-gamers{
+  color: #AB83ED;
+}
+
+.hero-txt{
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.signup-par{
+  width: 13em;
+}
