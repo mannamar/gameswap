@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Non-default CSS Code below */
+
+.title-and-login-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* text-align: center; */
+  align-items: center;
+}
+
+.header-and-description{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.new-releases-row{
+  display: flex;
+  flex-direction: column;
+}
+
+.trending-row{
+  display: flex;
+  flex-direction: column;
+  background-color: #420D98;
+}
+
+.hero-bg{
+  background-image: url(./Assets/Images/homePageBg.png);
+  color: #FFFFFF;
+  height: 33em;
+}
+
+.login-btn{
+  display: flex;
+  justify-content: right;
+}
