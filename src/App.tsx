@@ -11,14 +11,8 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <Container>
-          <Row>
-            <Col>
-              {/* <HomePage /> */}
-              <SignUp />
-            </Col>
-          </Row>
-        </Container>
+        {/* <HomePage /> */}
+        <SignUp />
       </div>
       <Routes>
         
