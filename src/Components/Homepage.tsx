@@ -4,7 +4,7 @@ function HomePage ()
 {
     return (
         <>
-            <Container className="hero-bg">
+            <Container fluid className="hero-bg">
                 <Row className="title-and-login-btn">
                     <Col>
                         <h2>GameSwap</h2>
@@ -25,7 +25,7 @@ function HomePage ()
                     </Col>
                 </Row>
             </Container>
-            <Container>
+            <Container fluid>
                 <Row className="new-releases-row">
                     <Col>
                         <h1>New Releases</h1>
@@ -35,7 +35,7 @@ function HomePage ()
                     </Col>
                 </Row>
             </Container>
-            <Container className="trending-row">
+            <Container fluid className="trending-row">
                 <Row>
                     <Col>
                         <h1>Trending</h1>

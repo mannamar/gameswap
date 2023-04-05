@@ -1,9 +1,13 @@
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 
 function SignUp() {
+    // function ButtonTest() {
+    //     console.log('This button works');
+    // }
+    
     return (
         <div>
-            <Container>
+            <Container fluid>
                 <Row className="signup-page-sections">
                     <Col className="signup-hero-bg">
                         <Row className="signup-page-text">
@@ -46,7 +50,7 @@ function SignUp() {
                                 <Form.Control />
                             </Form.Group>
 
-                            <Button variant="primary" type="submit">
+                            <Button variant="primary">
                                 Sign Up
                             </Button>
                         </Form>
