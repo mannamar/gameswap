@@ -6,7 +6,9 @@ function SignUp() {
     const [Username, setUsername] = useState('');
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
-    const [BirthDate, setBirthDate] = useState('');
+    const [BirthMonth, setBirthMonth] = useState('');
+    const [BirthDay, setBirthDay] = useState('');
+    const [BirthYear, setBirthYear] = useState('');
     const [Zip, setZip] = useState('');
 
 
@@ -47,7 +49,22 @@ function SignUp() {
 
                             <Form.Group className="mb-3">
                                 <Form.Label>Date of Birth</Form.Label>
-                                <Form.Control />
+                                <Row>
+                                    <Col xs={6}>
+                                        <Form.Select aria-label="Default select example">
+                                        <option>Month</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                        </Form.Select>
+                                    </Col>
+                                    <Col xs={3}>
+                                        <Form.Control placeholder='Day'/>
+                                    </Col>
+                                    <Col xs={3}>
+                                        <Form.Control placeholder='Year'/>
+                                    </Col>
+                                </Row>
                             </Form.Group>
 
                             <Form.Group className="mb-3">
@@ -55,10 +72,12 @@ function SignUp() {
                                 <Form.Control />
                             </Form.Group>
 
+
+
                             <div className="d-grid gap-2">
-                            <Button variant="primary">
-                                Sign Up
-                            </Button>
+                                <Button variant="primary">
+                                    Sign Up
+                                </Button>
                             </div>
 
                         </Form>
