@@ -16,7 +16,7 @@ function SignUp() {
         <div>
             <Container fluid>
                 <Row className="signup-page-sections">
-                    <Col className="signup-hero-bg">
+                    <Col xs={7} className="signup-hero-bg">
                         <Row className="signup-page-text">
                             <Col className="hero-txt">
                                 <h1>By Gamers.</h1>
@@ -25,7 +25,7 @@ function SignUp() {
                             </Col>
                         </Row>
                     </Col>
-                    <Col>
+                    <Col xs={5}>
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>Name</Form.Label>
@@ -52,10 +52,19 @@ function SignUp() {
                                 <Row>
                                     <Col xs={6}>
                                         <Form.Select aria-label="Default select example">
-                                        <option>Month</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option>Select Month...</option>
+                                        <option>January</option>
+                                        <option>February</option>
+                                        <option>March</option>
+                                        <option>April</option>
+                                        <option>May</option>
+                                        <option>June</option>
+                                        <option>July</option>
+                                        <option>August</option>
+                                        <option>September</option>
+                                        <option>October</option>
+                                        <option>November</option>
+                                        <option>December</option>
                                         </Form.Select>
                                     </Col>
                                     <Col xs={3}>
