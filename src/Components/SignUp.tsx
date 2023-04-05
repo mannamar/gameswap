@@ -2,8 +2,13 @@ import { useState } from 'react';
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 
 function SignUp() {
-    const [ Username, setUsername ] = useState('');
-    const [ Password, setPassword ] = useState('');
+    const [Name, setName] = useState('');
+    const [Username, setUsername] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Password, setPassword] = useState('');
+    const [BirthDate, setBirthDate] = useState('');
+    const [Zip, setZip] = useState('');
+
 
     return (
         <div>
@@ -24,12 +29,12 @@ function SignUp() {
                                 <Form.Label>Name</Form.Label>
                                 <Form.Control />
                             </Form.Group>
-                            
+
                             <Form.Group className="mb-3">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control />
                             </Form.Group>
-                            
+
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>E-Mail</Form.Label>
                                 <Form.Control />
@@ -50,9 +55,12 @@ function SignUp() {
                                 <Form.Control />
                             </Form.Group>
 
+                            <div className="d-grid gap-2">
                             <Button variant="primary">
                                 Sign Up
                             </Button>
+                            </div>
+
                         </Form>
                     </Col>
                 </Row>
