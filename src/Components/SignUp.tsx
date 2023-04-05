@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 
 function SignUp() {
-    // function ButtonTest() {
-    //     console.log('This button works');
-    // }
-    
+    const [ Username, setUsername ] = useState('');
+    const [ Password, setPassword ] = useState('');
+
     return (
         <div>
             <Container fluid>
