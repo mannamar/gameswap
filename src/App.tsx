@@ -11,8 +11,8 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        {/* <HomePage /> */}
-        <SignUp />
+        <HomePage />
+        {/* <SignUp /> */}
       </div>
       <Routes>
         

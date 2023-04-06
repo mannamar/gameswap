@@ -42,12 +42,15 @@ code {
   display: flex;
   flex-direction: column;
   background-color: #420D98;
+  color: #FFFFFF;
+
 }
 
-.hero-bg{
+.hero-bg-home{
   background-image: url(./Assets/Images/homePageBg.png);
   color: #FFFFFF;
-  height: auto;
+  height: 30em;
+  background-size: cover;
 }
 
 .login-btn{
@@ -97,4 +100,10 @@ code {
 .form-section{
   background-color: #FFFFFF;
   height: 46em;
+}
+
+.game-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
