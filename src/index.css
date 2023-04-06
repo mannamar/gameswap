@@ -25,12 +25,15 @@ code {
   justify-content: space-between;
   /* text-align: center; */
   align-items: center;
+  padding: 2em;
 }
 
 .header-and-description{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  width: 30em;
+  padding: 2em;
 }
 
 .new-releases-row{
