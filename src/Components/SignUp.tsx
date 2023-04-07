@@ -11,6 +11,9 @@ function SignUp() {
     const [BirthYear, setBirthYear] = useState('');
     const [Zip, setZip] = useState('');
 
+    // function buttonTest(){
+    //     console.log('this button works!!!1!');
+    // }
 
     return (
         <div>
@@ -46,9 +49,9 @@ function SignUp() {
 
 
                                     <div className="d-grid gap-2">
-                                        <Button variant="primary">
+                                        <div className='test-btn'>
                                             Log In
-                                        </Button>
+                                        </div>
                                     </div>
 
                                 </Form>
@@ -115,9 +118,9 @@ function SignUp() {
 
 
                                     <div className="d-grid gap-2">
-                                        <Button variant="primary">
+                                        <div className='test-btn'>
                                             Sign Up
-                                        </Button>
+                                        </div>
                                     </div>
 
                                 </Form>

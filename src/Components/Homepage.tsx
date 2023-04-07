@@ -9,7 +9,9 @@ function HomePage() {
                         <h2>GameSwap</h2>
                     </Col>
                     <Col className="login-btn">
-                        <Button>Login</Button>
+                        <div className='test-btn'>
+                            Login
+                        </div>
                     </Col>
                 </Row>
                 <Row className="header-and-description">
@@ -20,7 +22,9 @@ function HomePage() {
                         <p>Swap your old games for ones that are new to you. And make new friends in the process!</p>
                     </Col>
                     <Col>
-                        <Button>Join Now</Button>
+                        <div className='join-btn'>
+                            Join Now
+                        </div>
                     </Col>
                 </Row>
             </Container>
