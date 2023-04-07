@@ -5,14 +5,16 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './App.css';
 import { HomePage } from './Components/Homepage';
 import { SignUp } from './Components/SignUp';
+import { WishList } from './Components/WishList';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
     <BrowserRouter>
       <div>
-        <HomePage />
+        {/* <HomePage /> */}
         {/* <SignUp /> */}
+        <WishList />
       </div>
       <Routes>
         
