@@ -23,12 +23,12 @@ function WishList() {
                     </Col>
                     <Col>
                         <Row>
-                            <Col>
-                                <Form.Control type="text" placeholder="Normal text" />
+                            <Col xs={9}>
+                                <Form.Control type="text" />
                             </Col>
-                            <Col>
+                            <Col xs={3}>
                                 <div className='join-btn'>
-                                    Join Now
+                                    Search
                                 </div>
                             </Col>
                         </Row>
