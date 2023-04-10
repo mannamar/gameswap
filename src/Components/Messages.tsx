@@ -5,3 +5,5 @@ function Messages() {
         </div>
     );
 }
+
+export { Messages }
