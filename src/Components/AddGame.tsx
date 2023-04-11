@@ -56,6 +56,23 @@ function AddGame(){
                         <p>You don’t currently have any games up for trade. Search for a game below that you’d give in return.</p>
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                        <h2>Search</h2>
+                        <Col>
+                            <Row>
+                                <Col xs={3}>
+                                    <Form.Control type="text" placeholder="Search for games you’d trade" />
+                                </Col>
+                                <Col xs={1}>
+                                    <div className='join-btn'>
+                                        Search
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Col>
+                </Row>
             </Container>
         </div>
     );
