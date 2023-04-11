@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 
-function AddGame(){
+function AddGame() {
     // ------Variables-------------------
     let genre: string = 'Adventure';
     let publisher: string = 'Nintendo';
@@ -8,7 +8,7 @@ function AddGame(){
     let releaseDate: number = 2017;
     // ----------------------------------
 
-    return(
+    return (
         <div>
             <Container fluid className="hero-bg-add-game">
                 <Row className="title-and-login-btn">
@@ -30,24 +30,24 @@ function AddGame(){
             <Container fluid>
                 <Row className="game-info-row">
                     <Col xs={2} className="game-cover-section">
-                        <img className="game-cover-placeholder" alt="Game Cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')}/>
+                        <img className="game-cover-placeholder" alt="Game Cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
                     </Col>
                     <Col xs={3}>
                         <p>Genre: {genre}</p>
                         <p>Publisher: {publisher}</p>
-                            <Row>
-                                <Col xs={3}><p>Desired Platform: </p></Col>
-                                <Col xs={6}>
-                                    <Form.Select>
-                                        <option>Switch</option>
-                                    </Form.Select>
-                                </Col>
-                                <Col xs={3}>
-                                    <div className='join-btn'>
-                                        Search
-                                    </div>
-                                </Col>
-                            </Row>
+                        <Row>
+                            <Col xs={3}><p>Desired Platform: </p></Col>
+                            <Col xs={6}>
+                                <Form.Select>
+                                    <option>Switch</option>
+                                </Form.Select>
+                            </Col>
+                            <Col xs={3}>
+                                <div className='join-btn'>
+                                    Search
+                                </div>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
                 <Row>
