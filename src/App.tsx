@@ -14,9 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        {/* <HomePage /> */}
-        {/* <SignUp /> */}
-        <WishList />
+        
       </div>
       <Routes>
         <Route path='/' element={<HomePage />} />

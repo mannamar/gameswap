@@ -1,6 +1,11 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 
 function AddGame(){
+    // ------Variables-------------------
+    let genre = 'Adventure';
+    let publisher = 'Nintendo';
+    // ----------------------------------
+    
     return(
         <div>
             <Container fluid className="hero-bg-add-game">
@@ -19,9 +24,6 @@ function AddGame(){
                         <h1>Add Game</h1>
                     </Col>
                     <Col>
-                        <p>Search for a game that you'd like to receive.</p>
-                    </Col>
-                    <Col>
                         <Row>
                             <Col xs={9}>
                                 <Form.Control type="text" />
@@ -38,23 +40,32 @@ function AddGame(){
                 </Row>
             </Container>
             <Container fluid>
-                <Row>
-                    <Col>
-                        <p>Genre: </p>
-                        <p>Publisher: </p>
+                <Row className="game-info-row">
+                    <Col xs={2} className="game-cover-section">
+                        <img className="game-cover-placeholder" alt="Game Cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')}/>
+                    </Col>
+                    <Col xs={3}>
+                        <p>Genre: {genre}</p>
+                        <p>Publisher: {publisher}</p>
                             <Row>
-                                <Col><p>Desired Platform: </p></Col>
-                                <Col>
+                                <Col xs={3}><p>Desired Platform: </p></Col>
+                                <Col xs={6}>
                                     <Form.Select>
                                         <option>Switch</option>
                                     </Form.Select>
+                                </Col>
+                                <Col xs={3}>
+                                    <div className='join-btn'>
+                                        Search
+                                    </div>
                                 </Col>
                             </Row>
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col xs={3}>
                         <h2>Would Trade</h2>
+                        <p>You don’t currently have any games up for trade. Search for a game below that you’d give in return.</p>
                     </Col>
                 </Row>
             </Container>

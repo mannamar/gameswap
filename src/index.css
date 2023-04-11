@@ -160,3 +160,21 @@ code {
   justify-content: center;
   cursor: pointer;
 }
+
+.hero-bg-add-game{
+  background-image: url(./Assets/Images/homePageBg.png);
+  color: #FFFFFF;
+  height: 20em;
+  background-size: cover;
+}
+
+.game-cover-placeholder{
+  height: 15em;
+}
+
+.game-info-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
