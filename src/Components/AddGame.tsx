@@ -4,6 +4,8 @@ function AddGame(){
     // ------Variables-------------------
     let genre: string = 'Adventure';
     let publisher: string = 'Nintendo';
+    let gameTitle: string = 'Super Mario Odyssey';
+    let releaseDate: number = 2017;
     // ----------------------------------
 
     return(
@@ -21,21 +23,7 @@ function AddGame(){
                 </Row>
                 <Row className="header-and-description">
                     <Col>
-                        <h1>Add Game</h1>
-                    </Col>
-                    <Col>
-                        <Row>
-                            <Col xs={9}>
-                                <Form.Control type="text" />
-                            </Col>
-                            <Col xs={3}>
-                                <div className='join-btn'>
-                                    Search
-                                </div>
-                            </Col>
-                        </Row>
-
-
+                        <h1>{gameTitle} ({releaseDate})</h1>
                     </Col>
                 </Row>
             </Container>
