@@ -2,10 +2,10 @@ import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 
 function AddGame(){
     // ------Variables-------------------
-    let genre = 'Adventure';
-    let publisher = 'Nintendo';
+    let genre: string = 'Adventure';
+    let publisher: string = 'Nintendo';
     // ----------------------------------
-    
+
     return(
         <div>
             <Container fluid className="hero-bg-add-game">
