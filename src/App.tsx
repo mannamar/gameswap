@@ -8,6 +8,7 @@ import { SignUp } from './Components/SignUp';
 import { WishList } from './Components/WishList';
 import { AddGame } from './Components/AddGame';
 import { Messages } from './Components/Messages';
+import { Matches } from './Components/Matches';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/WishList' element={<WishList />} />
         <Route path='/AddGame' element={<AddGame />} />
         <Route path='/Messages' element={<Messages />} />
+        <Route path='/Matches' element={<Matches />} />
       </Routes>
     </BrowserRouter>
   );

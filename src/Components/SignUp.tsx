@@ -37,7 +37,7 @@ function SignUp() {
                                 {/* Start of Login tab */}
                                 <Form>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>Username</Form.Label>
+                                        <Form.Label>Username or E-Mail</Form.Label>
                                         <Form.Control />
                                     </Form.Group>
 
