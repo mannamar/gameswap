@@ -199,6 +199,7 @@ code {
   justify-content: center;
   align-items: center;
   box-shadow: 3px 3px 5px #dcd7e6;
+  margin: 1em;
 }
 
 .center-matches{
@@ -209,3 +210,9 @@ code {
 .game-match{
   margin: 1em;
 } */
+
+.game-matches-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
