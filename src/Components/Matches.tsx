@@ -25,7 +25,7 @@ function Matches() {
             <Container>
                 <br />
                 <Row className='game-matches-row'>
-                    <Col>
+                    <Col xs={4}>
                         {/* This is the start of a game trade item */}
                         <Row className='game-trade-matches'>
                             <Col className='game-match'>
@@ -47,7 +47,7 @@ function Matches() {
                         </Row>
                         {/* This is the end of a game trade item */}
                     </Col>
-                    <Col>
+                    <Col xs={4}>
                         {/* This is the start of a game trade item */}
                         <Row className='game-trade-matches'>
                             <Col className='game-match'>
