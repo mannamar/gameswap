@@ -191,5 +191,21 @@ code {
 }
 
 .game-trade-matches{
+  display: flex;
   background-color: #E9E9E9;
+  flex-direction: column;
+  width: 25em;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 5px #E0DCE8;
 }
+
+.center-matches{
+  display: flex;
+  justify-content: center;
+}
+/* 
+.game-match{
+  margin: 1em;
+} */

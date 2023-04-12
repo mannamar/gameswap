@@ -1,6 +1,8 @@
 import { Container, Col, Row } from 'react-bootstrap';
 
 function Matches() {
+    let youRecieve: string = 'Super Mario Odyssey';
+    let theyRecieve: string = 'Elden Ring';
   return (
     <div>
         <Container fluid className="hero-bg-matches">
@@ -21,20 +23,22 @@ function Matches() {
                 </Row>
             </Container>
             <Container>
-                <Row>
-                    <Col className='game-trade-matches'>
+                <br />
+                
+                <Row className='game-trade-matches'>
+                    <Col className='game-match'>
                         <Row>
-                            <Col>
+                            <Col xs={6} className='center-matches'>
                                 <img className='matches-game-cover' alt='Game Cover' src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')}/>
                             </Col>
-                            <Col>
+                            <Col xs={6} className='center-matches'>
                                 <img className='matches-game-cover'  alt='Game Cover' src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')}/>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <p>You Receive: </p>
-                                <p>They Receive: </p>
+                                <p>You Receive: {youRecieve}</p>
+                                <p>They Receive: {theyRecieve}</p>
                             </Col>
                         </Row>
                     </Col>
