@@ -37,16 +37,16 @@ function HomePage() {
                         <Carousel>
                             <Carousel.Item>
                                 <Row className="game-row">
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" />
                                     </Col>
                                 </Row>
@@ -54,32 +54,32 @@ function HomePage() {
                             </Carousel.Item>
                             <Carousel.Item>
                                 <Row className="game-row">
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" />
                                     </Col>
                                 </Row>
                             </Carousel.Item>
                             <Carousel.Item>
                                 <Row className="game-row">
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item"> 
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" />
                                     </Col>
                                 </Row>
@@ -99,16 +99,16 @@ function HomePage() {
                         <Carousel>
                             <Carousel.Item>
                                 <Row className="game-row">
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" />
                                     </Col>
                                     <Col>
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" />
                                     </Col>
                                 </Row>
@@ -116,32 +116,32 @@ function HomePage() {
                             </Carousel.Item>
                             <Carousel.Item>
                                 <Row className="game-row">
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" />
                                     </Col>
                                 </Row>
                             </Carousel.Item>
                             <Carousel.Item>
                                 <Row className="game-row">
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" />
                                     </Col>
                                 </Row>

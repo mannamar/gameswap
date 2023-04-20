@@ -111,6 +111,12 @@ code {
   justify-content: space-evenly;
 }
 
+.game-row-item{
+  display: flex;
+  justify-content: center;
+  
+}
+
 .test-btn{
   display: flex;
   background-color: #420D98;
@@ -134,6 +140,7 @@ code {
   text-decoration: none;
   justify-content: center;
   cursor: pointer;
+  transition: ease-in-out 100ms;
 }
 
 .join-btn{
@@ -159,6 +166,7 @@ code {
   text-decoration: none;
   justify-content: center;
   cursor: pointer;
+  transition: ease-in-out 100ms;
 }
 
 .hero-bg-add-game{

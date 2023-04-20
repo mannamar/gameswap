@@ -43,6 +43,11 @@ function Matches() {
                                         <p>They Receive: {theyRecieve}</p>
                                     </Col>
                                 </Row>
+                                <Row>
+                                    <Col></Col>
+                                    <Col></Col>
+                                    <Col></Col>
+                                </Row>
                             </Col>
                         </Row>
                         {/* This is the end of a game trade item */}
