@@ -44,8 +44,19 @@ function Matches() {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col></Col>
-                                    <Col></Col>
+                                    <Col>
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/kenZodiacIcon.png')} />
+                                    </Col>
+                                    <Col>
+                                        <Row>
+                                            <Col>
+                                                <p>Kenzodiac</p>
+                                            </Col>
+                                            <Col>
+                                                <img src={require('../Assets/Images/GameCoverPlaceholders/kenZodiacIcon.png')} />
+                                            </Col>
+                                        </Row>
+                                    </Col>
                                     <Col></Col>
                                 </Row>
                             </Col>
