@@ -11,9 +11,14 @@ function SignUp() {
     const [BirthYear, setBirthYear] = useState('');
     const [Zip, setZip] = useState('');
 
-    // function buttonTest(){
-    //     console.log('this button works!!!1!');
-    // }
+    function createAccount(){
+        if (Name && Username && Email && Password && BirthMonth && BirthDay && BirthYear && Zip) {
+            console.log('this button works!!!1!');
+            console.log(Name, Username, Email, Password, BirthMonth, BirthDay, BirthYear, Zip);
+        } else {
+            console.log('Please fill out all fields');
+        }
+    }
 
     return (
         <div>
@@ -41,7 +46,7 @@ function SignUp() {
                                         <Form.Control />
                                     </Form.Group>
 
-                                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Group className="mb-3" controlId="LoginPassword">
                                         <Form.Label>Password</Form.Label>
                                         <Form.Control type="password" />
                                     </Form.Group>
@@ -63,61 +68,61 @@ function SignUp() {
                                 <Form>
                                     <Form.Group className="mb-3">
                                         <Form.Label>Name</Form.Label>
-                                        <Form.Control />
+                                        <Form.Control onChange={(e) => setName(e.target.value)} value={Name}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3">
                                         <Form.Label>Username</Form.Label>
-                                        <Form.Control />
+                                        <Form.Control onChange={(e) => setUsername(e.target.value)} value={Username}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label>E-Mail</Form.Label>
-                                        <Form.Control />
+                                        <Form.Control onChange={(e) => setEmail(e.target.value)} value={Email}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formBasicPassword">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" />
+                                        <Form.Control type="password" onChange={(e) => setPassword(e.target.value)} value={Password}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3">
                                         <Form.Label>Date of Birth</Form.Label>
                                         <Row>
                                             <Col xs={6}>
-                                                <Form.Select aria-label="Default select example">
-                                                    <option>Select Month...</option>
-                                                    <option>January</option>
-                                                    <option>February</option>
-                                                    <option>March</option>
-                                                    <option>April</option>
-                                                    <option>May</option>
-                                                    <option>June</option>
-                                                    <option>July</option>
-                                                    <option>August</option>
-                                                    <option>September</option>
-                                                    <option>October</option>
-                                                    <option>November</option>
-                                                    <option>December</option>
+                                                <Form.Select aria-label="Default select example" onChange={(e) => setBirthMonth(e.target.value)} value={BirthMonth}>
+                                                    <option value="null">Select Month...</option>
+                                                    <option value="1">January</option>
+                                                    <option value="2">February</option>
+                                                    <option value="3">March</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">May</option>
+                                                    <option value="6">June</option>
+                                                    <option value="7">July</option>
+                                                    <option value="8">August</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
                                                 </Form.Select>
                                             </Col>
                                             <Col xs={3}>
-                                                <Form.Control placeholder='Day' />
+                                                <Form.Control placeholder='Day' type='number' min='1' max='31' onChange={(e) => setBirthDay(e.target.value)} value={BirthDay} />
                                             </Col>
                                             <Col xs={3}>
-                                                <Form.Control placeholder='Year' />
+                                                <Form.Control placeholder='Year' type='number' min='1900' max='2023' onChange={(e) => setBirthYear(e.target.value)} value={BirthYear} />
                                             </Col>
                                         </Row>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3">
                                         <Form.Label>Zip Code</Form.Label>
-                                        <Form.Control />
+                                        <Form.Control type='number' onChange={(e) => setZip(e.target.value)} value={Zip} min='10000'/>
                                     </Form.Group>
 
 
 
-                                    <div className="d-grid gap-2">
+                                    <div className="d-grid gap-2" onClick={createAccount}>
                                         <div className='test-btn'>
                                             Sign Up
                                         </div>
