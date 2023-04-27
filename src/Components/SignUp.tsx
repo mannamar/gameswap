@@ -20,7 +20,7 @@ function SignUp() {
                 Email,
                 Password,
                 Birthday: `${BirthMonth} ${BirthDay}, ${BirthYear}`,
-                Zip
+                Zipcode: parseInt(Zip)
             }
             console.log(userData);
             createAccount(userData);
