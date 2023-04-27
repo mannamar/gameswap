@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
-import { createAccount } from '../Services/DataServices';
+import { createAccount, loginAccount } from '../Services/DataServices';
 
 function SignUp() {
     const [Name, setName] = useState('');
@@ -11,6 +11,9 @@ function SignUp() {
     const [BirthDay, setBirthDay] = useState('');
     const [BirthYear, setBirthYear] = useState('');
     const [Zip, setZip] = useState('');
+
+    const [LoginUser, setLoginUser] = useState('');
+    const [LoginPass, setLoginPass] = useState('');
 
     function submitForm(){
         if (Name && Username && Email && Password && BirthMonth && BirthDay && BirthYear && Zip) {
@@ -24,6 +27,19 @@ function SignUp() {
             }
             console.log(userData);
             createAccount(userData);
+        } else {
+            console.log('Please fill out all fields');
+        }
+    }
+
+    function login() {
+        if (LoginUser && LoginPass) {
+            let loginData = {
+                Username: LoginUser,
+                Password: LoginPass
+            }
+            console.log(loginData);
+            loginAccount(loginData);
         } else {
             console.log('Please fill out all fields');
         }
@@ -52,18 +68,18 @@ function SignUp() {
                                 <Form>
                                     <Form.Group className="mb-3">
                                         <Form.Label>Username or E-Mail</Form.Label>
-                                        <Form.Control />
+                                        <Form.Control onChange={(e) => setLoginUser(e.target.value)} value={LoginUser}/>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="LoginPassword">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" />
+                                        <Form.Control type="password" onChange={(e) => setLoginPass(e.target.value)} value={LoginPass}/>
                                     </Form.Group>
 
 
 
                                     <div className="d-grid gap-2">
-                                        <div className='test-btn'>
+                                        <div className='test-btn' onClick={login}>
                                             Log In
                                         </div>
                                     </div>
