@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 
 function AddGame() {
-    // ------Variables-------------------
+    // ----------Variables---------------
     let genre: string = 'Adventure';
     let publisher: string = 'Nintendo';
     let gameTitle: string = 'Super Mario Odyssey';

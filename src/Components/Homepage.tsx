@@ -2,21 +2,47 @@ import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+
+    let signedIn: boolean = false;
     return (
         <>
             <Container fluid className="hero-bg-home">
-                <Row className="title-and-login-btn">
-                    <Col>
-                        <h2>GameSwap</h2>
-                    </Col>
-                    <Col className="login-btn">
-                        <Link to="/SignUp">
-                            <div className='test-btn'>
-                                Login
-                            </div>
-                        </Link>
-                    </Col>
-                </Row>
+                {
+                    !signedIn ?
+                        <Row className="title-and-login-btn">
+                            <Col>
+                                <h2>GameSwap</h2>
+                            </Col>
+                            <Col className="login-btn">
+                                <Link style={{textDecoration:'none'}} to="/SignUp">
+                                    <div className='test-btn'>
+                                        Login
+                                    </div>
+                                </Link>
+                            </Col>
+                        </Row>
+                        :
+                        <Row className="title-and-login-btn">
+                            <Col>
+                                <h2>GameSwap</h2>
+                            </Col>
+                            <Col>
+                                <Row>
+                                    <Col>Wishlist</Col>
+                                    <Col>Matches</Col>
+                                    <Col>Messages</Col>
+                                </Row>
+                            </Col>
+                            <Col className="login-btn">
+                                <Row>
+                                    <Col>
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/amaninatubIcon.png')} />
+                                    </Col>
+                                    <Col>Amaninatub</Col>
+                                </Row>
+                            </Col>
+                        </Row>
+                }
                 <Row className="header-and-description">
                     <Col>
                         <h1>Make your old games someone else's problem</h1>
@@ -25,7 +51,7 @@ function HomePage() {
                         <p>Swap your old games for ones that are new to you. And make new friends in the process!</p>
                     </Col>
                     <Col>
-                        <Link to="/SignUp">
+                        <Link style={{textDecoration:'none'}} to="/SignUp">
                             <div className='join-btn'>
                                 Join Now
                             </div>

@@ -19,6 +19,17 @@ code {
 
 /* Non-default CSS Code below */
 
+.gameswap-title{
+  display: flex;
+  color: #FFFFFF;
+}
+
+.gameswap-title:hover{
+  display: flex;
+  color: #c9c9c9;
+  cursor:pointer;
+}
+
 .title-and-login-btn{
   display: flex;
   flex-direction: row;
@@ -223,4 +234,15 @@ code {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.post-info-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.message-row{
+  display: flex;
+  flex-direction: column;
 }
