@@ -200,10 +200,10 @@ code {
   position: absolute;
 }
 
-/* .game-cover-placeholder:hover{
+.game-cover-placeholder:hover{
   opacity: 0.5;
   cursor: pointer;
-} */
+}
 
 .image-with-overlay:hover .hover-overlay-effect{
   opacity: 1;
