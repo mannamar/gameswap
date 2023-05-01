@@ -1,4 +1,5 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
+import { WishListItem } from "./WishListItem";
 
 function WishList() {
     return (
@@ -41,9 +42,7 @@ function WishList() {
                 <br />
                 <h2>Your Wishlist</h2>
                 <Row>
-                    <Col>
-                        <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')}/>
-                    </Col>
+                    <WishListItem />
                 </Row>
             </Container>
         </div>
