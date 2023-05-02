@@ -41,7 +41,7 @@ function WishList() {
             <Container fluid>
                 <br />
                 <h2>Your Wishlist</h2>
-                <Row>
+                <Row className="wish-list-row">
                     <WishListItem />
                 </Row>
             </Container>

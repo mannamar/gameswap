@@ -188,8 +188,8 @@ code {
 }
 
 .game-cover-placeholder{
-  height: 15em;
-  
+  height: auto;
+  width: auto;
 }
 
 .hover-overlay-effect{
@@ -202,12 +202,29 @@ code {
 
 .game-cover-placeholder:hover{
   opacity: 0.5;
+  width: auto;
   cursor: pointer;
 }
 
-.image-with-overlay:hover .hover-overlay-effect{
-  opacity: 1;
+.wish-list-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.image-with-overlay{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.image-with-overlay:hover{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   cursor: pointer;
+  text-align: left;
 }
 
 .game-info-row{
