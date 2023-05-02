@@ -1,3 +1,5 @@
+let userData = {};
+
 async function createAccount(createdUser : any) {
     const response = await fetch('https://gameswapapi.azurewebsites.net/User/AddUser', {
         method: "POST",
@@ -7,15 +9,13 @@ async function createAccount(createdUser : any) {
         body: JSON.stringify(createdUser)
     });
     
-    // Check if no error for duplicate account
     if(!response.ok) {
         const message = `An error has occured ${response.status}`;
         throw new Error(message);
     }
     
-    let data = await response.json();
-    console.log(data);
-    // POST so no return needed (not getting anything)
+    let data = await response.text();
+    return data;
 }
 
 async function loginAccount(loginUser : any) {
@@ -29,6 +29,7 @@ async function loginAccount(loginUser : any) {
     
     // Check if no error for duplicate account
     if(!response.ok) {
+        alert('Login failed. Check your account details.');
         const message = `An error has occured ${response.status}`;
         throw new Error(message);
     }
@@ -39,4 +40,12 @@ async function loginAccount(loginUser : any) {
     // POST so no return needed (not getting anything)
 }
 
-export { createAccount, loginAccount };
+async function getLoggedInUserData(username : any) {
+    // Endpoint not yet working
+    let response = await fetch(`https://gameswapapi.azurewebsites.net/User/UserByUsername/${username}`);
+    let data = await response.json();
+    userData = data;
+    console.log(userData);
+}
+
+export { createAccount, loginAccount, getLoggedInUserData };

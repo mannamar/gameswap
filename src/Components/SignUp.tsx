@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
-import { createAccount, loginAccount } from '../Services/DataServices';
+import { createAccount, loginAccount, getLoggedInUserData } from '../Services/DataServices';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
+    let navigate = useNavigate();
+
     const [Name, setName] = useState('');
     const [Username, setUsername] = useState('');
     const [Email, setEmail] = useState('');
@@ -15,7 +18,7 @@ function SignUp() {
     const [LoginUser, setLoginUser] = useState('');
     const [LoginPass, setLoginPass] = useState('');
 
-    function submitForm(){
+    async function submitForm(){
         if (Name && Username && Email && Password && BirthMonth && BirthDay && BirthYear && Zip) {
             let userData = {
                 Name,
@@ -26,22 +29,40 @@ function SignUp() {
                 Zipcode: parseInt(Zip)
             }
             console.log(userData);
-            createAccount(userData);
+            let message = await createAccount(userData);
+            console.log(message);
+                if (message === 'Username & Email already taken') {
+                alert('test');
+            } else if (message === 'Username already taken') {
+                alert(message);
+            } else if (message === 'Email already taken') {
+                alert(message);
+            } else if (message === 'Success') {
+                navigate('/');
+            }
         } else {
-            console.log('Please fill out all fields');
+            alert('Please fill out all fields');
         }
     }
 
-    function login() {
+    async function login() {
         if (LoginUser && LoginPass) {
             let loginData = {
                 Username: LoginUser,
                 Password: LoginPass
             }
             console.log(loginData);
-            loginAccount(loginData);
+            let token = await loginAccount(loginData);
+            console.log(token)
+            if (token.token != null) {
+                localStorage.setItem("Token", token.token);
+                // await getLoggedInUserData(LoginUser);
+                navigate('/');
+            } else {
+                alert("Login failed")
+            }
         } else {
-            console.log('Please fill out all fields');
+            alert('Please fill out all fields');
         }
     }
 
