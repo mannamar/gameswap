@@ -1,6 +1,7 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 import React, { useState, useEffect } from 'react';
 import { searchForGames } from '../Services/IgdbServices';
+declare module "*.png";
 
 function WishList() {
 
@@ -58,7 +59,14 @@ function WishList() {
                     <Col>
                         {results.map((item, idx) => {
                             return (
-                                <p key={idx}>{item['name']}</p>
+                                <div key={idx}>
+                                    <p>{item['name']}</p>
+                                    <img
+                                        src={"" + `https:${item['cover']['url']}`}
+                                        className="img-fluid"
+                                        alt={item['name']}
+                                    />
+                                </div>
                             )
                         })}
                         <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
