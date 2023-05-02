@@ -1,6 +1,19 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import { searchForGames } from '../Services/IgdbServices';
 
 function WishList() {
+
+    const [input, setInput] = useState('');
+    const [results, setResults] = useState([]);
+
+    async function handleKeyPress(e: any) {
+        if (e.key === "Enter") {
+            let data = await searchForGames(input);
+            setResults(data);
+        }
+    }
+
     return (
         <div>
             <Container fluid className="hero-bg-home">
@@ -24,7 +37,8 @@ function WishList() {
                     <Col>
                         <Row>
                             <Col xs={9}>
-                                <Form.Control type="text" />
+                                <Form.Control type="text" onChange={(e) => setInput(e.target.value)}
+                                    onKeyDown={handleKeyPress} />
                             </Col>
                             <Col xs={3}>
                                 <div className='join-btn'>
@@ -42,7 +56,12 @@ function WishList() {
                 <h2>Your Wishlist</h2>
                 <Row>
                     <Col>
-                        <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')}/>
+                        {results.map((item, idx) => {
+                            return (
+                                <p key={idx}>{item['name']}</p>
+                            )
+                        })}
+                        <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
                     </Col>
                 </Row>
             </Container>
