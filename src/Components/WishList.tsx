@@ -15,6 +15,15 @@ function WishList() {
         }
     }
 
+    function getImg(url: string) {
+        let split = url.split("/");
+        let img = split[split.length - 1];
+        // console.log(img);
+        return img;
+    }
+
+    // getImg('//images.igdb.com/igdb/image/upload/t_thumb/co2vvc.jpg');
+
     return (
         <div>
             <Container fluid className="hero-bg-home">
@@ -62,7 +71,7 @@ function WishList() {
                                 <div key={idx}>
                                     <p>{item['name']}</p>
                                     <img
-                                        src={"" + `https:${item['cover']['url']}`}
+                                        src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}`}
                                         className="img-fluid"
                                         alt={item['name']}
                                     />
