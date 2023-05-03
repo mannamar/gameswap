@@ -192,18 +192,36 @@ code {
   width: auto;
 }
 
+
+.game-cover-placeholder:hover{
+  opacity: 0.4;
+  width: auto;
+  cursor: pointer;
+}
+
+.image-darken:hover{
+  /* background-color: #000000; */
+  background-image: linear-gradient(to top,#000000, #626262);
+  width: fit-content;
+}
+
+.add-to-wishlist{
+  opacity: 0;
+  color: #FFFFFF;
+  margin-top: -2.5em;
+}
+
+.add-to-wishlist:hover{
+  opacity: 1;
+  color: #FFFFFF;
+}
+
 .hover-overlay-effect{
   height: 100%;
   width: 100%;
   background-color: #340879;
   opacity: 0;
   position: absolute;
-}
-
-.game-cover-placeholder:hover{
-  opacity: 0.5;
-  width: auto;
-  cursor: pointer;
 }
 
 .wish-list-row{

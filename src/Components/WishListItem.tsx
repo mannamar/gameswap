@@ -7,11 +7,15 @@ function WishListItem() {
 
     return (
         <Col xs={2} className="image-with-overlay">
-            <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
+            <div className="image-darken">
+                <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
+            </div>
+            <p className="add-to-wishlist">+ Add To Wishlist</p>
+
             {/* <div className="hover-overlay-effect"></div> */}
             <p>{gameTitle}</p>
             <p>Released: {releaseYear}</p>
-            <p>Platforms: {platform}</p>
+            <p>Platform(s): {platform}</p>
         </Col>
     )
 }
