@@ -71,7 +71,7 @@ function WishList() {
                                 <div key={idx}>
                                     <p>{item['name']}</p>
                                     <img
-                                        src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}`}
+                                        src={item['cover'] ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}
                                         className="img-fluid"
                                         alt={item['name']}
                                     />
