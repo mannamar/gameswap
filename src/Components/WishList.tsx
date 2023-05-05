@@ -1,13 +1,21 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 import React, { useState, useEffect } from 'react';
 import { searchForGames } from '../Services/IgdbServices';
-import { userData, addToWishlist } from "../Services/DataServices";
+import { userData, addToWishlist, getWishListItems } from "../Services/DataServices";
 declare module "*.png";
 
 function WishList() {
 
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
+
+    useEffect( () => {
+        async function getData(){
+            let data = await getWishListItems(1);
+            console.log(data);
+        }
+        getData();
+    }, []);
 
     async function handleKeyPress(e: any) {
         if (e.key === "Enter") {

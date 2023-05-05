@@ -67,4 +67,10 @@ async function addToWishlist(saveItem: any) {
     return data;
 }
 
-export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, userData };
+async function getWishListItems(UserId: number) {
+    const response = await fetch(`https://gameswapapi.azurewebsites.net/WishList/GetWishListItemsByUserId/${UserId}`);
+    const data = response.json();
+    return data;   
+}
+
+export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, userData };
