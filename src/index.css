@@ -211,6 +211,11 @@ code {
   margin-top: -2.5em;
 }
 
+.add-visible{
+  opacity: 100%;
+  color: #FFFFFF;
+}
+
 .add-to-wishlist:hover{
   opacity: 1;
   color: #FFFFFF;
@@ -279,8 +284,8 @@ code {
   display: flex;
   justify-content: center;
 }
-/* 
-.game-match{
+
+/* .game-match{
   margin: 1em;
 } */
 
