@@ -205,10 +205,18 @@ code {
   width: fit-content;
 }
 
+.image-darken:hover + .add-to-wishlist {
+  opacity: 100%;
+  color: #FFFFFF;
+}
+
 .add-to-wishlist{
   opacity: 0;
   color: #FFFFFF;
   margin-top: -2.5em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .add-visible{

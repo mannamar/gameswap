@@ -42,7 +42,7 @@ function WishList() {
                 <br />
                 <h2>Your Wishlist</h2>
                 <Row className="wish-list-row">
-                    <WishListItem />
+                    <WishListItem gameTitle={'Super Mario Odyssey'} releaseYear={2017} platform={'Nintendo Switch'} />
                 </Row>
             </Container>
         </div>
