@@ -210,13 +210,30 @@ code {
   color: #FFFFFF;
 }
 
+.image-darken:hover + .wishlist-dropdown {
+  opacity: 100%;
+}
+
 .add-to-wishlist{
   opacity: 0;
   color: #FFFFFF;
-  margin-top: -2.5em;
+  margin-top: -6em;
   text-align: center;
   display: flex;
   justify-content: center;
+}
+
+.wishlist-dropdown{
+  display: flex;
+  margin: -0.5em 0em 0em 0em;
+  justify-content: center;
+  opacity: 50%;
+}
+
+.game-info-text{
+  display: flex;
+  margin: 3em 0em 0em 0em;
+  flex-direction: column;
 }
 
 .add-visible{
