@@ -8,11 +8,13 @@ function WishList() {
 
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
+    const [wishlist, setWishlist] = useState([]);
 
-    useEffect( () => {
-        async function getData(){
+    useEffect(() => {
+        async function getData() {
             let data = await getWishListItems(1);
             console.log(data);
+            setWishlist(data);
         }
         getData();
     }, []);
@@ -90,6 +92,24 @@ function WishList() {
                 <h2>Your Wishlist</h2>
                 <Row>
                     <Col>
+                        {wishlist.map((item, idx) => {
+                            return (
+                                <div key={idx}>
+                                    <img
+                                        src={item['imgUrl'] ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['imgUrl'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}
+                                        className="img-fluid"
+                                        alt={item['name']}
+                                    />
+                                    <p>{item['gameName']}</p>
+                                </div>
+                            )
+                        })}
+                        {/* <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} /> */}
+                    </Col>
+                </Row>
+                <h2>Search Results</h2>
+                <Row>
+                    <Col>
                         {results.map((item, idx) => {
                             return (
                                 <div key={idx} onClick={async () => clickGame(item)}>
@@ -102,7 +122,7 @@ function WishList() {
                                 </div>
                             )
                         })}
-                        <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
+                        {/* <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} /> */}
                     </Col>
                 </Row>
             </Container>
