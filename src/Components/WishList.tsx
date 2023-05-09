@@ -104,6 +104,7 @@ function WishList() {
                                 </div>
                             )
                         })}
+                        {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
                         {/* <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} /> */}
                     </Col>
                 </Row>
