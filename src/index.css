@@ -224,3 +224,7 @@ code {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.searchResult:hover {
+  cursor: pointer;
+}
