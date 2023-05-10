@@ -128,58 +128,6 @@ code {
   
 }
 
-.test-btn{
-  display: flex;
-  background-color: #420D98;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 0.5em;
-  padding: 10px 12px;
-  text-align: center;
-  text-decoration: none;
-  justify-content: center;
-}
-
-.test-btn:hover{
-  display: flex;
-  background-color: #340879;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 0.5em;
-  padding: 10px 12px;
-  text-align: center;
-  text-decoration: none;
-  justify-content: center;
-  cursor: pointer;
-  transition: ease-in-out 100ms;
-}
-
-.join-btn{
-  display: flex;
-  background-color: #420D98;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 0.5em;
-  padding: 10px 12px;
-  text-align: center;
-  text-decoration: none;
-  justify-content: center;
-}
-
-.join-btn:hover{
-  display: flex;
-  background-color: #340879;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 0.5em;
-  padding: 10px 12px;
-  text-align: center;
-  text-decoration: none;
-  justify-content: center;
-  cursor: pointer;
-  transition: ease-in-out 100ms;
-}
-
 .hero-bg-add-game{
   background-image: url(./Assets/Images/homePageBg.png);
   color: #FFFFFF;
@@ -210,9 +158,31 @@ code {
   color: #FFFFFF;
 }
 
-.image-darken:hover + .wishlist-dropdown {
-  opacity: 100%;
+.platforms-dropdown-items{
+  position: absolute;
+  list-style-type: none;
+  background-color: #FFFFFF;
+  border: 1px solid #d1d1d1;
+  border-radius: 0.5em;
 }
+
+.platforms-dropdown-item{
+  outline: none;
+  border: none;
+  padding: none;
+  background-color: rgba(0, 0, 0, 0%);
+}
+
+.platforms-dropdown-item:hover{
+  outline: none;
+  border: none;
+  padding: none;
+  background-color: rgb(199, 199, 199);
+}
+
+/* .image-darken:hover + .wishlist-dropdown {
+  opacity: 100%;
+} */
 
 .add-to-wishlist{
   opacity: 0;
@@ -227,7 +197,7 @@ code {
   display: flex;
   margin: -0.5em 0em 0em 0em;
   justify-content: center;
-  opacity: 50%;
+  /* opacity: 50%; */
 }
 
 .game-info-text{
@@ -329,4 +299,72 @@ code {
 .message-row{
   display: flex;
   flex-direction: column;
+}
+
+/* * * * * * * * * Button Styles * * * * * * * * */
+
+.test-btn{
+  display: flex;
+  background-color: #420D98;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.5em;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+}
+
+.test-btn:hover{
+  display: flex;
+  background-color: #340879;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.5em;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  cursor: pointer;
+  transition: ease-in-out 100ms;
+}
+
+.join-btn{
+  display: flex;
+  background-color: #420D98;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.5em;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+}
+
+.join-btn:hover{
+  display: flex;
+  background-color: #340879;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.5em;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  cursor: pointer;
+  transition: ease-in-out 100ms;
+}
+
+.platforms-dropdown-btn{
+  display: flex;
+  background-color: rgba(0, 0, 0, 0%);
+  border: 3px solid white;
+  color: #FFFFFF;
+  /* border: none; */
+  border-radius: 0.5em;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  margin-top: -30px;
 }
