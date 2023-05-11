@@ -128,11 +128,24 @@ code {
   
 }
 
+.game-information-col{
+  padding-top: 3.5em;
+}
+
+.title-release-date{
+  color: #FFFFFF;
+}
+
 .hero-bg-add-game{
   background-image: url(./Assets/Images/homePageBg.png);
   color: #FFFFFF;
   height: 20em;
   background-size: cover;
+  margin-bottom: -13em;
+}
+
+.would-trade{
+  padding: 2em 0em 0em 0em;
 }
 
 .game-cover-placeholder{
@@ -145,6 +158,10 @@ code {
   opacity: 0.4;
   width: auto;
   cursor: pointer;
+}
+
+.game-cover-section{
+  margin-top: -5em;
 }
 
 .image-darken:hover{
@@ -248,7 +265,6 @@ code {
 .game-info-row{
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
 }
 

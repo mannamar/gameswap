@@ -21,19 +21,16 @@ function AddGame() {
                         </div>
                     </Col>
                 </Row>
-                <Row className="header-and-description">
-                    <Col>
-                        <h1>{gameTitle} ({releaseDate})</h1>
-                    </Col>
-                </Row>
             </Container>
             <br />
-            <Container fluid>
+            <Container>
                 <Row className="game-info-row">
                     <Col xs={3} className="game-cover-section">
-                        <img className="game-cover-placeholder" alt="Game Cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
+                        <img  alt="Game Cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
                     </Col>
-                    <Col xs={3}>
+                    <Col className="game-information-col" xs={3}>
+                        <h1 className="title-release-date">{gameTitle} ({releaseDate})</h1>
+                        <br />
                         <p>Genre: {genre}</p>
                         <p>Publisher: {publisher}</p>
                         <Row>
@@ -45,13 +42,14 @@ function AddGame() {
                             </Col>
                             <Col xs={3}>
                                 <div className='join-btn'>
-                                    Search
+                                    Save
                                 </div>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
-                <Row>
+                <br />
+                <Row className="would-trade">
                     <Col xs={3}>
                         <h2>Would Trade</h2>
                         <p>You don’t currently have any games up for trade. Search for a game below that you’d give in return.</p>
