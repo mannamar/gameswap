@@ -48,4 +48,29 @@ async function getLoggedInUserData(username : any) {
     console.log(userData);
 }
 
-export { createAccount, loginAccount, getLoggedInUserData };
+async function addToWishlist(saveItem: any) {
+    console.log(saveItem);
+    const response = await fetch('https://gameswapapi.azurewebsites.net/WishList/AddWishListItem', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(saveItem)
+    });
+
+    if(!response.ok) {
+        const message = `An error has occured ${response.status}`;
+        throw new Error(message);
+    }
+    
+    let data = await response.json();
+    return data;
+}
+
+async function getWishListItems(UserId: number) {
+    const response = await fetch(`https://gameswapapi.azurewebsites.net/WishList/GetWishListItemsByUserId/${UserId}`);
+    const data = response.json();
+    return data;   
+}
+
+export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, userData };

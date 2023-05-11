@@ -2,12 +2,23 @@ import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 import { WishListItem } from "./WishListItem";
 import React, { useState, useEffect } from 'react';
 import { searchForGames } from '../Services/IgdbServices';
+import { userData, addToWishlist, getWishListItems } from "../Services/DataServices";
 declare module "*.png";
 
 function WishList() {
 
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
+    const [wishlist, setWishlist] = useState([]);
+
+    useEffect(() => {
+        async function getData() {
+            let data = await getWishListItems(1);
+            console.log(data);
+            setWishlist(data);
+        }
+        getData();
+    }, []);
 
     async function handleKeyPress(e: any) {
         if (e.key === "Enter") {
@@ -21,6 +32,21 @@ function WishList() {
         let img = split[split.length - 1];
         // console.log(img);
         return img;
+    }
+
+    async function clickGame(item: any) {
+        console.log('Clicked Game');
+        let saveItem = {
+            "UserId": 1,
+            "GameName": item.name,
+            "GamePlatform": item.platforms[0].abbreviation,
+            "ReleaseYear": 2017,
+            "ImgUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
+            "IgdbId": item.id,
+            "TradeOptions": "Words!"
+        }
+        console.log(saveItem);
+        await addToWishlist(saveItem);
     }
 
     // getImg('//images.igdb.com/igdb/image/upload/t_thumb/co2vvc.jpg');
@@ -67,18 +93,38 @@ function WishList() {
                 <h2>Your Wishlist</h2>
                 <Row>
                     <Col>
-                        {results.map((item, idx) => {
+                        {wishlist.map((item, idx) => {
                             return (
                                 <div key={idx}>
-                                    <p>{item['name']}</p>
                                     <img
-                                        src={item['cover'] ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}
+                                        src={item['imgUrl'] ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['imgUrl'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}
                                         className="img-fluid"
                                         alt={item['name']}
                                     />
+                                    <p>{item['gameName']}</p>
                                 </div>
                             )
                         })}
+                        {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
+                        {/* <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} /> */}
+                    </Col>
+                </Row>
+                <h2>Search Results</h2>
+                <Row>
+                    <Col>
+                        {results.map((item, idx) => {
+                            return (
+                                <div key={idx} onClick={async () => clickGame(item)}>
+                                    <img
+                                        src={item['cover'] ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}
+                                        className="img-fluid searchResult"
+                                        alt={item['name']}
+                                        />
+                                        <p>{item['name']}</p>
+                                </div>
+                            )
+                        })}
+                        {/* <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} /> */}
                     </Col>
                 </Row>
             </Container>
