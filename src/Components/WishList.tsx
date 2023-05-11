@@ -79,7 +79,6 @@ function WishList() {
                                 </div>
                             )
                         })}
-                        <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
                     </Col>
                 </Row>
             </Container>
