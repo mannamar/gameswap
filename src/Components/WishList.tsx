@@ -1,4 +1,5 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
+import { WishListItem } from "./WishListItem";
 import React, { useState, useEffect } from 'react';
 import { searchForGames } from '../Services/IgdbServices';
 declare module "*.png";

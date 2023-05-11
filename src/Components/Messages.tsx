@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 
 function Messages() {
     return(
@@ -27,6 +27,12 @@ function Messages() {
                     </Col>
                     <Col>
                         <p>This col will display the messages</p>
+                        <Row className="message-row">
+                            <Col>Messages over here</Col>
+                            <Col>
+                                <Form.Control as="textarea" rows={3} />
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>

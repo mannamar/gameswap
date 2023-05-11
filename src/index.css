@@ -19,6 +19,17 @@ code {
 
 /* Non-default CSS Code below */
 
+.gameswap-title{
+  display: flex;
+  color: #FFFFFF;
+}
+
+.gameswap-title:hover{
+  display: flex;
+  color: #c9c9c9;
+  cursor:pointer;
+}
+
 .title-and-login-btn{
   display: flex;
   flex-direction: row;
@@ -117,6 +128,181 @@ code {
   
 }
 
+.hero-bg-add-game{
+  background-image: url(./Assets/Images/homePageBg.png);
+  color: #FFFFFF;
+  height: 20em;
+  background-size: cover;
+}
+
+.game-cover-placeholder{
+  height: auto;
+  width: auto;
+}
+
+
+.game-cover-placeholder:hover{
+  opacity: 0.4;
+  width: auto;
+  cursor: pointer;
+}
+
+.image-darken:hover{
+  /* background-color: #000000; */
+  background-image: linear-gradient(to top,#000000, #626262);
+  width: fit-content;
+}
+
+.image-darken:hover + .add-to-wishlist {
+  opacity: 100%;
+  color: #FFFFFF;
+}
+
+.platforms-dropdown-items{
+  position: absolute;
+  list-style-type: none;
+  background-color: #FFFFFF;
+  border: 1px solid #d1d1d1;
+  border-radius: 0.5em;
+}
+
+.platforms-dropdown-item{
+  outline: none;
+  border: none;
+  padding: none;
+  background-color: rgba(0, 0, 0, 0%);
+}
+
+.platforms-dropdown-item:hover{
+  outline: none;
+  border: none;
+  padding: none;
+  background-color: rgb(199, 199, 199);
+}
+
+/* .image-darken:hover + .wishlist-dropdown {
+  opacity: 100%;
+} */
+
+.add-to-wishlist{
+  opacity: 0;
+  color: #FFFFFF;
+  margin-top: -6em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.wishlist-dropdown{
+  display: flex;
+  margin: -0.5em 0em 0em 0em;
+  justify-content: center;
+  /* opacity: 50%; */
+}
+
+.game-info-text{
+  display: flex;
+  margin: 3em 0em 0em 0em;
+  flex-direction: column;
+}
+
+.add-visible{
+  opacity: 100%;
+  color: #FFFFFF;
+}
+
+.add-to-wishlist:hover{
+  opacity: 1;
+  color: #FFFFFF;
+}
+
+.hover-overlay-effect{
+  height: 100%;
+  width: 100%;
+  background-color: #340879;
+  opacity: 0;
+  position: absolute;
+}
+
+.wish-list-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.image-with-overlay{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.image-with-overlay:hover{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  text-align: left;
+}
+
+.game-info-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-bg-matches{
+  background-image: url(./Assets/Images/homePageBg.png);
+  color: #FFFFFF;
+  height: 20em;
+  background-size: cover;
+}
+
+.matches-game-cover{
+  height: 10em;
+}
+
+.game-trade-matches{
+  display: flex;
+  background-color: #E9E9E9;
+  flex-direction: column;
+  width: 25em;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 5px #dcd7e6;
+  margin: 1em;
+}
+
+.center-matches{
+  display: flex;
+  justify-content: center;
+}
+
+/* .game-match{
+  margin: 1em;
+} */
+
+.game-matches-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.post-info-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.message-row{
+  display: flex;
+  flex-direction: column;
+}
+
+/* * * * * * * * * Button Styles * * * * * * * * */
+
 .test-btn{
   display: flex;
   background-color: #420D98;
@@ -169,58 +355,16 @@ code {
   transition: ease-in-out 100ms;
 }
 
-.hero-bg-add-game{
-  background-image: url(./Assets/Images/homePageBg.png);
+.platforms-dropdown-btn{
+  display: flex;
+  background-color: rgba(0, 0, 0, 0%);
+  border: 3px solid white;
   color: #FFFFFF;
-  height: 20em;
-  background-size: cover;
-}
-
-.game-cover-placeholder{
-  height: 15em;
-}
-
-.game-info-row{
-  display: flex;
-  flex-direction: row;
+  /* border: none; */
+  border-radius: 0.5em;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
   justify-content: center;
-  align-items: center;
-}
-
-.hero-bg-matches{
-  background-image: url(./Assets/Images/homePageBg.png);
-  color: #FFFFFF;
-  height: 20em;
-  background-size: cover;
-}
-
-.matches-game-cover{
-  height: 10em;
-}
-
-.game-trade-matches{
-  display: flex;
-  background-color: #E9E9E9;
-  flex-direction: column;
-  width: 25em;
-  padding: 1em;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 3px 3px 5px #dcd7e6;
-  margin: 1em;
-}
-
-.center-matches{
-  display: flex;
-  justify-content: center;
-}
-/* 
-.game-match{
-  margin: 1em;
-} */
-
-.game-matches-row{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  margin-top: -30px;
 }

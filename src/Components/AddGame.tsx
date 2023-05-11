@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 
 function AddGame() {
-    // ------Variables-------------------
+    // ----------Variables---------------
     let genre: string = 'Adventure';
     let publisher: string = 'Nintendo';
     let gameTitle: string = 'Super Mario Odyssey';
@@ -27,9 +27,10 @@ function AddGame() {
                     </Col>
                 </Row>
             </Container>
+            <br />
             <Container fluid>
                 <Row className="game-info-row">
-                    <Col xs={2} className="game-cover-section">
+                    <Col xs={3} className="game-cover-section">
                         <img className="game-cover-placeholder" alt="Game Cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
                     </Col>
                     <Col xs={3}>
