@@ -5,9 +5,10 @@ interface WishListItemProps {
     gameTitle: string;
     releaseYear: number;
     platform: string;
+    imageUrl: string;
 }
 
-function WishListItem({ gameTitle, releaseYear, platform }: WishListItemProps) {
+function WishListItem({ gameTitle, releaseYear, platform, imageUrl }: WishListItemProps) {
     const [ open, setOpen ] = useState(false);
     const [ buttonText, setButtonText ] = useState('Platforms');
 
@@ -39,15 +40,15 @@ function WishListItem({ gameTitle, releaseYear, platform }: WishListItemProps) {
         <Col xs={2} className="image-with-overlay"
         >
             <div className="image-darken">
-                <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
+                <img className="game-cover-placeholder" alt="Game cover" src={imageUrl} />
             </div>
-            <p className='add-to-wishlist'>+ Add To Wishlist
+            <p className='add-to-wishlist'>+ Add To Wishlist</p>
             <DropdownButton className='wishlist-dropdown' id="dropdown-basic-button" title="Platforms">
                 <Dropdown.Item href="#/action-1">Nintendo Switch</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Atari 2600</Dropdown.Item>
                 <Dropdown.Item href="#/action-3">Phillips CD-I</Dropdown.Item>
             </DropdownButton>
-            </p>
+            {/* </p> */}
 
             {/* <div className="hover-overlay-effect"></div> */}
             <div>
