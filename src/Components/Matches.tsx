@@ -1,5 +1,6 @@
 import { Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { MatchItem } from './MatchItem/MatchItem';
 
 function Matches() {
     let youRecieve: string = 'Super Mario Odyssey';
@@ -30,103 +31,26 @@ function Matches() {
             <Container>
                 <br />
                 <Row className='game-matches-row'>
-                    <Col xs={4}>
-                        {/* This is the start of a game trade item */}
-                        <Row className='game-trade-matches'>
-                            <Col className='game-match'>
-                                <Row>
-                                    <Col xs={6} className='center-matches'>
-                                        <img className='matches-game-cover' alt='Game Cover' src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
-                                    </Col>
-                                    <Col xs={6} className='center-matches'>
-                                        <img className='matches-game-cover' alt='Game Cover' src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} />
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <p>You Receive: {youRecieve}</p>
-                                        <p>They Receive: {theyRecieve}</p>
-                                    </Col>
-                                </Row>
-                                <Row className='post-info-row'>
-                                    <Col>
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/kenZodiacIcon.png')} />
-                                    </Col>
-                                    <Col>
-                                        <Row>
-                                            <Col>
-                                                <p>Kenzodiac</p>
-                                            </Col>
-                                            <Col>
-                                                <img src={require('../Assets/Images/GameCoverPlaceholders/starRating.png')} />
-                                                {/* <Row>
-                                                    <Col>
-                                                    <img src={require('../Assets/Images/GameCoverPlaceholders/starIcon.png')} />
-                                                    </Col>
-                                                    <Col>
-                                                    <img src={require('../Assets/Images/GameCoverPlaceholders/starIcon.png')} />
-                                                    </Col>
-                                                    <Col>
-                                                    <img src={require('../Assets/Images/GameCoverPlaceholders/starIcon.png')} />
-                                                    </Col>
-                                                    <Col>
-                                                    <img src={require('../Assets/Images/GameCoverPlaceholders/starIcon.png')} />
-                                                    </Col>
-                                                    <Col>
-                                                    <img src={require('../Assets/Images/GameCoverPlaceholders/starIcon.png')} />
-                                                    </Col>
-                                                </Row> */}
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                    <Col>
-                                        <p>{mi1}mi</p>
-                                    </Col>
-                                </Row>
-                            </Col>
-                        </Row>
-                        {/* This is the end of a game trade item */}
-                    </Col>
-                    <Col xs={4}>
-                        {/* This is the start of a game trade item */}
-                        <Row className='game-trade-matches'>
-                            <Col className='game-match'>
-                                <Row>
-                                    <Col xs={6} className='center-matches'>
-                                        <img className='matches-game-cover' alt='Game Cover' src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
-                                    </Col>
-                                    <Col xs={6} className='center-matches'>
-                                        <img className='matches-game-cover' alt='Game Cover' src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} />
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <p>You Receive: {youRecieve}</p>
-                                        <p>They Receive: {theyRecieve}</p>
-                                    </Col>
-                                    <Row className='post-info-row'>
-                                        <Col>
-                                            <img src={require('../Assets/Images/GameCoverPlaceholders/nixrzIcon.png')} />
-                                        </Col>
-                                        <Col>
-                                            <Row>
-                                                <Col>
-                                                    <p>Nixrz</p>
-                                                </Col>
-                                                <Col>
-                                                    <img src={require('../Assets/Images/GameCoverPlaceholders/starRating.png')} />
-                                                </Col>
-                                            </Row>
-                                        </Col>
-                                        <Col>
-                                            <p>{mi2}mi</p>
-                                        </Col>
-                                    </Row>
-                                </Row>
-                            </Col>
-                        </Row>
-                        {/* This is the end of a game trade item */}
-                    </Col>
+                    <MatchItem 
+                        youRecieveCover={'../../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png'}
+                        youRecieveTitle={'Super Mario Odyssey'}
+                        theyRecieveCover={'../../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png'}
+                        theyRecieveTitle={'Elden Ring'}
+                        userProfilePic={'linkHere'}
+                        username={'Kenzodiac'}
+                        starRating={5}
+                        mi={2.1}
+                    />
+                    <MatchItem 
+                        youRecieveCover={'linkHere'}
+                        youRecieveTitle={'Super Mario Odyssey'}
+                        theyRecieveCover={'linkHere'}
+                        theyRecieveTitle={'Elden Ring'}
+                        userProfilePic={'linkHere'}
+                        username={'Nixrz'}
+                        starRating={5}
+                        mi={6.5}
+                    />
                 </Row>
 
             </Container>
