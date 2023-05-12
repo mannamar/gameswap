@@ -14,7 +14,7 @@ function HomePage() {
                                 <h2>GameSwap</h2>
                             </Col>
                             <Col className="login-btn">
-                                <Link style={{textDecoration:'none'}} to="/SignUp">
+                                <Link style={{textDecoration:'none'}} to="/Login">
                                     <div className='test-btn'>
                                         Login
                                     </div>
