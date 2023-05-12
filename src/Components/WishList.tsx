@@ -3,6 +3,7 @@ import { WishListItem } from "./WishListItem";
 import React, { useState, useEffect } from 'react';
 import { searchForGames } from '../Services/IgdbServices';
 import { userData, addToWishlist, getWishListItems } from "../Services/DataServices";
+import SearchResult from "./SearchResult";
 declare module "*.png";
 
 function WishList() {
@@ -91,7 +92,7 @@ function WishList() {
             <Container fluid>
                 <br />
                 <h2>Your Wishlist</h2>
-                <Row>
+                <div className='d-flex'>
                         {wishlist.map((item, idx) => {
                             return (
                                 // <div key={idx}>
@@ -102,12 +103,12 @@ function WishList() {
                                 //     />
                                 //     <p>{item['gameName']}</p>
                                 // </div>
-                                <WishListItem key={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']}/>
+                                <SearchResult key={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']}/>
                             )
                         })}
                         {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
                         {/* <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} /> */}
-                </Row>
+                </div>
                 <h2>Search Results</h2>
                 <Row>
                         {results.map((item, idx) => {

@@ -1,0 +1,7 @@
+.gameImg {
+    width: 250px;
+}
+
+.gameImg:hover {
+    filter: brightness(40%);
+}
