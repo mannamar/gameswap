@@ -14,8 +14,17 @@ export default function SearchResult({ gameTitle, releaseYear, platform, imageUr
 
     return (
         <div>
-            <div>
+            <div className="imgContainer">
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
+                <div className="overlay">
+                    <div className="overlayText">+ Add To Wishlist</div>
+                    <select className="platDrpDwn"name="cars" id="cars">
+                        <option value="Xbox">Xbox</option>
+                        <option value="Switch">Switch</option>
+                        <option value="PC">PC</option>
+                        <option value="PS5">PS5</option>
+                    </select>
+                </div>
             </div>
             <h3>{gameTitle}</h3>
             <p>Released: <span>{releaseYear}</span></p>
