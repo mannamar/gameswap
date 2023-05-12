@@ -43,7 +43,9 @@ function SignUp(props: Props) {
             } else if (message === 'Email already taken') {
                 alert(message);
             } else if (message === 'Success') {
-                navigate('/');
+                setLoginUser(userData.Username);
+                setLoginPass(userData.Password);
+                await login();
             }
         } else {
             alert('Please fill out all fields');
@@ -61,7 +63,9 @@ function SignUp(props: Props) {
             console.log(token)
             if (token.token != null) {
                 localStorage.setItem("Token", token.token);
-                // await getLoggedInUserData(LoginUser);
+                let loggedInUser: any = await getLoggedInUserData(LoginUser);
+                console.log(loggedInUser);
+                localStorage.setItem("LoggedInUser", loggedInUser);
                 navigate('/');
             } else {
                 alert("Login failed")

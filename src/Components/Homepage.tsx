@@ -2,8 +2,10 @@ import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function HomePage() {
-
     let signedIn: boolean = false;
+    if (localStorage.getItem("Token") != null){
+        signedIn = true;
+    }
     return (
         <>
             <Container fluid className="hero-bg-home">
