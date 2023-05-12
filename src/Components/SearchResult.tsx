@@ -7,16 +7,17 @@ interface WishListItemProps {
     releaseYear: number;
     platform: string;
     imageUrl: string;
+    onImgClick: any;
 }
 
-export default function SearchResult({ gameTitle, releaseYear, platform, imageUrl }: WishListItemProps) {
+export default function SearchResult({ gameTitle, releaseYear, platform, imageUrl, onImgClick }: WishListItemProps) {
 
 
     return (
-        <div>
+        <div className="itemBox">
             <div className="imgContainer">
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
-                <div className="overlay">
+                <div className="overlay" onClick={onImgClick}>
                     <div className="overlayText">+ Add To Wishlist</div>
                     <select className="platDrpDwn"name="cars" id="cars">
                         <option value="Xbox">Xbox</option>
@@ -26,9 +27,9 @@ export default function SearchResult({ gameTitle, releaseYear, platform, imageUr
                     </select>
                 </div>
             </div>
-            <h3>{gameTitle}</h3>
+            <h5>{gameTitle}</h5>
             <p>Released: <span>{releaseYear}</span></p>
-            <p>Platform: <span>{platform}</span></p>
+            <p>Platforms: <span>{platform}</span></p>
         </div>
     )
 }

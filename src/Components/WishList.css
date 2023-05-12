@@ -1,0 +1,9 @@
+.wishBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.searchBox {
+    display: flex;
+    flex-wrap: wrap;
+}

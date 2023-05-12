@@ -53,6 +53,21 @@
     margin-bottom: 30px;
 }
 
+.imgArrow {
+    margin-top: -3px;
+}
+
+.imgX {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.imgX:hover {
+    transform: scale(1.2);
+    font-weight: bold;
+}
+
 .itemBox {
     width: 175px;
 }
