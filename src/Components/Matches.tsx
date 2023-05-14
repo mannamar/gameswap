@@ -32,21 +32,21 @@ function Matches() {
                 <br />
                 <Row className='game-matches-row'>
                     <MatchItem 
-                        youRecieveCover={'../../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png'}
+                        youRecieveCover={'Mario Odyssey 1.png'}
                         youRecieveTitle={'Super Mario Odyssey'}
-                        theyRecieveCover={'../../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png'}
+                        theyRecieveCover={'Elden Ring 1.png'}
                         theyRecieveTitle={'Elden Ring'}
-                        userProfilePic={'linkHere'}
+                        userProfilePic={'kenZodiacIcon.png'}
                         username={'Kenzodiac'}
                         starRating={5}
                         mi={2.1}
                     />
                     <MatchItem 
-                        youRecieveCover={'linkHere'}
+                        youRecieveCover={'Mario Odyssey 1.png'}
                         youRecieveTitle={'Super Mario Odyssey'}
-                        theyRecieveCover={'linkHere'}
+                        theyRecieveCover={'Elden Ring 1.png'}
                         theyRecieveTitle={'Elden Ring'}
-                        userProfilePic={'linkHere'}
+                        userProfilePic={'nixrzIcon.png'}
                         username={'Nixrz'}
                         starRating={5}
                         mi={6.5}

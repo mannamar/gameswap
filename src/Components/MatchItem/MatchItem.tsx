@@ -20,10 +20,10 @@ function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRec
                 <Col className='game-match'>
                     <Row>
                         <Col xs={6} className='center-matches'>
-                            <img className='matches-game-cover' alt='Game Cover' src={require('../../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
+                            <img className='matches-game-cover' alt='Game Cover' src={require(`../../Assets/Images/GameCoverPlaceholders/${youRecieveCover}`)} />
                         </Col>
                         <Col xs={6} className='center-matches'>
-                            <img className='matches-game-cover' alt='Game Cover' src={require('../../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} />
+                            <img className='matches-game-cover' alt='Game Cover' src={require(`../../Assets/Images/GameCoverPlaceholders/${theyRecieveCover}`)} />
                         </Col>
                     </Row>
                     <Row>
@@ -34,7 +34,7 @@ function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRec
                     </Row>
                     <Row className='post-info-row'>
                         <Col>
-                            <img src={require('../../Assets/Images/GameCoverPlaceholders/kenZodiacIcon.png')} />
+                            <img src={require(`../../Assets/Images/GameCoverPlaceholders/${userProfilePic}`)} />
                         </Col>
                         <Col>
                             <Row>
