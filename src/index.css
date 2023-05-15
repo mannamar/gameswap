@@ -30,15 +30,6 @@ code {
   cursor:pointer;
 }
 
-.title-and-login-btn{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  /* text-align: center; */
-  align-items: center;
-  padding: 2em;
-}
-
 .header-and-description{
   display: flex;
   flex-direction: column;
@@ -65,11 +56,6 @@ code {
   color: #FFFFFF;
   height: 30em;
   background-size: cover;
-}
-
-.login-btn{
-  display: flex;
-  justify-content: right;
 }
 
 .signup-page-text{
@@ -302,32 +288,6 @@ code {
 }
 
 /* * * * * * * * * Button Styles * * * * * * * * */
-
-.test-btn{
-  display: flex;
-  background-color: #420D98;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 0.5em;
-  padding: 10px 12px;
-  text-align: center;
-  text-decoration: none;
-  justify-content: center;
-}
-
-.test-btn:hover{
-  display: flex;
-  background-color: #340879;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 0.5em;
-  padding: 10px 12px;
-  text-align: center;
-  text-decoration: none;
-  justify-content: center;
-  cursor: pointer;
-  transition: ease-in-out 100ms;
-}
 
 .join-btn{
   display: flex;
