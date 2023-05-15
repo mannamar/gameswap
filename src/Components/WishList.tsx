@@ -105,7 +105,7 @@ function WishList() {
                                 //     />
                                 //     <p>{item['gameName']}</p>
                                 // </div>
-                                <WishItem key={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']}/>
+                                <WishItem key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']}/>
                             )
                         })}
                         {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
