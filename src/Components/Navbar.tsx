@@ -4,7 +4,13 @@ import { Link, useLocation } from 'react-router-dom'
 import { Gift, Handshake, ChatText } from '@phosphor-icons/react';
 import './Navbar.css';
 
-export default function Navbar(props: { signedInPass: boolean }) {
+export default function Navbar() {
+    //logic to check and see if the user is already logged in
+    let signedIn: boolean = false;
+    if (localStorage.getItem("Token") != null){
+        signedIn = true;
+    }
+    
     //hooks for managing the logged in user's name appearing
     const [loggedInUsername, setLoggedInUsername] = useState('');
     useEffect(() => {
@@ -23,13 +29,14 @@ export default function Navbar(props: { signedInPass: boolean }) {
         window.location.reload();
     }
 
+    //logic to hide the login-button when you're already on the login-screen
     const location = useLocation();
     const hideButton  = location.pathname === '/Login' || location.pathname === '/SignUp';
 
     return (
         <div className={"nav-style"}>
             {
-                !props.signedInPass ?
+                !signedIn ?
                     <Row className="title-and-login-btn">
                         <Col sm={3}>
                             <Link className={"nav-links"} to={"/"}>

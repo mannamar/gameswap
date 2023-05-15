@@ -3,15 +3,11 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function HomePage() {
-    let signedIn: boolean = false;
-    if (localStorage.getItem("Token") != null){
-        signedIn = true;
-    }
     return (
         <>
             <Container fluid className="hero-bg-home">
                 {/* Navbar component with signed-in status passed through as a prop */}
-                <Navbar signedInPass={signedIn}/>
+                <Navbar />
 
                 <Row className="header-and-description">
                     <Col>
