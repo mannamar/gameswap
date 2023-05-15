@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Row, Dropdown } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Gift, Handshake, ChatText } from '@phosphor-icons/react';
 import './Navbar.css';
 
@@ -23,6 +23,9 @@ export default function Navbar(props: { signedInPass: boolean }) {
         window.location.reload();
     }
 
+    const location = useLocation();
+    const hideButton  = location.pathname === '/Login' || location.pathname === '/SignUp';
+
     return (
         <div className={"nav-style"}>
             {
@@ -34,11 +37,13 @@ export default function Navbar(props: { signedInPass: boolean }) {
                             </Link>
                         </Col>
                         <Col className="login-btn">
-                            <Link style={{ textDecoration: 'none' }} to="/Login">
-                                <div className='test-btn'>
-                                    Login
-                                </div>
-                            </Link>
+                            {hideButton ? null : 
+                                <Link style={{ textDecoration: 'none' }} to="/Login">
+                                    <div className='test-btn'>
+                                        Login
+                                    </div>
+                                </Link>
+                            }
                         </Col>
                     </Row>
                     :
