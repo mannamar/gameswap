@@ -65,7 +65,7 @@ function SignUp(props: Props) {
                 localStorage.setItem("Token", token.token);
                 let loggedInUser: any = await getLoggedInUserData(LoginUser);
                 console.log(loggedInUser);
-                localStorage.setItem("LoggedInUser", loggedInUser);
+                localStorage.setItem("LoggedInUser", JSON.stringify(loggedInUser));
                 navigate('/');
             } else {
                 alert("Login failed")

@@ -1,5 +1,6 @@
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function HomePage() {
     let signedIn: boolean = false;
@@ -9,42 +10,9 @@ function HomePage() {
     return (
         <>
             <Container fluid className="hero-bg-home">
-                {
-                    !signedIn ?
-                        <Row className="title-and-login-btn">
-                            <Col>
-                                <h2>GameSwap</h2>
-                            </Col>
-                            <Col className="login-btn">
-                                <Link style={{textDecoration:'none'}} to="/Login">
-                                    <div className='test-btn'>
-                                        Login
-                                    </div>
-                                </Link>
-                            </Col>
-                        </Row>
-                        :
-                        <Row className="title-and-login-btn">
-                            <Col>
-                                <h2>GameSwap</h2>
-                            </Col>
-                            <Col>
-                                <Row>
-                                    <Col>Wishlist</Col>
-                                    <Col>Matches</Col>
-                                    <Col>Messages</Col>
-                                </Row>
-                            </Col>
-                            <Col className="login-btn">
-                                <Row>
-                                    <Col>
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/amaninatubIcon.png')} />
-                                    </Col>
-                                    <Col>Amaninatub</Col>
-                                </Row>
-                            </Col>
-                        </Row>
-                }
+                {/* Navbar component with signed-in status passed through as a prop */}
+                <Navbar signedInPass={signedIn}/>
+
                 <Row className="header-and-description">
                     <Col>
                         <h1>Make your old games someone else's problem</h1>
