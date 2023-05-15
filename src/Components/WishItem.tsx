@@ -1,6 +1,7 @@
 import { X, ArrowRight } from "@phosphor-icons/react";
 import { deleteWishItem, getWishListItems } from "../Services/DataServices";
 import './WishItem.css';
+import { useNavigate } from "react-router-dom";
 
 interface WishListItemProps {
     gameTitle: string;
@@ -19,11 +20,19 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
         setWishlist(wishlist);
     }
 
+    const navigate = useNavigate();
+
+    async function handleClick(event : any) {
+        if (event.target === event.currentTarget) {
+            navigate("/AddGame");
+        }
+    }
+
     return (
         <div className="itemBox">
             <div className="imgContainer">
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
-                <div className="overlay">
+                <div className="overlay" onClick={handleClick}>
                     <X className="imgX" size={36} color="#fff0f0" onClick={handleDelete}/>
                     <span className="overlayText"><ArrowRight className="imgArrow" size={36} color="#fff0f0" />See Details</span>
                 </div>
