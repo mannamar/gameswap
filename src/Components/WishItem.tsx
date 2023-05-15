@@ -24,7 +24,11 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
 
     async function handleClick(event : any) {
         if (event.target === event.currentTarget) {
-            navigate("/AddGame");
+            navigate("/AddGame", {
+                state: {
+                    gameTitle: gameTitle
+                }
+            });
         }
     }
 
