@@ -1,7 +1,7 @@
 import { prod, dev } from "./IgdbEnvironment";
 
-let clientID : string;
-let token : string;
+let clientID: string;
+let token: string;
 
 if (prod.isLive) {
     clientID = prod.clientID;
@@ -21,8 +21,9 @@ async function searchForGames(input: string) {
         headers: {
             'Accept': 'application/json',
             'Client-ID': clientID,
-            'Authorization': `Bearer ${token}`},
-        body: `search "${input}"; fields name, cover.url, platforms.abbreviation, first_release_date;`
+            'Authorization': `Bearer ${token}`
+        },
+        body: `search "${input}"; fields name, cover.url, platforms.abbreviation, first_release_date, release_dates.y; where category = 0;`
     });
     let data = await res.json();
     console.log(data);

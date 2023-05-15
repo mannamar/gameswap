@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Row, Col, Dropdown, DropdownButton } from "react-bootstrap";
 import { X, ArrowRight } from "@phosphor-icons/react";
-import { deleteWishItem } from "../Services/DataServices";
+import { deleteWishItem, getWishListItems } from "../Services/DataServices";
 import './WishItem.css';
 
 interface WishListItemProps {
@@ -10,12 +8,15 @@ interface WishListItemProps {
     platform: string;
     imageUrl: string;
     id: number;
+    setWishlist: any;
 }
 
-export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id }: WishListItemProps) {
+export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist }: WishListItemProps) {
 
-    function handleDelete () {
-        deleteWishItem(id);
+    async function handleDelete () {
+        await deleteWishItem(id);
+        let wishlist = await getWishListItems(1);
+        setWishlist(wishlist);
     }
 
     return (
@@ -23,7 +24,7 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
             <div className="imgContainer">
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
                 <div className="overlay">
-                    <X className="imgX" size={36} color="#fff0f0" onClick={() => deleteWishItem(id)}/>
+                    <X className="imgX" size={36} color="#fff0f0" onClick={handleDelete}/>
                     <span className="overlayText"><ArrowRight className="imgArrow" size={36} color="#fff0f0" />See Details</span>
                 </div>
             </div>

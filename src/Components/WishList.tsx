@@ -5,7 +5,7 @@ import { searchForGames } from '../Services/IgdbServices';
 import { userData, addToWishlist, getWishListItems } from "../Services/DataServices";
 import WishItem from "./WishItem";
 import SearchResult from "./SearchResult";
-import './WishList.css'
+import './WishList.css';
 declare module "*.png";
 
 function WishList() {
@@ -105,7 +105,7 @@ function WishList() {
                                 //     />
                                 //     <p>{item['gameName']}</p>
                                 // </div>
-                                <WishItem key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']}/>
+                                <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']}/>
                             )
                         })}
                         {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
@@ -123,7 +123,7 @@ function WishList() {
                                 //         />
                                 //         <p>{item['name']}</p>
                                 // </div>
-                                <SearchResult key={item['id']} onImgClick={async () => clickGame(item)} gameTitle={item['name']} releaseYear={item['releaseYear']} platform={item['platforms'][0]['abbreviation']} imageUrl={`https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}`}/>
+                                <SearchResult key={item['id']} onImgClick={async () => clickGame(item)} gameTitle={item['name']} releaseYear={item['releaseYear']} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? item['platforms'][0]['abbreviation'] : 'PC'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}/>
                             )
                         })}
                 </div>
