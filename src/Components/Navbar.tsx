@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Row, Dropdown } from 'react-bootstrap'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Gift, Handshake, ChatText } from '@phosphor-icons/react';
 import './Navbar.css';
 
@@ -23,10 +23,11 @@ export default function Navbar() {
     })
 
     //hook for logging out user by deleting userinfo from local storage
+    const navigate = useNavigate();
     const handleDeleteItemClick = () => {
         localStorage.removeItem('Token');
         localStorage.removeItem('LoggedInUser');
-        window.location.reload();
+        navigate('/');
     }
 
     //logic to hide the login-button when you're already on the login-screen
