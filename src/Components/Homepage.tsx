@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function HomePage() {
+    
+    //logic to check and see if the user is already logged in
+    let signedIn: boolean = false;
+    if (localStorage.getItem("Token") != null){
+        signedIn = true;
+    }
+
     return (
         <>
             <Container fluid className="hero-bg-home">
@@ -17,11 +24,21 @@ function HomePage() {
                         <p>Swap your old games for ones that are new to you. And make new friends in the process!</p>
                     </Col>
                     <Col>
-                        <Link style={{textDecoration:'none'}} to="/SignUp">
-                            <div className='join-btn'>
-                                Join Now
-                            </div>
-                        </Link>
+                        {   
+                            !signedIn ?
+                                <Link style={{textDecoration:'none'}} to="/SignUp">
+                                    <div className='join-btn'>
+                                        Join Now
+                                    </div>
+                                </Link>
+                            :
+                                <Link style={{textDecoration:'none'}} to="/WishList">
+                                    <div className='join-btn'>
+                                        Add Games
+                                    </div>
+                                </Link>
+                        }
+                        
                     </Col>
                 </Row>
             </Container>

@@ -43,27 +43,25 @@ function SignUp(props: Props) {
             } else if (message === 'Email already taken') {
                 alert(message);
             } else if (message === 'Success') {
-                setLoginUser(userData.Username);
-                setLoginPass(userData.Password);
-                await login();
+                await login(userData.Username, userData.Password);
             }
         } else {
             alert('Please fill out all fields');
         }
     }
 
-    async function login() {
-        if (LoginUser && LoginPass) {
+    async function login(user: string = LoginUser, pass: string = LoginPass) {
+        if (user && pass) {
             let loginData = {
-                Username: LoginUser,
-                Password: LoginPass
+                Username: user,
+                Password: pass
             }
             console.log(loginData);
             let token = await loginAccount(loginData);
             console.log(token)
             if (token.token != null) {
                 localStorage.setItem("Token", token.token);
-                let loggedInUser: any = await getLoggedInUserData(LoginUser);
+                let loggedInUser: any = await getLoggedInUserData(user);
                 console.log(loggedInUser);
                 localStorage.setItem("LoggedInUser", JSON.stringify(loggedInUser));
                 navigate('/');
@@ -109,7 +107,7 @@ function SignUp(props: Props) {
 
 
                                     <div className="d-grid gap-2">
-                                        <div className='test-btn' onClick={login}>
+                                        <div className='test-btn' onClick={()=>login()}>
                                             Log In
                                         </div>
                                     </div>
