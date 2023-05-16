@@ -1,0 +1,62 @@
+.gameImg {
+    width: 100%;
+}
+
+/* .gameImg:hover {
+    filter: brightness(40%);
+} */
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000a6;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    /* transform: scale(0); */
+    transition: .3s ease;
+    display: none;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer; */
+}
+
+.overlayText {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    /* text-align: center; */
+    padding-bottom: 20px;
+}
+
+.imgContainer {
+    position: relative;
+}
+
+.imgContainer:hover .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.platDrpDwn{
+    margin-bottom: 30px;
+}
+
+.itemBox {
+    width: 175px;
+}
+
+.itemBox + .itemBox {
+    margin-left: 20px;
+}

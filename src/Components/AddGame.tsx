@@ -1,12 +1,17 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
 function AddGame() {
     // ----------Variables---------------
     let genre: string = 'Adventure';
     let publisher: string = 'Nintendo';
-    let gameTitle: string = 'Super Mario Odyssey';
+    // let gameTitle: string = 'Super Mario Odyssey';
     let releaseDate: number = 2017;
     // ----------------------------------
+
+    const location = useLocation();
+
+    let gameTitle = location.state.gameTitle;
 
     return (
         <div>
