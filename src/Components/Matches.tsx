@@ -1,5 +1,6 @@
 import { Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 function Matches() {
     let youRecieve: string = 'Super Mario Odyssey';
@@ -9,18 +10,7 @@ function Matches() {
     return (
         <div>
             <Container fluid className="hero-bg-matches">
-                <Row className="title-and-login-btn">
-                    <Col className='gameswap-title'>
-                        <Link style={{textDecoration:'none'}} to="/">
-                        <h2 className='gameswap-title'>GameSwap</h2>
-                        </Link>
-                    </Col>
-                    <Col className="login-btn">
-                        <div className='test-btn'>
-                            Login
-                        </div>
-                    </Col>
-                </Row>
+                <Navbar/>
                 <Row className="header-and-description">
                     <Col>
                         <h1>Matches</h1>

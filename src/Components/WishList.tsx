@@ -3,6 +3,7 @@ import { WishListItem } from "./WishListItem";
 import React, { useState, useEffect } from 'react';
 import { searchForGames } from '../Services/IgdbServices';
 import { userData, addToWishlist, getWishListItems } from "../Services/DataServices";
+import Navbar from "./Navbar";
 declare module "*.png";
 
 function WishList() {
@@ -54,16 +55,7 @@ function WishList() {
     return (
         <div>
             <Container fluid className="hero-bg-home">
-                <Row className="title-and-login-btn">
-                    <Col>
-                        <h2>GameSwap</h2>
-                    </Col>
-                    <Col className="login-btn">
-                        <div className='test-btn'>
-                            Login
-                        </div>
-                    </Col>
-                </Row>
+                <Navbar/>
                 <Row className="header-and-description">
                     <Col>
                         <h1>Wishlist</h1>

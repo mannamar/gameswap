@@ -1,4 +1,5 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
+import Navbar from "./Navbar";
 
 function AddGame() {
     // ----------Variables---------------
@@ -11,16 +12,7 @@ function AddGame() {
     return (
         <div>
             <Container fluid className="hero-bg-add-game">
-                <Row className="title-and-login-btn">
-                    <Col>
-                        <h2>GameSwap</h2>
-                    </Col>
-                    <Col className="login-btn">
-                        <div className='test-btn'>
-                            Login
-                        </div>
-                    </Col>
-                </Row>
+                <Navbar/>
                 <Row className="header-and-description">
                     <Col>
                         <h1>{gameTitle} ({releaseDate})</h1>
