@@ -1,0 +1,68 @@
+.nav-style {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+.login-btn {
+    display: flex;
+    justify-content: right;
+}
+
+.test-btn{
+    display: flex;
+    background-color: #420D98;
+    color: #FFFFFF;
+    border: none;
+    /* border-radius: 0.5em; */
+    height: 35px;
+    width: 88px;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .test-btn:hover{
+    background-color: #340879;
+    cursor: pointer;
+    transition: ease-in-out 100ms;
+  }
+
+.title-and-login-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* text-align: center; */
+    align-items: center;
+    padding: 2em;
+}
+
+.navbar-icons {
+    margin-right: 6px;
+    position: relative;
+    bottom: 1px;
+}
+
+.nav-links {
+    color: white;
+    text-decoration: none;
+}
+    .nav-links:hover {
+        color: #8d82a0;
+        cursor: pointer;
+        transition: ease-in-out 100ms;
+    }
+    .nav-links:active {
+        color: white;
+    }
+
+.dropdown-toggle.btn {
+    color: white;
+}
+    .dropdown-toggle.btn:hover{
+        color: #8d82a0;
+        cursor: pointer;
+        transition: ease-in-out 100ms;
+    }

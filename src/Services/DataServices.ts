@@ -41,11 +41,11 @@ async function loginAccount(loginUser: any) {
 }
 
 async function getLoggedInUserData(username: any) {
-    // Endpoint not yet working
     let response = await fetch(`https://gameswapapi.azurewebsites.net/User/UserByUsername/${username}`);
     let data = await response.json();
     userData = data;
     console.log(userData);
+    return userData;
 }
 
 async function addToWishlist(saveItem: any) {

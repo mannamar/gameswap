@@ -1,5 +1,6 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function AddGame() {
     // ----------Variables---------------
@@ -16,14 +17,10 @@ function AddGame() {
     return (
         <div>
             <Container fluid className="hero-bg-add-game">
-                <Row className="title-and-login-btn">
+                <Navbar/>
+                <Row className="header-and-description">
                     <Col>
-                        <h2>GameSwap</h2>
-                    </Col>
-                    <Col className="login-btn">
-                        <div className='test-btn'>
-                            Login
-                        </div>
+                        <h1>{gameTitle} ({releaseDate})</h1>
                     </Col>
                 </Row>
             </Container>

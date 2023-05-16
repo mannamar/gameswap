@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 import { createAccount, loginAccount, getLoggedInUserData } from '../Services/DataServices';
 import { useNavigate } from 'react-router-dom';
+import { EventKey } from '@restart/ui/esm/types';
 
-function SignUp() {
+interface Props {
+    loginSignup: number
+  }
+
+function SignUp(props: Props) {
     let navigate = useNavigate();
 
     const [Name, setName] = useState('');
@@ -38,7 +43,9 @@ function SignUp() {
             } else if (message === 'Email already taken') {
                 alert(message);
             } else if (message === 'Success') {
-                navigate('/');
+                setLoginUser(userData.Username);
+                setLoginPass(userData.Password);
+                await login();
             }
         } else {
             alert('Please fill out all fields');
@@ -56,7 +63,9 @@ function SignUp() {
             console.log(token)
             if (token.token != null) {
                 localStorage.setItem("Token", token.token);
-                // await getLoggedInUserData(LoginUser);
+                let loggedInUser: any = await getLoggedInUserData(LoginUser);
+                console.log(loggedInUser);
+                localStorage.setItem("LoggedInUser", JSON.stringify(loggedInUser));
                 navigate('/');
             } else {
                 alert("Login failed")
@@ -81,7 +90,7 @@ function SignUp() {
                     </Col>
                     <Col xs={5} className='form-section'>
                     <br />
-                        <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+                        <Tabs defaultActiveKey={props.loginSignup} id="uncontrolled-tab-example">
 
                             <Tab eventKey={1} title="Log In">
                                 <br />

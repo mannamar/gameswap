@@ -8,6 +8,10 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+interface Props {
+  loginSignup: number
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,7 +20,8 @@ function App() {
       </div>
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/SignUp' element={<SignUp />} />
+        <Route path='/SignUp' element={<SignUp loginSignup={2}/>} />
+        <Route path="/Login" element={<SignUp loginSignup={1}/>} />
         <Route path='/WishList' element={<WishList />} />
         <Route path='/AddGame' element={<AddGame />} />
         <Route path='/Messages' element={<Messages />} />

@@ -1,19 +1,11 @@
 import { Container, Row, Col, Form } from "react-bootstrap";
+import Navbar from "./Navbar";
 
 function Messages() {
     return(
         <div>
             <Container fluid className="hero-bg-matches">
-                <Row className="title-and-login-btn">
-                    <Col>
-                        <h2>GameSwap</h2>
-                    </Col>
-                    <Col className="login-btn">
-                        <div className='test-btn'>
-                            Login
-                        </div>
-                    </Col>
-                </Row>
+                <Navbar/>
                 <Row className="header-and-description">
                     <Col>
                         <h1>Messages</h1>
