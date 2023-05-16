@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 import { MatchItem } from './MatchItem/MatchItem';
 
 function Matches() {
-    let youRecieve: string = 'Super Mario Odyssey';
-    let theyRecieve: string = 'Elden Ring';
-    let mi1: number = 2.1;
-    let mi2: number = 6.5;
+    
     return (
         <div>
             <Container fluid className="hero-bg-matches">

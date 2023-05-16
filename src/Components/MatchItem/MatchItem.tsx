@@ -12,6 +12,18 @@ interface MatchProps {
     mi: number;
 }
 
+// function CreateStarRating () 
+// {
+//     for(let i = 1; i < 5; i++)
+//     {
+//         (
+//             <Col xs={2}>
+//                 <img src={require('../../Assets/Images/starIcon.png')} />   
+//             </Col>
+//         )
+//     }
+// }
+
 function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRecieveTitle, userProfilePic, username, starRating, mi }: MatchProps) {
     return (
         <Col xs={4}>
@@ -33,16 +45,23 @@ function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRec
                         </Col>
                     </Row>
                     <Row className='post-info-row'>
-                        <Col>
+                        <Col xs={3}>
                             <img src={require(`../../Assets/Images/GameCoverPlaceholders/${userProfilePic}`)} />
                         </Col>
                         <Col>
                             <Row>
-                                <Col>
+                                <Col xs={10}>
                                     <p>{username}</p>
                                 </Col>
                                 <Col>
-                                    <img src={require('../../Assets/Images/GameCoverPlaceholders/starRating.png')} />
+                                    <Row className='star-rating'>
+                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
+                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
+                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
+                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
+                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
+                                    </Row>
+                                    
                                     
                                 </Col>
                             </Row>
