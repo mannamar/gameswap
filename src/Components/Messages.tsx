@@ -1,5 +1,7 @@
+import './Messages.css';
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Navbar from "./Navbar";
+import { MessagesUser } from './MessagesUser';
 
 function Messages() {
     return(
@@ -15,7 +17,7 @@ function Messages() {
             <Container fluid>
                 <Row>
                     <Col>
-                        <p>This col will display users</p>
+                        <MessagesUser />
                     </Col>
                     <Col>
                         <p>This col will display the messages</p>

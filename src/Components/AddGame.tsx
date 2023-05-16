@@ -54,7 +54,7 @@ function AddGame() {
                 <Row className="would-trade">
                     <Col xs={3}>
                         <h2>Would Trade</h2>
-                        <p>You don’t currently have any games up for trade. Search for a game below that you’d give in return.</p>
+                        <p>You don't currently have any games up for trade. Search for a game below that you'd give in return.</p>
                     </Col>
                 </Row>
                 <Row>

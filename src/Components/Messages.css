@@ -1,0 +1,21 @@
+/* CSS Page for Messages.tsx */
+
+.user-item-body-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-item-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #E6E6E6;
+    width: 24em;
+    height: 10em;
+}
+
+.star-rating-row{
+    width: 15em;
+}
