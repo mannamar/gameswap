@@ -3,6 +3,7 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import Navbar from "./Navbar";
 import { MessagesUser } from './MessagesUser';
 import { MessagesSent } from './MessagesSent';
+import { PaperPlaneTilt } from '@phosphor-icons/react';
 
 function Messages() {
     return(
@@ -23,11 +24,21 @@ function Messages() {
                     </Col>
                     <Col>
                         <Row className="message-row">
+                            <br />
                             <Col>
                                 <MessagesSent />
                             </Col>
                             <Col>
-                                <Form.Control as="textarea" placeholder='Type a message' rows={2} />
+                                <Row>
+                                    <Col xs={11}>
+                                        <Form.Control as="textarea" placeholder='Type a message' rows={1} />
+                                    </Col>
+                                    <Col xs={1}>
+                                        <div className='message-send-btn'>
+                                            <PaperPlaneTilt size={25} />
+                                        </div>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                     </Col>

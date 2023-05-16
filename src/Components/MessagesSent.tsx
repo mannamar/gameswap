@@ -10,6 +10,9 @@ function MessagesSent() {
         <div className="message-from">
           <p>Yes, I would love to respond with a sample response. Thank you for allowing me to do so.</p>
         </div>
+        <div className="message-to">
+          <p>Splendid. Thank you very much for your sample response. It is appreciated.</p>
+        </div>
       </div>
     </div>
   )
