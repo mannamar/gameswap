@@ -1,5 +1,12 @@
 /* CSS Page for Messages.tsx */
 
+.hero-bg-messages{
+    background-image: url(../Assets/Images/homePageBg.png);
+    color: #FFFFFF;
+    height: 15em;
+    background-size: cover;
+  }
+
 .user-item-body-div{
     display: flex;
     justify-content: center;
@@ -13,7 +20,7 @@
     align-items: center;
     background-color: #E6E6E6;
     width: 24em;
-    height: 10em;
+    height: 7em;
 }
 
 .user-item-row:hover{
@@ -23,7 +30,7 @@
     align-items: center;
     background-color: #cccccc;
     width: 24em;
-    height: 10em;
+    height: 7em;
     cursor: pointer;
 }
 
@@ -33,7 +40,7 @@
 
 .users-col{
     border-right: solid 2px;
-    height: 85vh;
+    height: 87vh;
 }
 
 .messages{

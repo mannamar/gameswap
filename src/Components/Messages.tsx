@@ -8,7 +8,7 @@ import { PaperPlaneTilt } from '@phosphor-icons/react';
 function Messages() {
     return(
         <div>
-            <Container fluid className="hero-bg-matches">
+            <Container fluid className="hero-bg-messages">
                 <Navbar/>
                 <Row className="header-and-description">
                     <Col>
