@@ -16,6 +16,57 @@
     height: 10em;
 }
 
+.user-item-row:hover{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #cccccc;
+    width: 24em;
+    height: 10em;
+    cursor: pointer;
+}
+
 .star-rating-row{
     width: 15em;
+}
+
+.users-col{
+    border-right: solid 2px;
+    height: 85vh;
+}
+
+.messages{
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-to{
+    display: flex;
+    margin-right: 0;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #420D98;
+    border-radius: 1em;
+    color: #FFFFFF;
+    height: 8em;
+    width: 24em;
+    padding: 0.5em;
+}
+
+.message-from{
+    display: flex;
+    margin-left: 0;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: solid 1px #000000;
+    border-radius: 1em;
+    color: #000000;
+    height: 8em;
+    width: 24em;
+    padding: 0.5em;
 }

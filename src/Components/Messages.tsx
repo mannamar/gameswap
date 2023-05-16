@@ -2,6 +2,7 @@ import './Messages.css';
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Navbar from "./Navbar";
 import { MessagesUser } from './MessagesUser';
+import { MessagesSent } from './MessagesSent';
 
 function Messages() {
     return(
@@ -16,15 +17,17 @@ function Messages() {
             </Container>
             <Container fluid>
                 <Row>
-                    <Col>
+                    <Col className='users-col' xs={3}>
                         <MessagesUser />
+                        <br />
                     </Col>
                     <Col>
-                        <p>This col will display the messages</p>
                         <Row className="message-row">
-                            <Col>Messages over here</Col>
                             <Col>
-                                <Form.Control as="textarea" rows={3} />
+                                <MessagesSent />
+                            </Col>
+                            <Col>
+                                <Form.Control as="textarea" placeholder='Type a message' rows={2} />
                             </Col>
                         </Row>
                     </Col>
