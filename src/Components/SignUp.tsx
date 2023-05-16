@@ -36,8 +36,8 @@ function SignUp(props: Props) {
             console.log(userData);
             let message = await createAccount(userData);
             console.log(message);
-                if (message === 'Username & Email already taken') {
-                alert('test');
+            if (message === 'Username & Email already taken') {
+                alert(message);
             } else if (message === 'Username already taken') {
                 alert(message);
             } else if (message === 'Email already taken') {
