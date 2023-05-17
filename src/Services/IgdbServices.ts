@@ -23,7 +23,7 @@ async function searchForGames(input: string) {
             'Client-ID': clientID,
             'Authorization': `Bearer ${token}`
         },
-        body: `search "${input}"; fields name, cover.url, platforms.abbreviation, first_release_date, release_dates.y; where category = 0; where version_parent = null;`
+        body: `search "${input}"; fields name, cover.url, platforms.abbreviation, first_release_date, screenshots.*; where category = 0; where version_parent = null;`
     });
     let data = await res.json();
     console.log(data);
