@@ -63,7 +63,7 @@ function WishList() {
                 "CoverUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
                 "IgdbId": item.id,
                 "AllPlatforms": parsePlatformNames(item['platforms']),
-                "BannerUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`
+                "BannerUrl": `https://images.igdb.com/igdb/image/upload/t_original/${getImg(item.screenshots[0].url)}`
             }
             console.log(saveItem);
             await addToWishlist(saveItem);
