@@ -15,7 +15,7 @@ function WishList() {
     const [results, setResults] = useState([]);
     const [wishlist, setWishlist] = useState([]);
 
-    let userData : any = localStorage.getItem('LoggedInUser');
+    let userData: any = localStorage.getItem('LoggedInUser');
     let userJson = JSON.parse(userData);
     let userID = userJson.id;
 
@@ -46,26 +46,28 @@ function WishList() {
         return timestamp !== undefined ? new Date(timestamp * 1000).getFullYear() : 1970;
     }
 
-    function parsePlatformNames(platforms : any[]) {
-        let platformNames : string[] = [];
+    function parsePlatformNames(platforms: any[]) {
+        let platformNames: string[] = [];
         platforms.forEach(item => platformNames.push(item.abbreviation));
         return platformNames.join(', ');
     }
 
-    async function clickGame(item: any) {
-        console.log('Clicked Game');
-        let saveItem = {
-            "UserId": userID,
-            "GameName": item.name,
-            "GamePlatform": item.platforms[0].abbreviation,
-            "ReleaseYear": getYear(item['first_release_date']),
-            "CoverUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
-            "IgdbId": item.id,
-            "AllPlatforms": parsePlatformNames(item['platforms']),
-            "BannerUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`
+    async function clickGame(e: any, item: any) {
+        if (e.target === e.currentTarget) {
+            console.log('Clicked Game');
+            let saveItem = {
+                "UserId": userID,
+                "GameName": item.name,
+                "GamePlatform": item.platforms[0].abbreviation,
+                "ReleaseYear": getYear(item['first_release_date']),
+                "CoverUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
+                "IgdbId": item.id,
+                "AllPlatforms": parsePlatformNames(item['platforms']),
+                "BannerUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`
+            }
+            console.log(saveItem);
+            await addToWishlist(saveItem);
         }
-        console.log(saveItem);
-        await addToWishlist(saveItem);
     }
 
     // getImg('//images.igdb.com/igdb/image/upload/t_thumb/co2vvc.jpg');
@@ -73,7 +75,7 @@ function WishList() {
     return (
         <div>
             <Container fluid className="hero-bg-home">
-                <Navbar/>
+                <Navbar />
                 <Row className="header-and-description">
                     <Col>
                         <h1>Wishlist</h1>
@@ -101,20 +103,20 @@ function WishList() {
             <Container fluid>
                 <h2 className="mt-5">Your Wishlist</h2>
                 <div className='wishBox'>
-                        {wishlist.map((item, idx) => {
-                            return (
-                                <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['coverUrl']} userID={userID}/>
-                            )
-                        })}
-                        {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
+                    {wishlist.map((item, idx) => {
+                        return (
+                            <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['coverUrl']} userID={userID} />
+                        )
+                    })}
+                    {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
                 </div>
                 <h2 className="mt-5">Search Results</h2>
                 <div className='searchBox'>
-                        {results.map((item, idx) => {
-                            return (
-                                <SearchResult key={item['id']} onImgClick={async () => clickGame(item)} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}/>
-                            )
-                        })}
+                    {results.map((item, idx) => {
+                        return (
+                            <SearchResult key={item['id']} onImgClick={async (e: any) => clickGame(e, item)} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'} />
+                        )
+                    })}
                 </div>
             </Container>
         </div>
