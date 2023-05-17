@@ -10,13 +10,14 @@ interface WishListItemProps {
     imageUrl: string;
     id: number;
     setWishlist: any;
+    userID: number;
 }
 
-export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist }: WishListItemProps) {
+export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist, userID }: WishListItemProps) {
 
     async function handleDelete () {
         await deleteWishItem(id);
-        let wishlist = await getWishListItems(1);
+        let wishlist = await getWishListItems(userID);
         setWishlist(wishlist);
     }
 

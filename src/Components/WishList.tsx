@@ -15,9 +15,13 @@ function WishList() {
     const [results, setResults] = useState([]);
     const [wishlist, setWishlist] = useState([]);
 
+    let userData : any = localStorage.getItem('LoggedInUser');
+    let userJson = JSON.parse(userData);
+    let userID = userJson.id;
+
     useEffect(() => {
         async function getData() {
-            let data = await getWishListItems(1);
+            let data = await getWishListItems(userID);
             console.log(data);
             setWishlist(data);
         }
@@ -41,7 +45,7 @@ function WishList() {
     async function clickGame(item: any) {
         console.log('Clicked Game');
         let saveItem = {
-            "UserId": 1,
+            "UserId": userID,
             "GameName": item.name,
             "GamePlatform": item.platforms[0].abbreviation,
             "ReleaseYear": 2017,
@@ -97,7 +101,7 @@ function WishList() {
                                 //     />
                                 //     <p>{item['gameName']}</p>
                                 // </div>
-                                <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']}/>
+                                <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']} userID={userID}/>
                             )
                         })}
                         {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
