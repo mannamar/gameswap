@@ -43,8 +43,9 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
                 </div>
             </div>
             <h5>{gameTitle}</h5>
-            <p>Released: <span>{releaseYear}</span></p>
-            <p>Platform: <span>{platform}</span></p>
+            <span>Released: <span className="lightPurp">{releaseYear}</span></span>
+            <br/>
+            <span>Platform: <span className="lightPurp">{platform}</span></span>
         </div>
     )
 }

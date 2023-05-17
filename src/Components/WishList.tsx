@@ -59,9 +59,10 @@ function WishList() {
             "GameName": item.name,
             "GamePlatform": item.platforms[0].abbreviation,
             "ReleaseYear": getYear(item['first_release_date']),
-            "ImgUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
+            "CoverUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
             "IgdbId": item.id,
-            "TradeOptions": "Words!"
+            "AllPlatforms": parsePlatformNames(item['platforms']),
+            "BannerUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`
         }
         console.log(saveItem);
         await addToWishlist(saveItem);
@@ -98,37 +99,19 @@ function WishList() {
                 </Row>
             </Container>
             <Container fluid>
-                <br />
-                <h2>Your Wishlist</h2>
+                <h2 className="mt-5">Your Wishlist</h2>
                 <div className='wishBox'>
                         {wishlist.map((item, idx) => {
                             return (
-                                // <div key={idx}>
-                                //     <img
-                                //         src={item['imgUrl'] ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['imgUrl'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}
-                                //         className="img-fluid"
-                                //         alt={item['name']}
-                                //     />
-                                //     <p>{item['gameName']}</p>
-                                // </div>
-                                <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['imgUrl']} userID={userID}/>
+                                <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['coverUrl']} userID={userID}/>
                             )
                         })}
                         {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
-                        {/* <img className="game-cover-placeholder" alt="Game cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} /> */}
                 </div>
-                <h2>Search Results</h2>
+                <h2 className="mt-5">Search Results</h2>
                 <div className='searchBox'>
                         {results.map((item, idx) => {
                             return (
-                                // <div key={idx} onClick={async () => clickGame(item)}>
-                                //     <img
-                                //         src={item['cover'] ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}
-                                //         className="img-fluid searchResult"
-                                //         alt={item['name']}
-                                //         />
-                                //         <p>{item['name']}</p>
-                                // </div>
                                 <SearchResult key={item['id']} onImgClick={async () => clickGame(item)} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}/>
                             )
                         })}
