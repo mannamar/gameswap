@@ -42,13 +42,23 @@ function WishList() {
         return img;
     }
 
+    function getYear(timestamp: number) {
+        return timestamp !== undefined ? new Date(timestamp * 1000).getFullYear() : 1970;
+    }
+
+    function parsePlatformNames(platforms : any[]) {
+        let platformNames : string[] = [];
+        platforms.forEach(item => platformNames.push(item.abbreviation));
+        return platformNames.join(', ');
+    }
+
     async function clickGame(item: any) {
         console.log('Clicked Game');
         let saveItem = {
             "UserId": userID,
             "GameName": item.name,
             "GamePlatform": item.platforms[0].abbreviation,
-            "ReleaseYear": 2017,
+            "ReleaseYear": getYear(item['first_release_date']),
             "ImgUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
             "IgdbId": item.id,
             "TradeOptions": "Words!"
@@ -119,7 +129,7 @@ function WishList() {
                                 //         />
                                 //         <p>{item['name']}</p>
                                 // </div>
-                                <SearchResult key={item['id']} onImgClick={async () => clickGame(item)} gameTitle={item['name']} releaseYear={item['releaseYear']} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? item['platforms'][0]['abbreviation'] : 'PC'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}/>
+                                <SearchResult key={item['id']} onImgClick={async () => clickGame(item)} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'}/>
                             )
                         })}
                 </div>
