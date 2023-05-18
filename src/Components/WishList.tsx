@@ -79,7 +79,11 @@ function WishList() {
             await addToWishlist(saveItem);
             navigate("/AddGame", {
                 state: {
-                    gameTitle: item.name
+                    gameTitle: saveItem.GameName,
+                    releaseYear: saveItem.ReleaseYear,
+                    coverUrl: saveItem.CoverUrl,
+                    platform: saveItem.GamePlatform,
+                    allPlatforms: saveItem.AllPlatforms
                 }
             });
         }
@@ -120,7 +124,7 @@ function WishList() {
                 <div className='wishBox'>
                     {wishlist.map((item, idx) => {
                         return (
-                            <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} imageUrl={item['coverUrl']} userID={userID} />
+                            <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} allPlatforms={item['allPlatforms']} imageUrl={item['coverUrl']} userID={userID} />
                         )
                     })}
                     {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}

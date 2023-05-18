@@ -1,6 +1,8 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
+import { platform } from "os";
+import { useState } from "react";
 
 function AddGame() {
     // ----------Variables---------------
@@ -12,7 +14,10 @@ function AddGame() {
 
     const location = useLocation();
 
-    let gameTitle = location.state.gameTitle;
+    let gameInfo = location.state;
+    let platformsArray = gameInfo.allPlatforms.split(', ');
+
+    const [dropPlat, setDropPlat] = useState(gameInfo.platform);
 
     return (
         <div>
@@ -28,18 +33,19 @@ function AddGame() {
             <Container>
                 <Row className="game-info-row">
                     <Col xs={3} className="game-cover-section">
-                        <img  alt="Game Cover" src={require('../Assets/Images/GameCoverPlaceholders/Mario Odyssey 1.png')} />
+                        <img  alt="Game Cover" src={gameInfo.coverUrl} />
                     </Col>
                     <Col className="game-information-col" xs={3}>
-                        <h1 className="title-release-date">{gameTitle} ({releaseDate})</h1>
+                        <h1 className="title-release-date">{gameInfo.gameTitle} ({gameInfo.releaseYear})</h1>
                         <br />
-                        <p>Genre: {genre}</p>
-                        <p>Publisher: {publisher}</p>
+                        {/* <p>Genre: {gameInfo.platform}</p> */}
+                        <p>Platforms: {gameInfo.allPlatforms}</p>
                         <Row>
                             <Col xs={3}><p>Desired Platform: </p></Col>
                             <Col xs={6}>
-                                <Form.Select>
-                                    <option>Switch</option>
+                                <Form.Select value={dropPlat} onChange={(e : any) => setDropPlat(e.target.value)}>
+                                    {/* <option>Switch</option> */}
+                                    {platformsArray.map((item : string, idx : number) => <option key={idx}>{item}</option>)}
                                 </Form.Select>
                             </Col>
                             <Col xs={3}>

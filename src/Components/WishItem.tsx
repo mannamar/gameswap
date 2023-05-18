@@ -11,9 +11,10 @@ interface WishListItemProps {
     id: number;
     setWishlist: any;
     userID: number;
+    allPlatforms : string;
 }
 
-export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist, userID }: WishListItemProps) {
+export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist, userID, allPlatforms }: WishListItemProps) {
 
     async function handleDelete () {
         await deleteWishItem(id);
@@ -27,7 +28,11 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
         if (event.target === event.currentTarget) {
             navigate("/AddGame", {
                 state: {
-                    gameTitle: gameTitle
+                    gameTitle: gameTitle,
+                    releaseYear: releaseYear,
+                    coverUrl: imageUrl,
+                    platform: platform,
+                    allPlatforms: allPlatforms
                 }
             });
         }
