@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Row, Col, Dropdown, DropdownButton } from "react-bootstrap";
 import './SearchResult.css';
-import { parsePlatforms } from "../Services/ParseFunctions";
 
 interface WishListItemProps {
     gameTitle: string;
@@ -9,9 +8,10 @@ interface WishListItemProps {
     platform: string;
     imageUrl: string;
     onImgClick: any;
+    setOwnedPlatform: any;
 }
 
-export default function SearchResult({ gameTitle, releaseYear, platform, imageUrl, onImgClick }: WishListItemProps) {
+export default function SearchResult({ gameTitle, releaseYear, platform, imageUrl, onImgClick, setOwnedPlatform }: WishListItemProps) {
 
     let platformArray = platform.split(', ');
 
@@ -20,6 +20,7 @@ export default function SearchResult({ gameTitle, releaseYear, platform, imageUr
     function handleChange(e : any) {
         console.log(e.target.value);
         setGamePlatform(e.target.value);
+        setOwnedPlatform(e.target.value);
     }
 
     return (

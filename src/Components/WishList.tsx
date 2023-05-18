@@ -14,6 +14,7 @@ function WishList() {
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
     const [wishlist, setWishlist] = useState([]);
+    const [ownedPlatform, setOwnedPlatform] = useState('');
 
     let userData: any = localStorage.getItem('LoggedInUser');
     let userJson = JSON.parse(userData);
@@ -58,7 +59,7 @@ function WishList() {
             let saveItem = {
                 "UserId": userID,
                 "GameName": item.name,
-                "GamePlatform": item.platforms[0].abbreviation,
+                "GamePlatform": ownedPlatform ? ownedPlatform : item.platforms[0].abbreviation,
                 "ReleaseYear": getYear(item['first_release_date']),
                 "CoverUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
                 "IgdbId": item.id,
@@ -114,7 +115,7 @@ function WishList() {
                 <div className='searchBox'>
                     {results.map((item, idx) => {
                         return (
-                            <SearchResult key={item['id']} onImgClick={async (e: any) => clickGame(e, item)} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'} />
+                            <SearchResult key={item['id']} onImgClick={async (e: any) => clickGame(e, item)} setOwnedPlatform={setOwnedPlatform} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'} />
                         )
                     })}
                 </div>
