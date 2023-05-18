@@ -7,6 +7,8 @@ import WishItem from "./WishItem";
 import SearchResult from "./SearchResult";
 import './WishList.css';
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
+
 declare module "*.png";
 
 function WishList() {
@@ -15,6 +17,8 @@ function WishList() {
     const [results, setResults] = useState([]);
     const [wishlist, setWishlist] = useState([]);
     const [ownedPlatform, setOwnedPlatform] = useState('');
+
+    const navigate = useNavigate();
 
     let userData: any = localStorage.getItem('LoggedInUser');
     let userJson = JSON.parse(userData);
@@ -73,6 +77,11 @@ function WishList() {
             }
             console.log(saveItem);
             await addToWishlist(saveItem);
+            navigate("/AddGame", {
+                state: {
+                    gameTitle: item.name
+                }
+            });
         }
     }
 
