@@ -36,6 +36,11 @@ function WishList() {
         }
     }
 
+    async function handleSearch() {
+        let data = await searchForGames(input);
+        setResults(data);
+    }
+
     function getImg(url: string) {
         let split = url.split("/");
         let img = split[split.length - 1];
@@ -91,7 +96,7 @@ function WishList() {
                                     onKeyDown={handleKeyPress} />
                             </Col>
                             <Col xs={3}>
-                                <div className='join-btn'>
+                                <div className='join-btn' onClick={handleSearch}>
                                     Search
                                 </div>
                             </Col>
