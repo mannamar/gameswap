@@ -39,7 +39,7 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
                 <div className="overlay" onClick={handleClick}>
                     <X className="imgX" size={36} color="#fff0f0" onClick={handleDelete}/>
-                    <span className="overlayText"><ArrowRight className="imgArrow" size={36} color="#fff0f0" />See Details</span>
+                    <span className="overlayText">See Details</span>
                 </div>
             </div>
             <h5>{gameTitle}</h5>
