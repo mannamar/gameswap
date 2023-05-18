@@ -10,13 +10,14 @@ interface WishListItemProps {
     imageUrl: string;
     id: number;
     setWishlist: any;
+    userID: number;
 }
 
-export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist }: WishListItemProps) {
+export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist, userID }: WishListItemProps) {
 
     async function handleDelete () {
         await deleteWishItem(id);
-        let wishlist = await getWishListItems(1);
+        let wishlist = await getWishListItems(userID);
         setWishlist(wishlist);
     }
 
@@ -38,12 +39,13 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
                 <div className="overlay" onClick={handleClick}>
                     <X className="imgX" size={36} color="#fff0f0" onClick={handleDelete}/>
-                    <span className="overlayText"><ArrowRight className="imgArrow" size={36} color="#fff0f0" />See Details</span>
+                    <span className="overlayText">See Details</span>
                 </div>
             </div>
             <h5>{gameTitle}</h5>
-            <p>Released: <span>{releaseYear}</span></p>
-            <p>Platform: <span>{platform}</span></p>
+            <span>Released: <span className="lightPurp">{releaseYear}</span></span>
+            <br/>
+            <span>Platform: <span className="lightPurp">{platform}</span></span>
         </div>
     )
 }

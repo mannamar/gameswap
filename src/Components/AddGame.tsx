@@ -20,7 +20,7 @@ function AddGame() {
                 <Navbar/>
                 <Row className="header-and-description">
                     <Col>
-                        <h1>{gameTitle} ({releaseDate})</h1>
+                        {/* <h1>{gameTitle} ({releaseDate})</h1> */}
                     </Col>
                 </Row>
             </Container>
@@ -54,7 +54,7 @@ function AddGame() {
                 <Row className="would-trade">
                     <Col xs={3}>
                         <h2>Would Trade</h2>
-                        <p>You don’t currently have any games up for trade. Search for a game below that you’d give in return.</p>
+                        <p>You don't currently have any games up for trade. Search for a game below that you'd give in return.</p>
                     </Col>
                 </Row>
                 <Row>
@@ -63,7 +63,7 @@ function AddGame() {
                         <Col>
                             <Row>
                                 <Col xs={3}>
-                                    <Form.Control type="text" placeholder="Search for games you’d trade" />
+                                    <Form.Control type="text" placeholder="Search for games you'd trade" />
                                 </Col>
                                 <Col xs={1}>
                                     <div className='join-btn'>

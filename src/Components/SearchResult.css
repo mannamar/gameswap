@@ -60,3 +60,7 @@
 .itemBox + .itemBox {
     margin-left: 20px;
 }
+
+.lightPurp {
+    color: #AB83ED;
+}
