@@ -10,18 +10,32 @@ import { PaperPlaneTilt } from '@phosphor-icons/react';
 function Messages() {
 
     const [ input, setInput ] = useState('');
+    const [ messageList, setMessageList ] = useState([
+        (<MessageTo outgoingMessage={'This is a test message. I would like to be sure that passing props into this component works.'} />),
+        (<MessageFrom incomingMessage={'Hello. It seems that it is working well at the moment.'} />),
+        (<MessageTo outgoingMessage={"That's good. Thank you for confirming it. I appreciate it."} />)
+    ]);
     let message:string = '';
-    // const [ message, setMessage] = useState('');
+
+
 
     const handleMessage = (e: any) => {
         setInput(e.target.value);
         // console.log(message);
     }
+    
 
     const handleClick = () => {
         message = input;
         console.log(message);
+        sendMessage(message);
     }
+
+    function sendMessage (message: string) {
+        setMessageList([...messageList, <MessageTo outgoingMessage={message} />]);
+    }
+
+
 
     return(
         <div>
@@ -44,9 +58,7 @@ function Messages() {
                             <br />
                             <Col>
                                 <div className='messages'>
-                                    <MessageTo outgoingMessage={'This is a test message. I would like to be sure that passing props into this component works.'} />
-                                    <MessageFrom incomingMessage={'Hello. It seems that it is working well at the moment.'} />
-                                    <MessageTo outgoingMessage={"That's good. Thank you for confirming it. I appreciate it."} />
+                                    {messageList}
                                 </div>
                             </Col>
                             <br />

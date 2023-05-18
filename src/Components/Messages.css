@@ -47,12 +47,15 @@
     height: 78vh;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .message-to{
     display: flex;
     margin-right: 0;
     margin-left: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     align-items: center;
     justify-content: center;
     background-color: #420D98;
@@ -67,6 +70,8 @@
     display: flex;
     margin-left: 0;
     margin-right: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
