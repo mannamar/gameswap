@@ -65,7 +65,7 @@ function AddGame() {
                     <Col className="game-information-col" xs={3}>
                         <h1 className="title-release-date">{gameInfo.gameTitle} ({gameInfo.releaseYear})</h1>
                         <br />
-                        {/* <p>Genre: {gameInfo.platform}</p> */}
+                        <p>WishId: {gameInfo.wishId}</p>
                         <p>Platforms: {gameInfo.allPlatforms}</p>
                         <Row>
                             <Col xs={3}><p>Desired Platform: </p></Col>

@@ -32,7 +32,8 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
                     releaseYear: releaseYear,
                     coverUrl: imageUrl,
                     platform: platform,
-                    allPlatforms: allPlatforms
+                    allPlatforms: allPlatforms,
+                    wishId: id
                 }
             });
         }
