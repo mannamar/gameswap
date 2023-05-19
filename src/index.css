@@ -254,13 +254,6 @@ code {
   align-items: center;
 }
 
-.hero-bg-matches{
-  background-image: url(./Assets/Images/homePageBg.png);
-  color: #FFFFFF;
-  height: 20em;
-  background-size: cover;
-}
-
 /* .game-match{
   margin: 1em;
 } */

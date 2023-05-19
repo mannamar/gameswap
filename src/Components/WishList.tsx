@@ -57,7 +57,7 @@ function WishList() {
 
     return (
         <div>
-            <Container fluid className="hero-bg-home">
+            <Container fluid className="hero-bg-wish">
                 <Navbar/>
                 <Row className="header-and-description">
                     <Col>
