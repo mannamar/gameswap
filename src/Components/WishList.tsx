@@ -76,14 +76,15 @@ function WishList() {
                 "BannerUrl": `https://images.igdb.com/igdb/image/upload/t_original/${getImg(item.screenshots[0].url)}`
             }
             console.log(saveItem);
-            await addToWishlist(saveItem);
+            let wishId = await addToWishlist(saveItem);
             navigate("/AddGame", {
                 state: {
                     gameTitle: saveItem.GameName,
                     releaseYear: saveItem.ReleaseYear,
                     coverUrl: saveItem.CoverUrl,
                     platform: saveItem.GamePlatform,
-                    allPlatforms: saveItem.AllPlatforms
+                    allPlatforms: saveItem.AllPlatforms,
+                    wishId : wishId
                 }
             });
         }
