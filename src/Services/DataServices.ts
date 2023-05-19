@@ -102,4 +102,18 @@ async function addToTrades(saveItem: any) {
     return data;
 }
 
-export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, userData };
+async function getTradeItems(WishId: number) {
+    const response = await fetch(`https://gameswapapi.azurewebsites.net/Trade/GetTradeItemsByWishId/${WishId}`);
+    const data = response.json();
+    return data;
+}
+
+async function deleteTradeItem(ItemId: number) {
+    const response = await fetch(`https://gameswapapi.azurewebsites.net/Trade/DeleteTradeItem/${ItemId}`, {
+        method: "POST"
+    });
+    const data = response.json();
+    return data;
+}
+
+export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, getTradeItems, deleteTradeItem, userData };

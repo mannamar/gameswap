@@ -2,10 +2,12 @@ import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import { platform } from "os";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { searchForGames } from "../Services/IgdbServices";
 import SearchResult from "./SearchResult";
-import { addToTrades } from "../Services/DataServices";
+import { addToTrades, getTradeItems } from "../Services/DataServices";
+import WishItem from "./WishItem";
+import TradeItem from "./TradeItem";
 
 function AddGame() {
     // ----------Variables---------------
@@ -31,6 +33,22 @@ function AddGame() {
     let userData: any = localStorage.getItem('LoggedInUser');
     let userJson = JSON.parse(userData);
     let userID = userJson.id;
+
+    async function getData() {
+        let data = await getTradeItems(gameInfo.wishId);
+        console.log(data);
+        setTradelist(data);
+    }
+    useEffect(() => {
+        getData();
+    }, []);
+
+    async function handleKeyPress(e: any) {
+        if (e.key === "Enter") {
+            let data = await searchForGames(input);
+            setResults(data);
+        }
+    }
 
     function getImg(url: string) {
         let split = url.split("/");
@@ -64,6 +82,7 @@ function AddGame() {
             }
             // console.log(saveItem);
             await addToTrades(saveItem);
+            await getData();
         }
     }
 
@@ -123,16 +142,24 @@ function AddGame() {
                 </Row>
                 <br />
                 <Row className="would-trade">
-                    <h2>Would Trade</h2>
-                    <p>You don't currently have any games up for trade. Search for a game below that you'd give in return.</p>
+                    <h2 className="mb-4">Would Trade</h2>
+                    {tradeList.length === 0 ? <p>You don't currently have any games up for trade. Search for a game below that you'd give in return.</p> : null}
+                    <div className='wishBox'>
+                    {tradeList.map((item, idx) => {
+                        return (
+                            // <p>{item['gameName']}</p>
+                            <TradeItem setTradelist={setTradelist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} allPlatforms={item['allPlatforms']} imageUrl={item['imgUrl']} wishId={gameInfo.wishId} bannerUrl={item['bannerUrl']}/>
+                        )
+                    })}
+                    </div>
                 </Row>
                 <Row>
                     <Col>
                         <h2 className="mt-5">Search</h2>
                         <Col>
-                            <Row className="mt-4">
+                            <Row className="mt-4 mb-5">
                                 <Col xs={3}>
-                                    <Form.Control type="text" placeholder="Search for games you'd trade" value={input} onChange={(e) => setInput(e.target.value)} />
+                                    <Form.Control type="text" placeholder="Search for games you'd trade" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyPress}/>
                                 </Col>
                                 <Col xs={1}>
                                     <div className='join-btn' onClick={async () => setResults(await searchForGames(input))}>

@@ -132,7 +132,7 @@ function WishList() {
                     })}
                     {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
                 </div>
-                <h2 className="mt-5">Search Results</h2>
+                {results.length > 0 ? <h2 className="mt-5">Search Results</h2> : null}
                 <div className='searchBox'>
                     {results.map((item, idx) => {
                         return (
