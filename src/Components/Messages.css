@@ -1,5 +1,10 @@
 /* CSS Page for Messages.tsx */
 
+.message-page-body{
+    display: flex;
+    flex-direction: row;
+}
+
 .hero-bg-messages{
     background-image: url(../Assets/Images/homePageBg.png);
     color: #FFFFFF;
@@ -145,5 +150,10 @@
         height: 8em;
         width: 15em;
         padding: 1em;
+    }
+
+    .message-page-body{
+        display: flex;
+        flex-direction: column;
     }
 }

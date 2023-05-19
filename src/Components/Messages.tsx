@@ -48,7 +48,7 @@ function Messages() {
                 </Row>
             </Container>
             <Container fluid>
-                <Row>
+                <Row className='message-page-body'>
                     <Col className='users-col' xs={3}>
                         <MessagesUser />
                         <br />
