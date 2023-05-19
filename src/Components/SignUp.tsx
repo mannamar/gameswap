@@ -73,7 +73,7 @@ function SignUp(props: Props) {
                 setErrorMsg('');
                 navigate('/');
             } else {
-                setErrorMsg("Login failed");
+                setErrorMsg(token);
             }
         } else {
             setErrorMsg('Please fill out all fields');
