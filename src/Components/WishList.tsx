@@ -85,7 +85,8 @@ function WishList() {
                     platform: saveItem.GamePlatform,
                     allPlatforms: saveItem.AllPlatforms,
                     wishId : wishId,
-                    bannerUrl: saveItem.BannerUrl
+                    bannerUrl: saveItem.BannerUrl,
+                    userID: userID
                 }
             });
         }

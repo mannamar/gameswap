@@ -5,6 +5,7 @@ import { platform } from "os";
 import { useState } from "react";
 import { searchForGames } from "../Services/IgdbServices";
 import SearchResult from "./SearchResult";
+import { addToTrades } from "../Services/DataServices";
 
 function AddGame() {
     // ----------Variables---------------
@@ -25,6 +26,12 @@ function AddGame() {
     const [results, setResults] = useState([]);
     const [tradeList, setTradelist] = useState([]);
 
+    const [ownedPlatform, setOwnedPlatform] = useState('');
+
+    let userData: any = localStorage.getItem('LoggedInUser');
+    let userJson = JSON.parse(userData);
+    let userID = userJson.id;
+
     function getImg(url: string) {
         let split = url.split("/");
         let img = split[split.length - 1];
@@ -42,8 +49,22 @@ function AddGame() {
         return platformNames.join(', ');
     }
 
-    function handleClick() {
-        console.log('handled click');
+    async function clickGame(e: any, item: any) {
+        if (e.target === e.currentTarget) {
+            console.log('Clicked Game');
+            let saveItem = {
+                "UserId": userID,
+                "GameName": item.name,
+                "GamePlatform": ownedPlatform ? ownedPlatform : item.platforms[0].abbreviation,
+                "ReleaseYear": getYear(item['first_release_date']),
+                "ImgUrl": `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item.cover.url)}`,
+                "IgdbId": item.id,
+                "WishListItemId": gameInfo.wishId,
+                "isDeleted": false
+            }
+            // console.log(saveItem);
+            await addToTrades(saveItem);
+        }
     }
 
     return (
@@ -121,7 +142,7 @@ function AddGame() {
                                 <div className='searchBox mt-5'>
                                     {results.map((item, idx) => {
                                         return (
-                                            <SearchResult key={item['id']} onImgClick={async (e: any) => console.log('clicked')} setOwnedPlatform={handleClick} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'} />
+                                            <SearchResult key={item['id']} onImgClick={async (e: any) => clickGame(e, item)} setOwnedPlatform={setOwnedPlatform} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'} />
                                         )
                                     })}
                                 </div>
