@@ -1,14 +1,20 @@
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap";
 
-function MessagesUser() {
+interface MessageUserProps {
+    profilePic: string;
+    username: string;
+    starRating: number;
+}
+
+function MessagesUser({profilePic, username, starRating}: MessageUserProps) {
   return (
     <div className="user-item-body-div">
         <Row className='user-item-row'>
             <Col xs={3}>
-                <img src={require('../Assets/Images/GameCoverPlaceholders/kenZodiacIcon.png')}/>
+                <img src={require(`../Assets/Images/GameCoverPlaceholders/${profilePic}`)}/>
             </Col>
             <Col xs={4}>
-                <p>Kenzodiac</p>
+                <p>{username}</p>
                 <Row className='star-rating-row'>
                     <Col xs={1}>
                         <img src={require('../Assets/Images/starIcon.png')} />

@@ -50,8 +50,16 @@ function Messages() {
             <Container fluid>
                 <Row>
                     <Col className='users-col' xs={3}>
-                        <MessagesUser />
-                        <br />
+                        <MessagesUser
+                        profilePic={'kenZodiacIcon.png'}
+                        username={'Kenzodiac'}
+                        starRating={5}
+                        />
+                        <MessagesUser
+                        profilePic={'nixrzIcon.png'}
+                        username={'Nixrz'}
+                        starRating={5}
+                        />
                     </Col>
                     <Col>
                         <Row className="message-row">
