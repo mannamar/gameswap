@@ -1,0 +1,9 @@
+.no-decoration{
+    text-decoration: none;
+    color: black;
+}
+
+.no-decoration:hover{
+    text-decoration: none;
+    color: #420D98;
+}
