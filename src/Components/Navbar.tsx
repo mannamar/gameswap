@@ -28,6 +28,7 @@ export default function Navbar() {
         localStorage.removeItem('Token');
         localStorage.removeItem('LoggedInUser');
         navigate('/');
+        
     }
 
     //logic to hide the login-button when you're already on the login-screen
