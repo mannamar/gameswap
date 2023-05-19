@@ -72,14 +72,20 @@
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    margin: 30px 0 30px 0;
+    margin: 40px 0 10px 0;
 }
   
-  .submit-btn:hover{
+  .submit-btn:hover {
     background-color: #340879;
     cursor: pointer;
     transition: ease-in-out 100ms;
   }
+
+.errorMsg {
+    color: #a33939;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
 
 .nav-tabs {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;

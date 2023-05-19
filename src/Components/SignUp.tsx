@@ -26,6 +26,8 @@ function SignUp(props: Props) {
     const [LoginUser, setLoginUser] = useState('');
     const [LoginPass, setLoginPass] = useState('');
 
+    const [ErrorMsg, setErrorMsg] = useState('');
+
     async function submitForm() {
         if (Name && Username && Email && Password && BirthMonth && BirthDay && BirthYear && Zip) {
             let userData = {
@@ -40,16 +42,17 @@ function SignUp(props: Props) {
             let message = await createAccount(userData);
             console.log(message);
             if (message === 'Username & Email already taken') {
-                alert(message);
+                setErrorMsg(message);
             } else if (message === 'Username already taken') {
-                alert(message);
+                setErrorMsg(message);
             } else if (message === 'Email already taken') {
-                alert(message);
+                setErrorMsg(message);
             } else if (message === 'Success') {
+                setErrorMsg('');
                 await login(userData.Username, userData.Password);
             }
         } else {
-            alert('Please fill out all fields');
+            setErrorMsg('Please fill out all fields');
         }
     }
 
@@ -67,12 +70,13 @@ function SignUp(props: Props) {
                 let loggedInUser: any = await getLoggedInUserData(user);
                 console.log(loggedInUser);
                 localStorage.setItem("LoggedInUser", JSON.stringify(loggedInUser));
+                setErrorMsg('');
                 navigate('/');
             } else {
-                alert("Login failed")
+                setErrorMsg("Login failed")
             }
         } else {
-            alert('Please fill out all fields');
+            setErrorMsg('Please fill out all fields');
         }
     }
 
@@ -115,9 +119,14 @@ function SignUp(props: Props) {
                                             <Form.Control type="password" onChange={(e) => setLoginPass(e.target.value)} value={LoginPass} />
                                         </Form.Group>
 
-                                        <div className="d-grid gap-2">
+                                        <div>
                                             <div className='submit-btn' onClick={() => login()}>
                                                 Log In
+                                            </div>
+                                            <div className={"errorMsg"}>
+                                                {
+                                                    !ErrorMsg ? null : ErrorMsg
+                                                }
                                             </div>
                                         </div>
                                     </Form>
@@ -185,9 +194,14 @@ function SignUp(props: Props) {
 
 
 
-                                        <div className="d-grid gap-2" onClick={submitForm}>
-                                            <div className='submit-btn'>
+                                        <div>
+                                            <div className='submit-btn' onClick={submitForm}>
                                                 Sign Up
+                                            </div>
+                                            <div className={"errorMsg"}>
+                                                {
+                                                    !ErrorMsg ? null : ErrorMsg
+                                                }
                                             </div>
                                         </div>
 
