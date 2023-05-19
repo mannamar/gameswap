@@ -66,3 +66,9 @@
         cursor: pointer;
         transition: ease-in-out 100ms;
     }
+
+.user-icon {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
