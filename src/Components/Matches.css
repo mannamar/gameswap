@@ -15,3 +15,7 @@
     text-decoration: none;
     color: #420D98;
 }
+
+.pointer-hover:hover{
+    cursor: pointer;
+}

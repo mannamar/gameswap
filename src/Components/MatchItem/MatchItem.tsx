@@ -2,6 +2,8 @@ import './MatchItem.css';
 import { Col, Row } from 'react-bootstrap';
 
 interface MatchProps {
+    className: string;
+    onClick: any;
     youRecieveCover: string;
     youRecieveTitle: string;
     theyRecieveCover: string;
@@ -24,9 +26,9 @@ interface MatchProps {
 //     }
 // }
 
-function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRecieveTitle, userProfilePic, username, starRating, mi }: MatchProps) {
+function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRecieveTitle, userProfilePic, username, starRating, mi, onClick, className }: MatchProps) {
     return (
-        <Col xs={4}>
+        <Col xs={4} onClick={onClick} className={className}>
             {/* This is the start of a game trade item */}
             <Row className='game-trade-matches'>
                 <Col className='game-match'>
