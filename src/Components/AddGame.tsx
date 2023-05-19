@@ -48,13 +48,30 @@ function AddGame() {
 
     return (
         <div>
-            <Container fluid className="hero-bg-add-game">
+            <Container fluid className="hero-bg-add-game"
+                // style={{
+                //     background: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(' + gameInfo.bannerUrl + ')',
+                //     backgroundSize: 'cover',
+                //     backgroundPosition: 'center',
+                //     // filter: 'blur(4px)'
+                //     // backdropFilter: 'brightness(50%)'
+                // }}
+            >
                 <Navbar />
                 <Row className="header-and-description">
                     <Col>
                         {/* <h1>{gameTitle} ({releaseDate})</h1> */}
                     </Col>
                 </Row>
+                <div className="bannerImg"
+                style={{
+                    background: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(' + gameInfo.bannerUrl + ')',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(4px)'
+                    // backdropFilter: 'brightness(50%)'
+                }}
+                ></div>
             </Container>
             <br />
             <Container>

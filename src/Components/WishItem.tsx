@@ -12,9 +12,10 @@ interface WishListItemProps {
     setWishlist: any;
     userID: number;
     allPlatforms : string;
+    bannerUrl: string;
 }
 
-export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist, userID, allPlatforms }: WishListItemProps) {
+export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, id, setWishlist, userID, allPlatforms, bannerUrl }: WishListItemProps) {
 
     async function handleDelete () {
         await deleteWishItem(id);
@@ -33,7 +34,8 @@ export default function WishItem({ gameTitle, releaseYear, platform, imageUrl, i
                     coverUrl: imageUrl,
                     platform: platform,
                     allPlatforms: allPlatforms,
-                    wishId: id
+                    wishId: id,
+                    bannerUrl: bannerUrl
                 }
             });
         }

@@ -84,7 +84,8 @@ function WishList() {
                     coverUrl: saveItem.CoverUrl,
                     platform: saveItem.GamePlatform,
                     allPlatforms: saveItem.AllPlatforms,
-                    wishId : wishId
+                    wishId : wishId,
+                    bannerUrl: saveItem.BannerUrl
                 }
             });
         }
@@ -125,7 +126,7 @@ function WishList() {
                 <div className='wishBox'>
                     {wishlist.map((item, idx) => {
                         return (
-                            <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} allPlatforms={item['allPlatforms']} imageUrl={item['coverUrl']} userID={userID} />
+                            <WishItem setWishlist={setWishlist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} allPlatforms={item['allPlatforms']} imageUrl={item['coverUrl']} userID={userID} bannerUrl={item['bannerUrl']}/>
                         )
                     })}
                     {wishlist.length === 0 ? <p>Your wishlist is currently empty. Search for a game above to get started</p> : null}
