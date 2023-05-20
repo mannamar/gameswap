@@ -1,5 +1,5 @@
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import './Homepage.css';
 
@@ -10,6 +10,11 @@ function HomePage() {
     if (localStorage.getItem("Token") != null) {
         signedIn = true;
     }
+
+    const navigate = useNavigate();
+    async function handleClick() {      
+        !signedIn ? navigate("/SignUp") : navigate("/WishList");
+   }
 
     return (
         <>
@@ -48,16 +53,16 @@ function HomePage() {
                             <Carousel.Item>
                                 <Row className="game-row">
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" onClick={handleClick}/>
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" onClick={handleClick}/>
                                     </Col>
                                 </Row>
 
@@ -65,32 +70,32 @@ function HomePage() {
                             <Carousel.Item>
                                 <Row className="game-row">
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" onClick={handleClick} />
                                     </Col>
                                 </Row>
                             </Carousel.Item>
                             <Carousel.Item>
                                 <Row className="game-row">
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Wo Long 1.png')} alt="Cover for Wo Long" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/High On Life 1.png')} alt="Cover for High on Life" onClick={handleClick} />
                                     </Col>
                                 </Row>
                             </Carousel.Item>
@@ -110,16 +115,16 @@ function HomePage() {
                             <Carousel.Item>
                                 <Row className="game-row">
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" onClick={handleClick} />
                                     </Col>
                                     <Col>
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" onClick={handleClick} />
                                     </Col>
                                 </Row>
 
@@ -127,32 +132,32 @@ function HomePage() {
                             <Carousel.Item>
                                 <Row className="game-row">
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" onClick={handleClick} />
                                     </Col>
                                 </Row>
                             </Carousel.Item>
                             <Carousel.Item>
                                 <Row className="game-row">
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
-                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" />
+                                        <img src={require('../Assets/Images/GameCoverPlaceholders/Metroid Prime 1.png')} alt="Cover for Metroid Prime Remastered" onClick={handleClick} />
                                     </Col>
                                 </Row>
                             </Carousel.Item>
