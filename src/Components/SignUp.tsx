@@ -38,9 +38,9 @@ function SignUp(props: Props) {
                 Birthday: `${BirthMonth} ${BirthDay}, ${BirthYear}`,
                 Zipcode: parseInt(Zip)
             }
-            console.log(userData);
+            // console.log(userData);
             let message = await createAccount(userData);
-            console.log(message);
+            // console.log(message);
             if (message === 'Username & Email already taken') {
                 setErrorMsg(message);
             } else if (message === 'Username already taken') {
@@ -62,13 +62,13 @@ function SignUp(props: Props) {
                 Username: user,
                 Password: pass
             }
-            console.log(loginData);
+            // console.log(loginData);
             let token = await loginAccount(loginData);
-            console.log(token)
+            // console.log(token)
             if (token.token != null) {
                 localStorage.setItem("Token", token.token);
                 let loggedInUser: any = await getLoggedInUserData(user);
-                console.log(loggedInUser);
+                // console.log(loggedInUser);
                 localStorage.setItem("LoggedInUser", JSON.stringify(loggedInUser));
                 setErrorMsg('');
                 navigate('/');

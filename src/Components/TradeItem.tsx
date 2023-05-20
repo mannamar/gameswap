@@ -20,7 +20,7 @@ export default function TradeItem({ gameTitle, releaseYear, platform, imageUrl, 
     async function handleDelete () {
         await deleteTradeItem(id);
         let tradeList = await getTradeItems(wishId);
-        console.log(tradeList);
+        // console.log(tradeList);
         setTradelist(tradeList);
     }
 

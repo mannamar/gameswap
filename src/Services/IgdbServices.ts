@@ -13,9 +13,9 @@ if (prod.isLive) {
 
 async function searchForGames(input: string) {
 
-    console.log(input);
-    console.log(clientID);
-    console.log(token);
+    // console.log(input);
+    // console.log(clientID);
+    // console.log(token);
     let res = await fetch('https://gameswap-apiproxy.herokuapp.com/https://api.igdb.com/v4/games', {
         method: 'POST',
         headers: {
@@ -26,7 +26,7 @@ async function searchForGames(input: string) {
         body: `search "${input}"; fields name, cover.url, platforms.abbreviation, first_release_date, screenshots.*; where category = 0; where version_parent = null;`
     });
     let data = await res.json();
-    console.log(data);
+    // console.log(data);
     return data;
 }
 

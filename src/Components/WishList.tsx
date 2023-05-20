@@ -27,7 +27,7 @@ function WishList() {
     useEffect(() => {
         async function getData() {
             let data = await getWishListItems(userID);
-            console.log(data);
+            // console.log(data);
             setWishlist(data);
         }
         getData();
@@ -64,7 +64,7 @@ function WishList() {
 
     async function clickGame(e: any, item: any) {
         if (e.target === e.currentTarget) {
-            console.log('Clicked Game');
+            // console.log('Clicked Game');
             let saveItem = {
                 "UserId": userID,
                 "GameName": item.name,
@@ -75,7 +75,7 @@ function WishList() {
                 "AllPlatforms": parsePlatformNames(item['platforms']),
                 "BannerUrl": `https://images.igdb.com/igdb/image/upload/t_original/${getImg(item.screenshots[0].url)}`
             }
-            console.log(saveItem);
+            // console.log(saveItem);
             let wishId = await addToWishlist(saveItem);
             navigate("/AddGame", {
                 state: {

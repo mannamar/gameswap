@@ -27,7 +27,7 @@ function Messages() {
 
     const handleClick = () => {
         message = input;
-        console.log(message);
+        // console.log(message);
         sendMessage(message);
     }
 

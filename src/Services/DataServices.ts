@@ -42,7 +42,7 @@ async function loginAccount(loginUser: any) {
     }
 
     let data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
     // POST so no return needed (not getting anything)
 }
@@ -51,12 +51,12 @@ async function getLoggedInUserData(username: any) {
     let response = await fetch(`https://gameswapapi.azurewebsites.net/User/UserByUsername/${username}`);
     let data = await response.json();
     userData = data;
-    console.log(userData);
+    // console.log(userData);
     return userData;
 }
 
 async function addToWishlist(saveItem: any) {
-    console.log(saveItem);
+    // console.log(saveItem);
     const response = await fetch('https://gameswapapi.azurewebsites.net/WishList/AddWishListItem', {
         method: "POST",
         headers: {
@@ -91,7 +91,7 @@ async function deleteWishItem(ItemId: number) {
 // Trades
 
 async function addToTrades(saveItem: any) {
-    console.log(saveItem);
+    // console.log(saveItem);
     const response = await fetch('https://gameswapapi.azurewebsites.net/Trade/AddTradeItem', {
         method: "POST",
         headers: {

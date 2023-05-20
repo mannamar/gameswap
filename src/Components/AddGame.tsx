@@ -36,7 +36,7 @@ function AddGame() {
 
     async function getData() {
         let data = await getTradeItems(gameInfo.wishId);
-        console.log(data);
+        // console.log(data);
         setTradelist(data);
     }
     useEffect(() => {
@@ -69,7 +69,7 @@ function AddGame() {
 
     async function clickGame(e: any, item: any) {
         if (e.target === e.currentTarget) {
-            console.log('Clicked Game');
+            // console.log('Clicked Game');
             let saveItem = {
                 "UserId": userID,
                 "GameName": item.name,

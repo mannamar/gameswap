@@ -18,7 +18,7 @@ export default function SearchResult({ gameTitle, releaseYear, platform, imageUr
     const [gamePlatform, setGamePlatform] = useState(platformArray[0]);
 
     function handleChange(e : any) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setGamePlatform(e.target.value);
         setOwnedPlatform(e.target.value);
     }
