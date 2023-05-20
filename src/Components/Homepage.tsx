@@ -117,7 +117,7 @@ function HomePage() {
                                     <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" onClick={handleClick} />
                                     </Col>
-                                    <Col>
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
