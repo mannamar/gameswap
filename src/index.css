@@ -38,11 +38,6 @@ code {
   padding: 2em;
 }
 
-.new-releases-row{
-  display: flex;
-  flex-direction: column;
-}
-
 .trending-row{
   display: flex;
   flex-direction: column;

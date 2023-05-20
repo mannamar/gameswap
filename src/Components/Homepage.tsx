@@ -1,53 +1,49 @@
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import './Homepage.css';
 
 function HomePage() {
-    
+
     //logic to check and see if the user is already logged in
     let signedIn: boolean = false;
-    if (localStorage.getItem("Token") != null){
+    if (localStorage.getItem("Token") != null) {
         signedIn = true;
     }
 
     return (
         <>
-            <Container fluid className="hero-bg-home">
+            <Container fluid className="hero-bg-homepg">
                 {/* Navbar component with signed-in status passed through as a prop */}
                 <Navbar />
 
-                <Row className="header-and-description">
+                <Row className="homepg-header-and-description">
                     <Col>
-                        <h1>Make your old games someone else's problem</h1>
-                    </Col>
-                    <Col>
-                        <p>Swap your old games for ones that are new to you. And make new friends in the process!</p>
-                    </Col>
-                    <Col>
-                        {   
+                        <div className={"homepg-slogan"}>Make your old games someone else's problem</div>
+                        <div className={"homepg-subslogan"}>Swap your old games for ones that are new to you. And make new friends in the process!</div>
+                        {
                             !signedIn ?
-                                <Link style={{textDecoration:'none'}} to="/SignUp">
-                                    <div className='join-btn'>
+                                <Link style={{ textDecoration: 'none' }} to="/SignUp">
+                                    <div className='home-join-btn'>
                                         Join Now
                                     </div>
                                 </Link>
-                            :
-                                <Link style={{textDecoration:'none'}} to="/WishList">
-                                    <div className='join-btn'>
+                                :
+                                <Link style={{ textDecoration: 'none' }} to="/WishList">
+                                    <div className='home-join-btn'>
                                         Add Games
                                     </div>
                                 </Link>
                         }
-                        
                     </Col>
                 </Row>
             </Container>
             <Container fluid>
-                <Row className="new-releases-row">
-                    <h1>New Releases</h1>
-                    <Col>
-                        {/* Beginning of New Releases Carousel */}
+                <Row>
+                    <Col style={{marginLeft: '2em', marginRight: '2em'}}>
+                        <div className={"home-new-release-header"} style={{color: 'black'}}>New Releases</div>
 
+                        {/* Beginning of New Releases Carousel */}
                         <Carousel>
                             <Carousel.Item>
                                 <Row className="game-row">
@@ -87,7 +83,7 @@ function HomePage() {
                                     <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Hogwarts1.png')} alt="Cover for Hogwarts Legacy" />
                                     </Col>
-                                    <Col className="game-row-item"> 
+                                    <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Atomic Heart 1.png')} alt="Cover for Atomic Heart" />
                                     </Col>
                                     <Col className="game-row-item">
@@ -106,10 +102,10 @@ function HomePage() {
             <br />
             <Container fluid className="trending-row">
                 <Row>
-                    <h1>Trending</h1>
-                    <Col>
-                        {/* Beginning of New Releases Carousel */}
+                    <Col style={{marginLeft: '2em', marginRight: '2em'}}>
+                    <div className={"home-new-release-header"} style={{color: 'white'}}>Trending</div>
 
+                        {/* Beginning of New Releases Carousel */}
                         <Carousel>
                             <Carousel.Item>
                                 <Row className="game-row">

@@ -1,0 +1,60 @@
+.hero-bg-homepg {
+    background-image: url(../Assets/Images/homePageBg.png);
+    color: #FFFFFF;
+    height: 500px;
+    background-size: cover;
+}
+
+.homepg-header-and-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 569px;
+    padding: 2em;
+}
+
+.homepg-slogan {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48.41px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.homepg-subslogan {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29.05px;
+    color: white;
+    margin-bottom: 31px;
+}
+
+.home-join-btn {
+    display: flex;
+    background-color: #420D98;
+    color: #FFFFFF;
+    border: none;
+    height: 44px;
+    width: 113px;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16.94px;
+}
+  
+  .home-join-btn:hover {
+    background-color: #340879;
+    cursor: pointer;
+    transition: ease-in-out 100ms;
+  }
+
+.home-new-release-header {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 48.41px;
+    margin-top: 41px;
+    margin-bottom: 34px;
+}
