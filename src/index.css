@@ -38,11 +38,6 @@ code {
   padding: 2em;
 }
 
-.new-releases-row{
-  display: flex;
-  flex-direction: column;
-}
-
 .trending-row{
   display: flex;
   flex-direction: column;
@@ -58,49 +53,9 @@ code {
   background-size: cover;
 }
 
-.signup-page-text{
-  background-color: rgba(30, 30, 30, 85%);
-  margin: inherit;
-  height: 100%;
-}
-
-.signup-hero-bg{
-  background-image: url(./Assets/Images/Login\ BG.jpg);
-  background-size: cover;
-}
-
-.signup-page-sections{
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-}
-
-.for-gamers{
-  color: #AB83ED;
-}
-
-.hero-txt{
-  display: flex;
-  display: flex;
-  flex-direction: column;
-  color: #FFFFFF;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.signup-par{
-  width: 13em;
-}
-
 /* .background-image-underlay{
   background-color: #1E1E1E;
 } */
-
-.form-section{
-  background-color: #FFFFFF;
-  height: 46em;
-}
 
 .game-row{
   display: flex;

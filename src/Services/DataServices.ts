@@ -29,9 +29,16 @@ async function loginAccount(loginUser: any) {
 
     // Check if no error for duplicate account
     if (!response.ok) {
-        alert('Login failed. Check your account details.');
-        const message = `An error has occured ${response.status}`;
-        throw new Error(message);
+        // console.log(response);
+        let message: string;
+        if (response.status === 401){
+            message = "Login failed - check your username/password"
+        } else {
+            message = `An error has occured ${response.status}: "${response.statusText}"`;
+        }
+        return message;
+        //alert('Login failed. Check your account details.');
+        // throw new Error(message);
     }
 
     let data = await response.json();

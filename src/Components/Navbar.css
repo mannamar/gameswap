@@ -15,7 +15,6 @@
     background-color: #420D98;
     color: #FFFFFF;
     border: none;
-    /* border-radius: 0.5em; */
     height: 35px;
     width: 88px;
     text-align: center;
@@ -66,3 +65,9 @@
         cursor: pointer;
         transition: ease-in-out 100ms;
     }
+
+.user-icon {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
