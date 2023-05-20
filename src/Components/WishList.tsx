@@ -96,8 +96,8 @@ function WishList() {
 
     return (
         <div>
-            <Container fluid className="hero-bg-home">
-                <Navbar />
+            <Container fluid className="hero-bg-wish">
+                <Navbar/>
                 <Row className="header-and-description">
                     <Col>
                         <h1>Wishlist</h1>

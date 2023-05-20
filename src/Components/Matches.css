@@ -1,0 +1,21 @@
+.hero-bg-matches{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../Assets/Images/Matches.jpeg');
+    color: #FFFFFF;
+    height: 24em;
+    background-size: cover;
+    background-position: 0em 38em;
+  }
+
+.no-decoration{
+    text-decoration: none;
+    color: black;
+}
+
+.no-decoration:hover{
+    text-decoration: none;
+    color: #420D98;
+}
+
+.pointer-hover:hover{
+    cursor: pointer;
+}
