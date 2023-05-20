@@ -1,7 +1,7 @@
 /* CSS Page for Messages.tsx */
 
 .hero-bg-messages{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url('../Assets/Images/Messages.png');
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),  url('../Assets/Images/Messages.png');
     color: #FFFFFF;
     height: 25em;
     background-size: cover;

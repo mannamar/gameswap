@@ -1,9 +1,9 @@
 .hero-bg-matches{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../Assets/Images/Matches.jpeg');
+    background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('../Assets/Images/Matches.jpeg');
     color: #FFFFFF;
     height: 24em;
     background-size: cover;
-    background-position: 0em 38em;
+    background-position: 0em 44em;
   }
 
 .no-decoration{
