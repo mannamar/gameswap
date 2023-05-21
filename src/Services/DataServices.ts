@@ -123,4 +123,10 @@ async function deleteTradeItem(ItemId: number) {
     return data;
 }
 
-export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, getTradeItems, deleteTradeItem, userData };
+async function getMatches(UserId: number) {
+    const response = await fetch(`https://gameswapapi.azurewebsites.net/Match/GetMatches/${UserId}`);
+    const data = response.json();
+    return data;
+}
+
+export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, getTradeItems, deleteTradeItem, getMatches, userData };

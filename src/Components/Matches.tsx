@@ -4,14 +4,29 @@ import { Link } from 'react-router-dom';
 import { MatchItem } from './MatchItem/MatchItem';
 import Navbar from './Navbar';
 import './Matches.css';
+import { useEffect } from 'react';
+import { getMatches } from '../Services/DataServices';
 
 function Matches() {
 
     const navigate = useNavigate();
 
-    async function handleClick() {      
+    async function handleClick() {
         navigate("/Messages");
-   }
+    }
+
+    let userData: any = localStorage.getItem('LoggedInUser');
+    let userJson = JSON.parse(userData);
+    let userID = userJson.id;
+
+    useEffect(() => {
+        async function getData() {
+            let data = await getMatches(userID);
+            console.log(data);
+            // getMatches(data);
+        }
+        getData();
+    }, []);
 
     return (
         <div>
