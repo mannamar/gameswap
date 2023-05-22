@@ -13,7 +13,8 @@ function Messages() {
     const [ input, setInput ] = useState('');
     const [ messageList, setMessageList ] = useState([]);
     const [ chatBar, setChatBar ] = useState([]);
-    // const [ chatRecipient, setChatRecipient ] = useState(0);
+    const [ chatRecipient, setChatRecipient ] = useState('');
+    const [ chatRecipientId, setChatRecipientId ] = useState(0);
     let message:string = '';
 
     let userData: any = localStorage.getItem('LoggedInUser');
@@ -44,6 +45,8 @@ function Messages() {
         }
         populateChatBar();
         getDiscussion();
+        setChatRecipient(defaultMatchUsername);
+        setChatRecipientId(defaultMatchId);
     }, []);
 
 
@@ -60,17 +63,19 @@ function Messages() {
     async function handleClickSidebar(item: any){
         let data = await getMessageHistory(userID, item.userId);
         console.log(data);
-        setMessageList(data);
         defaultMatchId = item.userId;
         defaultMatchUsername = item.username;
+        setChatRecipient(item.username);
+        setChatRecipientId(item.userId);
+        setMessageList(data);
     }
 
     async function sendMessage (message: string) {
         let sendMsgData = {
             "FromUserId" : userID,
             "FromUsername" : userJson.username,
-            "ToUserId" : defaultMatchId,
-            "ToUsername" : defaultMatchJson.tradeWithUsername,
+            "ToUserId" : chatRecipientId,
+            "ToUsername" : chatRecipient,
             "Message" : message
         };
         if (message != null){
