@@ -85,6 +85,9 @@ function Messages() {
         };
         if (message != null && chatRecipientId != null && chatRecipient != null) {
             await sendMsg(sendMsgData);
+            let data = await getMessageHistory(userID, chatRecipientId);
+            console.log(data);
+            setMessageList(data);
         }
     }
 
