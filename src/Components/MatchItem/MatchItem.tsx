@@ -28,32 +28,32 @@ interface MatchProps {
 
 function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRecieveTitle, userProfilePic, username, starRating, mi, onClick, className }: MatchProps) {
     return (
-        <Col xs={4} onClick={onClick} className={className}>
+        <div onClick={onClick} className='pointer-hover matchBox'>
             {/* This is the start of a game trade item */}
             <Row className='game-trade-matches'>
                 <Col className='game-match'>
                     <Row>
                         <Col xs={6} className='center-matches'>
-                            <img className='matches-game-cover' alt='Game Cover' src={require(`../../Assets/Images/GameCoverPlaceholders/${youRecieveCover}`)} />
+                            <img className='matches-game-cover' alt='Game Cover' src={youRecieveCover} />
                         </Col>
                         <Col xs={6} className='center-matches'>
-                            <img className='matches-game-cover' alt='Game Cover' src={require(`../../Assets/Images/GameCoverPlaceholders/${theyRecieveCover}`)} />
+                            <img className='matches-game-cover' alt='Game Cover' src={theyRecieveCover} />
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <p>You Receive: {youRecieveTitle}</p>
-                            <p>They Receive: {theyRecieveTitle}</p>
+                            <p className='pt-4'>You Receive: <span className='lightPurp'>{youRecieveTitle}</span></p>
+                            <p className=''>They Receive: <span className='lightPurp'>{theyRecieveTitle}</span></p>
                         </Col>
                     </Row>
                     <Row className='post-info-row'>
                         <Col xs={3}>
-                            <img src={require(`../../Assets/Images/GameCoverPlaceholders/${userProfilePic}`)} />
+                            <img src={userProfilePic} className='userIcon' alt='Icon of trade partner'/>
                         </Col>
                         <Col>
                             <Row>
                                 <Col xs={10}>
-                                    <p>{username}</p>
+                                    <p><strong>{username}</strong></p>
                                 </Col>
                                 <Col>
                                     <Row className='star-rating'>
@@ -69,13 +69,13 @@ function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRec
                             </Row>
                         </Col>
                         <Col>
-                            <p>{mi}mi</p>
+                            {/* <p>{mi}mi</p> */}
                         </Col>
                     </Row>
                 </Col>
             </Row>
             {/* This is the end of a game trade item */}
-        </Col>
+        </div>
     )
 }
 

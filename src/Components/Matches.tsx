@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { MatchItem } from './MatchItem/MatchItem';
 import Navbar from './Navbar';
 import './Matches.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getMatches } from '../Services/DataServices';
+import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
 
 function Matches() {
 
@@ -19,11 +20,13 @@ function Matches() {
     let userJson = JSON.parse(userData);
     let userID = userJson.id;
 
+    const [matches, setMatches] = useState([]);
+
     useEffect(() => {
         async function getData() {
             let data = await getMatches(userID);
             console.log(data);
-            // getMatches(data);
+            setMatches(data);
         }
         getData();
     }, []);
@@ -39,9 +42,8 @@ function Matches() {
                 </Row>
             </Container>
             <Container>
-                <br />
-                <Row className='game-matches-row'>
-                    <MatchItem
+                <div className='game-matches-row'>
+                    {/* <MatchItem
                         className={'pointer-hover'}
                         onClick={handleClick}
                         youRecieveCover={'Mario Odyssey 1.png'}
@@ -64,8 +66,25 @@ function Matches() {
                         username={'Nixrz'}
                         starRating={5}
                         mi={6.5}
-                    />
-                </Row>
+                    /> */}
+                    {matches.map((item, idx) => {
+                        return (
+                            <MatchItem
+                                key={idx}
+                                className={'pointer-hover'}
+                                onClick={handleClick}
+                                youRecieveCover={item['receiveCoverImg']}
+                                youRecieveTitle={item['receiveGameName']}
+                                theyRecieveCover={item['giveCoverImg']}
+                                theyRecieveTitle={item['giveGameName']}
+                                userProfilePic={ResolveUserIcon(item['tradeWithUserId'])}
+                                username={item['tradeWithUsername']}
+                                starRating={5}
+                                mi={6.5}
+                            />
+                        )
+                    })}
+                </div>
 
             </Container>
         </div>

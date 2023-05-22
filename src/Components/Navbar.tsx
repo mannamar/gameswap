@@ -15,6 +15,47 @@ import Snake from '../Assets/Images/ProfileIcons/Snake.png';
 import Spock from '../Assets/Images/ProfileIcons/Spock.png';
 import Vader from '../Assets/Images/ProfileIcons/Vader.png';
 
+//helper function for resolving random icon assignment
+function GetDigitalRoot(num: number){
+    while (num > 9){
+        let sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num = Math.floor( num / 10 );
+        }
+        num = sum;
+    }
+    return num;
+}
+
+function ResolveUserIcon(id: number){
+    let idNum = GetDigitalRoot(id);
+    let result = '';
+    switch(idNum){
+        case 1: result = Snake;
+            break;
+        case 2: result = JarJar;
+            break;
+        case 3: result = Zelda;
+            break;
+        case 4: result = Ness;
+            break;
+        case 5: result = Picard;
+            break;
+        case 6: result = Pikachu;
+            break;
+        case 7: result = Gundam;
+            break;
+        case 8: result = Spock;
+            break;
+        case 9: result = Vader;
+            break;
+        default: result = Pootis;
+            break;
+    }
+    return result;
+}
+
 export default function Navbar() {
     //logic to check and see if the user is already logged in
     let signedIn: boolean = false;
@@ -35,45 +76,6 @@ export default function Navbar() {
         }
     })
 
-    //helper function for resolving random icon assignment
-    function GetDigitalRoot(num: number){
-        while (num > 9){
-            let sum = 0;
-            while (num > 0) {
-                sum += num % 10;
-                num = Math.floor( num / 10 );
-            }
-            num = sum;
-        }
-        return num;
-    }
-    function ResolveUserIcon(id: number){
-        let idNum = GetDigitalRoot(id);
-        let result = '';
-        switch(idNum){
-            case 1: result = Snake;
-                break;
-            case 2: result = JarJar;
-                break;
-            case 3: result = Zelda;
-                break;
-            case 4: result = Ness;
-                break;
-            case 5: result = Picard;
-                break;
-            case 6: result = Pikachu;
-                break;
-            case 7: result = Gundam;
-                break;
-            case 8: result = Spock;
-                break;
-            case 9: result = Vader;
-                break;
-            default: result = Pootis;
-                break;
-        }
-        return result;
-    }
 
     //hook for logging out user by deleting userinfo from local storage
     const navigate = useNavigate();
@@ -152,3 +154,5 @@ export default function Navbar() {
         </div>
     )
 }
+
+export {GetDigitalRoot, ResolveUserIcon};

@@ -213,12 +213,6 @@ code {
   margin: 1em;
 } */
 
-.game-matches-row{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .message-row{
   display: flex;
   flex-direction: column;

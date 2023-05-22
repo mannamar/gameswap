@@ -19,3 +19,10 @@
 .pointer-hover:hover{
     cursor: pointer;
 }
+
+.game-matches-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
