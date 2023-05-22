@@ -7,7 +7,7 @@ import { MessageTo } from './MessageTo';
 import { MessageFrom } from './MessageFrom';
 import { PaperPlaneTilt } from '@phosphor-icons/react';
 import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
-import { getMessageHistory, sendMsg } from '../Services/DataServices';
+import { getMessageHistory, sendMsg, GetAllMsgPartners } from '../Services/DataServices';
 
 function Messages() {
 
@@ -25,11 +25,18 @@ function Messages() {
             console.log(data);
             setMessageList(data);
         }
+        async function populateChatBar(){
+            let data = await GetAllMsgPartners(userID);
+            console.log(data);
+            setChatBar(data);
+        }
+        populateChatBar();
         getDiscussion();
     }, []);
 
     const [ input, setInput ] = useState('');
     const [ messageList, setMessageList ] = useState([]);
+    const [ chatBar, setChatBar ] = useState([]);
     let message:string = '';
 
     const handleMessage = (e: any) => {
@@ -44,7 +51,6 @@ function Messages() {
     }
 
     async function sendMessage (message: string) {
-        //setMessageList([...messageList, <MessageTo outgoingMessage={message} />]);
         let sendMsgData = {
             "FromUserId" : userID,
             "FromUsername" : userJson.Username,
@@ -70,6 +76,16 @@ function Messages() {
             <Container fluid>
                 <Row>
                     <Col className='users-col' xs={3}>
+                        
+                        {chatBar.map((item:any, idx:number) => {
+                            return(
+                                <MessagesUser
+                                profilePic={ResolveUserIcon()}
+                                username={'Nixrz'}
+                                starRating={5}
+                                />
+                            )
+                        })}
                         <MessagesUser
                         profilePic={'kenZodiacIcon.png'}
                         username={'Kenzodiac'}
