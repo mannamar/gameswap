@@ -16,14 +16,19 @@ function Messages() {
     let userID = userJson.id;
 
     let defaultMatchData: any = sessionStorage.getItem('ChatWith');
-    let defaultMatchJson = JSON.parse(defaultMatchData);
-    let defaultMatchId = defaultMatchJson.tradeWithUserId;
+    let defaultMatchJson: any, defaultMatchId: any;
+    if (defaultMatchData) {
+        defaultMatchJson = JSON.parse(defaultMatchData);
+        defaultMatchId = defaultMatchJson.tradeWithUserId;
+    }
 
     useEffect(() => {
         async function getDiscussion(){
-            let data = await getMessageHistory(userID, defaultMatchId);
-            console.log(data);
-            setMessageList(data);
+            if (defaultMatchId) {
+                let data = await getMessageHistory(userID, defaultMatchId);
+                console.log(data);
+                setMessageList(data);
+            }
         }
         async function populateChatBar(){
             let data = await GetAllMsgPartners(userID);
