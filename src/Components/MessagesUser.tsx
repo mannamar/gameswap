@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import './MessagesUser.css';
 
 interface MessageUserProps {
     profilePic: string;
@@ -11,7 +12,7 @@ function MessagesUser({profilePic, username, starRating}: MessageUserProps) {
     <div className="user-item-body-div">
         <Row className='user-item-row'>
             <Col xs={3}>
-                <img src={require(`../Assets/Images/GameCoverPlaceholders/${profilePic}`)}/>
+                <img src={profilePic} className={"profile-pic-sidebar"}/>
             </Col>
             <Col xs={4}>
                 <p>{username}</p>

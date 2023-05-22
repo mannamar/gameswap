@@ -48,11 +48,15 @@ function Messages() {
         setInput(e.target.value);
         // console.log(message);
     }
-    
     const handleClick = () => {
         message = input;
         // console.log(message);
         sendMessage(message);
+    }
+
+    async function handleClickSidebar(e: any){
+        let data = await getMessageHistory(userID, e);
+        setMessageList(data);
     }
 
     async function sendMessage (message: string) {
@@ -84,23 +88,15 @@ function Messages() {
                         
                         {chatBar.map((item:any, idx:number) => {
                             return(
-                                <MessagesUser
-                                profilePic={ResolveUserIcon()}
-                                username={'Nixrz'}
-                                starRating={5}
-                                />
+                                <div onClick={() => handleClickSidebar(item.userId)}>
+                                    <MessagesUser
+                                        profilePic={ResolveUserIcon(item.userId)}
+                                        username={item.username}
+                                        starRating={5}
+                                    />
+                                </div>
                             )
                         })}
-                        <MessagesUser
-                        profilePic={'kenZodiacIcon.png'}
-                        username={'Kenzodiac'}
-                        starRating={5}
-                        />
-                        <MessagesUser
-                        profilePic={'nixrzIcon.png'}
-                        username={'Nixrz'}
-                        starRating={5}
-                        />
                     </Col>
                     <Col>
                         <Row className="message-row">
