@@ -88,6 +88,7 @@ function Messages() {
             let data = await getMessageHistory(userID, chatRecipientId);
             console.log(data);
             setMessageList(data);
+            setInput('');
         }
     }
 
@@ -149,7 +150,7 @@ function Messages() {
                                 <Row className={chatRecipientId && chatRecipient ? "" : "d-none"}>
                                     <Col xs={11}>
                                         <Form.Control as="textarea" placeholder='Type a message' rows={1}
-                                            onChange={handleMessage} />
+                                            onChange={handleMessage} value={input}/>
                                     </Col>
                                     <Col xs={1}>
                                         <button className='message-send-btn'
