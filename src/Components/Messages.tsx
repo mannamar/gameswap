@@ -88,7 +88,6 @@ function Messages() {
                     </Col>
                     <Col>
                         <Row className="message-row">
-                            <br />
                             <Col>
                                 <div className='messages'>
                                     {messageList.map((item:any, idx:number) => {
@@ -104,7 +103,6 @@ function Messages() {
                                     })}
                                 </div>
                             </Col>
-                            <br />
                             <Col>
                                 <Row>
                                     <Col xs={11}>
