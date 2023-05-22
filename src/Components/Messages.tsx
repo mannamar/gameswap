@@ -11,12 +11,12 @@ import { getMessageHistory, sendMsg, GetAllMsgPartners } from '../Services/DataS
 import { useLocation } from 'react-router-dom';
 
 function Messages() {
-    const [ input, setInput ] = useState('');
-    const [ messageList, setMessageList ] = useState([]);
-    const [ chatBar, setChatBar ] = useState([]);
-    const [ chatRecipient, setChatRecipient ] = useState('');
-    const [ chatRecipientId, setChatRecipientId ] = useState(0);
-    let message:string = '';
+    const [input, setInput] = useState('');
+    const [messageList, setMessageList] = useState([]);
+    const [chatBar, setChatBar] = useState([]);
+    const [chatRecipient, setChatRecipient] = useState('');
+    const [chatRecipientId, setChatRecipientId] = useState(0);
+    let message: string = '';
 
     let userData: any = localStorage.getItem('LoggedInUser');
     let userJson = JSON.parse(userData);
@@ -26,24 +26,24 @@ function Messages() {
     let matchInfo = location.state;
     console.log(matchInfo);
 
-    let defaultMatchData: any = sessionStorage.getItem('ChatWith');
+    // let defaultMatchData: any = sessionStorage.getItem('ChatWith');
     let defaultMatchJson: any, defaultMatchId: any, defaultMatchUsername: any;
-    if (defaultMatchData) {
-        defaultMatchJson = JSON.parse(defaultMatchData);
-        defaultMatchId = defaultMatchJson.tradeWithUserId;
-        defaultMatchUsername = defaultMatchJson.tradeWithUsername;
+    if (matchInfo) {
+        // defaultMatchJson = JSON.parse(defaultMatchData);
+        defaultMatchId = matchInfo.tradeWithUserId;
+        defaultMatchUsername = matchInfo.tradeWithUsername;
         // setChatRecipient(defaultMatchId);
     }
 
     useEffect(() => {
-        async function getDiscussion(){
+        async function getDiscussion() {
             if (defaultMatchId) {
                 let data = await getMessageHistory(userID, defaultMatchId);
                 console.log(data);
                 setMessageList(data);
             }
         }
-        async function populateChatBar(){
+        async function populateChatBar() {
             let data = await GetAllMsgPartners(userID);
             console.log(data);
             setChatBar(data);
@@ -65,7 +65,7 @@ function Messages() {
         sendMessage(message);
     }
 
-    async function handleClickSidebar(item: any){
+    async function handleClickSidebar(item: any) {
         let data = await getMessageHistory(userID, item.userId);
         console.log(data);
         defaultMatchId = item.userId;
@@ -75,23 +75,23 @@ function Messages() {
         setMessageList(data);
     }
 
-    async function sendMessage (message: string) {
+    async function sendMessage(message: string) {
         let sendMsgData = {
-            "FromUserId" : userID,
-            "FromUsername" : userJson.username,
-            "ToUserId" : chatRecipientId,
-            "ToUsername" : chatRecipient,
-            "Message" : message
+            "FromUserId": userID,
+            "FromUsername": userJson.username,
+            "ToUserId": chatRecipientId,
+            "ToUsername": chatRecipient,
+            "Message": message
         };
-        if (message != null){
+        if (message != null && chatRecipientId != null && chatRecipient != null) {
             await sendMsg(sendMsgData);
         }
     }
 
-    return(
+    return (
         <div>
             <Container fluid className="hero-bg-messages">
-                <Navbar/>
+                <Navbar />
                 <Row className="header-and-description">
                     <Col>
                         <h1>Messages</h1>
@@ -101,11 +101,20 @@ function Messages() {
             <Container fluid>
                 <Row>
                     <Col className='users-col' xs={3}>
-                        
-                        {chatBar.map((item:any, idx:number) => {
+                        {matchInfo ?
+                            <div onClick={async () => await handleClickSidebar({ userId: matchInfo.tradeWithUserId, username: matchInfo.tradeWithUsername })}>
+                                <MessagesUser
+                                    profilePic={ResolveUserIcon(matchInfo.tradeWithUserId)}
+                                    username={matchInfo.tradeWithUsername}
+                                    starRating={5}
+                                />
+                            </div> : null
+                        }
+
+                        {chatBar.map((item: any, idx: number) => {
                             console.log(item);
-                            return(
-                                <div onClick={async() => await handleClickSidebar(item)}>
+                            return (
+                                <div onClick={async () => await handleClickSidebar(item)}>
                                     <MessagesUser
                                         profilePic={ResolveUserIcon(item.userId)}
                                         username={item.username}
@@ -119,8 +128,8 @@ function Messages() {
                         <Row className="message-row">
                             <Col>
                                 <div className='messages'>
-                                    {messageList.map((item:any, idx:number) => {
-                                        return(
+                                    {messageList.map((item: any, idx: number) => {
+                                        return (
                                             <div>
                                                 {item.fromUserId === userID ? (
                                                     <MessageTo outgoingMessage={item.message} />
@@ -133,18 +142,20 @@ function Messages() {
                                 </div>
                             </Col>
                             <Col>
-                                <Row>
+
+                                <Row className={chatRecipientId && chatRecipient ? "" : "d-none"}>
                                     <Col xs={11}>
                                         <Form.Control as="textarea" placeholder='Type a message' rows={1}
-                                        onChange={handleMessage} />
+                                            onChange={handleMessage} />
                                     </Col>
                                     <Col xs={1}>
                                         <button className='message-send-btn'
-                                        onClick={handleClick}>
+                                            onClick={handleClick}>
                                             <PaperPlaneTilt size={25} />
                                         </button>
                                     </Col>
                                 </Row>
+
                             </Col>
                         </Row>
                     </Col>
