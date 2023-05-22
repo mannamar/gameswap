@@ -10,16 +10,23 @@ import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
 import { getMessageHistory, sendMsg, GetAllMsgPartners } from '../Services/DataServices';
 
 function Messages() {
+    const [ input, setInput ] = useState('');
+    const [ messageList, setMessageList ] = useState([]);
+    const [ chatBar, setChatBar ] = useState([]);
+    // const [ chatRecipient, setChatRecipient ] = useState(0);
+    let message:string = '';
 
     let userData: any = localStorage.getItem('LoggedInUser');
     let userJson = JSON.parse(userData);
     let userID = userJson.id;
 
     let defaultMatchData: any = sessionStorage.getItem('ChatWith');
-    let defaultMatchJson: any, defaultMatchId: any;
+    let defaultMatchJson: any, defaultMatchId: any, defaultMatchUsername: any;
     if (defaultMatchData) {
         defaultMatchJson = JSON.parse(defaultMatchData);
         defaultMatchId = defaultMatchJson.tradeWithUserId;
+        defaultMatchUsername = defaultMatchJson.tradeWithUsername;
+        // setChatRecipient(defaultMatchId);
     }
 
     useEffect(() => {
@@ -39,10 +46,6 @@ function Messages() {
         getDiscussion();
     }, []);
 
-    const [ input, setInput ] = useState('');
-    const [ messageList, setMessageList ] = useState([]);
-    const [ chatBar, setChatBar ] = useState([]);
-    let message:string = '';
 
     const handleMessage = (e: any) => {
         setInput(e.target.value);
@@ -54,15 +57,18 @@ function Messages() {
         sendMessage(message);
     }
 
-    async function handleClickSidebar(e: any){
-        let data = await getMessageHistory(userID, e);
+    async function handleClickSidebar(item: any){
+        let data = await getMessageHistory(userID, item.userId);
+        console.log(data);
         setMessageList(data);
+        defaultMatchId = item.userId;
+        defaultMatchUsername = item.username;
     }
 
     async function sendMessage (message: string) {
         let sendMsgData = {
             "FromUserId" : userID,
-            "FromUsername" : userJson.Username,
+            "FromUsername" : userJson.username,
             "ToUserId" : defaultMatchId,
             "ToUsername" : defaultMatchJson.tradeWithUsername,
             "Message" : message
@@ -87,8 +93,9 @@ function Messages() {
                     <Col className='users-col' xs={3}>
                         
                         {chatBar.map((item:any, idx:number) => {
+                            console.log(item);
                             return(
-                                <div onClick={() => handleClickSidebar(item.userId)}>
+                                <div onClick={async() => await handleClickSidebar(item)}>
                                     <MessagesUser
                                         profilePic={ResolveUserIcon(item.userId)}
                                         username={item.username}
