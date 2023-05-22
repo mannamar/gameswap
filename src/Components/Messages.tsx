@@ -7,7 +7,7 @@ import { MessageTo } from './MessageTo';
 import { MessageFrom } from './MessageFrom';
 import { PaperPlaneTilt } from '@phosphor-icons/react';
 import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
-import { getMessageHistory, sendMsg } from '../Services/DataServices';
+import { getMessageHistory, sendMsg, GetAllMsgPartners } from '../Services/DataServices';
 
 function Messages() {
 
@@ -30,26 +30,36 @@ function Messages() {
                 setMessageList(data);
             }
         }
+        async function populateChatBar(){
+            let data = await GetAllMsgPartners(userID);
+            console.log(data);
+            setChatBar(data);
+        }
+        populateChatBar();
         getDiscussion();
     }, []);
 
     const [ input, setInput ] = useState('');
     const [ messageList, setMessageList ] = useState([]);
+    const [ chatBar, setChatBar ] = useState([]);
     let message:string = '';
 
     const handleMessage = (e: any) => {
         setInput(e.target.value);
         // console.log(message);
     }
-    
     const handleClick = () => {
         message = input;
         // console.log(message);
         sendMessage(message);
     }
 
+    async function handleClickSidebar(e: any){
+        let data = await getMessageHistory(userID, e);
+        setMessageList(data);
+    }
+
     async function sendMessage (message: string) {
-        //setMessageList([...messageList, <MessageTo outgoingMessage={message} />]);
         let sendMsgData = {
             "FromUserId" : userID,
             "FromUsername" : userJson.Username,
@@ -75,16 +85,18 @@ function Messages() {
             <Container fluid>
                 <Row>
                     <Col className='users-col' xs={3}>
-                        <MessagesUser
-                        profilePic={'kenZodiacIcon.png'}
-                        username={'Kenzodiac'}
-                        starRating={5}
-                        />
-                        <MessagesUser
-                        profilePic={'nixrzIcon.png'}
-                        username={'Nixrz'}
-                        starRating={5}
-                        />
+                        
+                        {chatBar.map((item:any, idx:number) => {
+                            return(
+                                <div onClick={() => handleClickSidebar(item.userId)}>
+                                    <MessagesUser
+                                        profilePic={ResolveUserIcon(item.userId)}
+                                        username={item.username}
+                                        starRating={5}
+                                    />
+                                </div>
+                            )
+                        })}
                     </Col>
                     <Col>
                         <Row className="message-row">

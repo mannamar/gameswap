@@ -153,4 +153,10 @@ async function sendMsg(message: any){
     console.log(data);
 }
 
-export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, getTradeItems, deleteTradeItem, getMatches, getMessageHistory, sendMsg, userData };
+async function GetAllMsgPartners(userId: number){
+    const response = await fetch(`https://gameswapapi.azurewebsites.net/Message/GetAllMsgPartners/${userId}`);
+    const data = response.json();
+    return data;
+}
+
+export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, getTradeItems, deleteTradeItem, getMatches, getMessageHistory, sendMsg, GetAllMsgPartners, userData };
