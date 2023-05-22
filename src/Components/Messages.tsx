@@ -116,7 +116,9 @@ function Messages() {
                         }
 
                         {chatBar.map((item: any, idx: number) => {
-                            console.log(item);
+                            if (matchInfo && item.userId === matchInfo.tradeWithUserId) {
+                                return null;
+                            }
                             return (
                                 <div onClick={async () => await handleClickSidebar(item)}>
                                     <MessagesUser

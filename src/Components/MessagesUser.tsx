@@ -15,7 +15,7 @@ function MessagesUser({profilePic, username, starRating}: MessageUserProps) {
                 <img src={profilePic} className={"profile-pic-sidebar"}/>
             </Col>
             <Col xs={4}>
-                <p>{username}</p>
+                <p className="fw-bold">{username}</p>
                 <Row className='star-rating-row'>
                     <Col xs={1}>
                         <img src={require('../Assets/Images/starIcon.png')} />
