@@ -45,31 +45,8 @@ function Matches() {
                 </Row>
             </Container>
             <Container>
+                {matches.length === 0 ? <p className='mt-5'>You don't have any matches yet. Add more games to your wishlist to up your chances.</p> : null}
                 <div className='game-matches-row'>
-                    {/* <MatchItem
-                        className={'pointer-hover'}
-                        onClick={handleClick}
-                        youRecieveCover={'Mario Odyssey 1.png'}
-                        youRecieveTitle={'Super Mario Odyssey'}
-                        theyRecieveCover={'Elden Ring 1.png'}
-                        theyRecieveTitle={'Elden Ring'}
-                        userProfilePic={'kenZodiacIcon.png'}
-                        username={'Kenzodiac'}
-                        starRating={5}
-                        mi={2.1}
-                    />
-                    <MatchItem
-                        className={'pointer-hover'}
-                        onClick={handleClick}
-                        youRecieveCover={'Mario Odyssey 1.png'}
-                        youRecieveTitle={'Super Mario Odyssey'}
-                        theyRecieveCover={'Elden Ring 1.png'}
-                        theyRecieveTitle={'Elden Ring'}
-                        userProfilePic={'nixrzIcon.png'}
-                        username={'Nixrz'}
-                        starRating={5}
-                        mi={6.5}
-                    /> */}
                     {matches.map((item, idx) => {
                         console.log(matches[idx]);
                         return (
