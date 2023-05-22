@@ -12,9 +12,11 @@ function Matches() {
 
     const navigate = useNavigate();
 
-    async function handleClick(idx: number) {
+    async function handleClick(item: any, idx: number) {
         sessionStorage.setItem("ChatWith", JSON.stringify(matches[idx]));
-        navigate("/Messages");
+        navigate("/Messages", {
+            state: item
+        });
     }
 
     let userData: any = localStorage.getItem('LoggedInUser');
@@ -74,7 +76,7 @@ function Matches() {
                             <MatchItem
                                 key={idx}
                                 className={'pointer-hover'}
-                                onClick={() => handleClick(idx)}
+                                onClick={() => handleClick(item, idx)}
                                 youRecieveCover={item['receiveCoverImg']}
                                 youRecieveTitle={item['receiveGameName']}
                                 theyRecieveCover={item['giveCoverImg']}

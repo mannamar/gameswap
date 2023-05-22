@@ -8,6 +8,7 @@ import { MessageFrom } from './MessageFrom';
 import { PaperPlaneTilt } from '@phosphor-icons/react';
 import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
 import { getMessageHistory, sendMsg, GetAllMsgPartners } from '../Services/DataServices';
+import { useLocation } from 'react-router-dom';
 
 function Messages() {
     const [ input, setInput ] = useState('');
@@ -20,6 +21,10 @@ function Messages() {
     let userData: any = localStorage.getItem('LoggedInUser');
     let userJson = JSON.parse(userData);
     let userID = userJson.id;
+
+    const location = useLocation();
+    let matchInfo = location.state;
+    console.log(matchInfo);
 
     let defaultMatchData: any = sessionStorage.getItem('ChatWith');
     let defaultMatchJson: any, defaultMatchId: any, defaultMatchUsername: any;
