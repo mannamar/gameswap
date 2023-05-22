@@ -12,7 +12,8 @@ function Matches() {
 
     const navigate = useNavigate();
 
-    async function handleClick() {
+    async function handleClick(idx: number) {
+        sessionStorage.setItem("ChatWith", JSON.stringify(matches[idx]));
         navigate("/Messages");
     }
 
@@ -68,11 +69,12 @@ function Matches() {
                         mi={6.5}
                     /> */}
                     {matches.map((item, idx) => {
+                        console.log(matches[idx]);
                         return (
                             <MatchItem
                                 key={idx}
                                 className={'pointer-hover'}
-                                onClick={handleClick}
+                                onClick={() => handleClick(idx)}
                                 youRecieveCover={item['receiveCoverImg']}
                                 youRecieveTitle={item['receiveGameName']}
                                 theyRecieveCover={item['giveCoverImg']}

@@ -1,41 +1,61 @@
 import './Messages.css';
-import { useState, createElement } from 'react';
+import { useState, createElement, useEffect } from 'react';
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Navbar from "./Navbar";
 import { MessagesUser } from './MessagesUser';
 import { MessageTo } from './MessageTo';
 import { MessageFrom } from './MessageFrom';
 import { PaperPlaneTilt } from '@phosphor-icons/react';
+import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
+import { getMessageHistory, sendMsg } from '../Services/DataServices';
 
 function Messages() {
 
+    let userData: any = localStorage.getItem('LoggedInUser');
+    let userJson = JSON.parse(userData);
+    let userID = userJson.id;
+
+    let defaultMatchData: any = sessionStorage.getItem('ChatWith');
+    let defaultMatchJson = JSON.parse(defaultMatchData);
+    let defaultMatchId = defaultMatchJson.tradeWithUserId;
+
+    useEffect(() => {
+        async function getDiscussion(){
+            let data = await getMessageHistory(userID, defaultMatchId);
+            console.log(data);
+            setMessageList(data);
+        }
+        getDiscussion();
+    }, []);
+
     const [ input, setInput ] = useState('');
-    const [ messageList, setMessageList ] = useState([
-        (<MessageTo outgoingMessage={'This is a test message. I would like to be sure that passing props into this component works.'} />),
-        (<MessageFrom incomingMessage={'Hello. It seems that it is working well at the moment.'} />),
-        (<MessageTo outgoingMessage={"That's good. Thank you for confirming it. I appreciate it."} />)
-    ]);
+    const [ messageList, setMessageList ] = useState([]);
     let message:string = '';
-
-
 
     const handleMessage = (e: any) => {
         setInput(e.target.value);
         // console.log(message);
     }
     
-
     const handleClick = () => {
         message = input;
         // console.log(message);
         sendMessage(message);
     }
 
-    function sendMessage (message: string) {
-        setMessageList([...messageList, <MessageTo outgoingMessage={message} />]);
+    async function sendMessage (message: string) {
+        //setMessageList([...messageList, <MessageTo outgoingMessage={message} />]);
+        let sendMsgData = {
+            "FromUserId" : userID,
+            "FromUsername" : userJson.Username,
+            "ToUserId" : defaultMatchId,
+            "ToUsername" : defaultMatchJson.tradeWithUsername,
+            "Message" : message
+        };
+        if (message != null){
+            await sendMsg(sendMsgData);
+        }
     }
-
-
 
     return(
         <div>
@@ -66,7 +86,17 @@ function Messages() {
                             <br />
                             <Col>
                                 <div className='messages'>
-                                    {messageList}
+                                    {messageList.map((item:any, idx:number) => {
+                                        return(
+                                            <div>
+                                                {item.fromUserId === userID ? (
+                                                    <MessageTo outgoingMessage={item.message} />
+                                                ) : (
+                                                    <MessageFrom incomingMessage={item.message} />
+                                                )}
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                             </Col>
                             <br />

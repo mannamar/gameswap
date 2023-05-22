@@ -129,4 +129,28 @@ async function getMatches(UserId: number) {
     return data;
 }
 
-export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, getTradeItems, deleteTradeItem, getMatches, userData };
+// Messages
+
+async function getMessageHistory(User1Id: number, User2Id: number){
+    const response = await fetch(`https://gameswapapi.azurewebsites.net/Message/GetAllMsgs2Users/${User1Id}/${User2Id}`);
+    const data = response.json();
+    return data;
+}
+
+async function sendMsg(message: any){
+    const response = await fetch('https://gameswapapi.azurewebsites.net/Message/SendMsg', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(message)
+    });
+    if (!response.ok) {
+        const message = `An Error has Occured ${response.status}`;
+        throw new Error(message);
+    }
+    let data = await response.json();
+    console.log(data);
+}
+
+export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, getTradeItems, deleteTradeItem, getMatches, getMessageHistory, sendMsg, userData };
