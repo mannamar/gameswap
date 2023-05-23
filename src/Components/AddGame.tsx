@@ -133,8 +133,8 @@ function AddGame() {
                                 </Form.Select>
                             </Col>
                             <Col xs={3}>
-                                <div className='join-btn'>
-                                    Save
+                                <div className='join-btn upd-btn'>
+                                    Update
                                 </div>
                             </Col>
                         </Row>
@@ -169,7 +169,7 @@ function AddGame() {
                                 <div className='searchBox mt-5'>
                                     {results.map((item, idx) => {
                                         return (
-                                            <SearchResult key={item['id']} onImgClick={async (e: any) => clickGame(e, item)} setOwnedPlatform={setOwnedPlatform} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'} />
+                                            <SearchResult key={item['id']} section={'Trades'} onImgClick={async (e: any) => clickGame(e, item)} setOwnedPlatform={setOwnedPlatform} gameTitle={item['name']} releaseYear={getYear(item['first_release_date'])} platform={item['platforms'] && item['platforms'][0]['abbreviation'] ? parsePlatformNames(item['platforms']) : 'N/A'} imageUrl={item['cover'] !== undefined ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${getImg(item['cover']['url'])}` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png'} />
                                         )
                                     })}
                                 </div>

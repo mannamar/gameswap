@@ -9,9 +9,10 @@ interface WishListItemProps {
     imageUrl: string;
     onImgClick: any;
     setOwnedPlatform: any;
+    section: string;
 }
 
-export default function SearchResult({ gameTitle, releaseYear, platform, imageUrl, onImgClick, setOwnedPlatform }: WishListItemProps) {
+export default function SearchResult({ gameTitle, releaseYear, platform, imageUrl, onImgClick, setOwnedPlatform, section }: WishListItemProps) {
 
     let platformArray = platform.split(', ');
 
@@ -28,7 +29,7 @@ export default function SearchResult({ gameTitle, releaseYear, platform, imageUr
             <div className="imgContainer">
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
                 <div className="overlay" onClick={onImgClick}>
-                    <div className="overlayText">+ Add To Wishlist</div>
+                    <div className="overlayText" onClick={onImgClick}>+ Add To {section}</div>
                     <select className="platDrpDwn"name="cars" id="cars" value={gamePlatform} onChange={handleChange}>
                         {platformArray.map((item, idx) => 
                             <option key={idx} value={item}>{item}</option>

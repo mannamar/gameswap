@@ -238,6 +238,10 @@ code {
   justify-content: center;
 }
 
+.upd-btn {
+  width: 80px;
+}
+
 .join-btn:hover{
   display: flex;
   background-color: #340879;
