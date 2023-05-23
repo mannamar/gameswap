@@ -119,6 +119,9 @@ function Messages() {
                             if (matchInfo && item.userId === matchInfo.tradeWithUserId) {
                                 return null;
                             }
+                            if (messageList.length === 0 && idx === 0 && matchInfo === null) {
+                                handleClickSidebar(item);
+                            }
                             return (
                                 <div onClick={async () => await handleClickSidebar(item)}>
                                     <MessagesUser
