@@ -103,10 +103,10 @@ function Messages() {
                 </Row>
             </Container>
             <Container fluid>
-                <Row>
-                    <Col className='users-col' xs={3}>
+                <Row className="">
+                    <Col className='users-col g-0' xs={3}>
                         {matchInfo ?
-                            <div onClick={async () => await handleClickSidebar({ userId: matchInfo.tradeWithUserId, username: matchInfo.tradeWithUsername })}>
+                            <div className="activeUser" onClick={async () => await handleClickSidebar({ userId: matchInfo.tradeWithUserId, username: matchInfo.tradeWithUsername })}>
                                 <MessagesUser
                                     profilePic={ResolveUserIcon(matchInfo.tradeWithUserId)}
                                     username={matchInfo.tradeWithUsername}
@@ -123,7 +123,7 @@ function Messages() {
                                 handleClickSidebar(item);
                             }
                             return (
-                                <div onClick={async () => await handleClickSidebar(item)}>
+                                <div key={item.id} onClick={async () => await handleClickSidebar(item)}>
                                     <MessagesUser
                                         profilePic={ResolveUserIcon(item.userId)}
                                         username={item.username}

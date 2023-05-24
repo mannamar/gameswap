@@ -28,7 +28,7 @@ function Matches() {
     useEffect(() => {
         async function getData() {
             let data = await getMatches(userID);
-            console.log(data);
+            // console.log(data);
             setMatches(data);
         }
         getData();
@@ -48,7 +48,7 @@ function Matches() {
                 {matches.length === 0 ? <p className='mt-5'>You don't have any matches yet. Add more games to your wishlist to up your chances.</p> : null}
                 <div className='game-matches-row'>
                     {matches.map((item, idx) => {
-                        console.log(matches[idx]);
+                        // console.log(matches[idx]);
                         return (
                             <MatchItem
                                 key={idx}
