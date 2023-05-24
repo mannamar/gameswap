@@ -1,7 +1,9 @@
 import { X, ArrowRight } from "@phosphor-icons/react";
 import { deleteTradeItem, deleteWishItem, getTradeItems, getWishListItems } from "../Services/DataServices";
 import './WishItem.css';
+import './TradeItem.css';
 import { useNavigate } from "react-router-dom";
+
 
 interface WishListItemProps {
     gameTitle: string;
@@ -26,7 +28,7 @@ export default function TradeItem({ gameTitle, releaseYear, platform, imageUrl, 
 
     return (
         <div className="itemBox">
-            <div className="imgContainer">
+            <div className="imgContainer tradeImgContainer">
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
                 <div className="overlay">
                     <X className="imgX" size={36} color="#fff0f0" onClick={handleDelete}/>

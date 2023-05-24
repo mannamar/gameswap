@@ -1,0 +1,7 @@
+.tradeImgContainer:hover .overlay {
+    cursor: default;
+}
+
+.imgX:hover {
+    cursor: pointer;
+}
