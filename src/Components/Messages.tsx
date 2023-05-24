@@ -16,6 +16,8 @@ function Messages() {
     const [chatBar, setChatBar] = useState([]);
     const [chatRecipient, setChatRecipient] = useState('');
     const [chatRecipientId, setChatRecipientId] = useState(0);
+    const [activeUser, setActiveUser] = useState(-1);
+
     let message: string = '';
 
     let userData: any = localStorage.getItem('LoggedInUser');
@@ -65,7 +67,7 @@ function Messages() {
         sendMessage(message);
     }
 
-    async function handleClickSidebar(item: any) {
+    async function handleClickSidebar(item: any, idx: number) {
         let data = await getMessageHistory(userID, item.userId);
         console.log(data);
         defaultMatchId = item.userId;
@@ -73,6 +75,7 @@ function Messages() {
         setChatRecipient(item.username);
         setChatRecipientId(item.userId);
         setMessageList(data);
+        setActiveUser(idx);
     }
 
     async function sendMessage(message: string) {
@@ -106,7 +109,7 @@ function Messages() {
                 <Row className="">
                     <Col className='users-col g-0' xs={3}>
                         {matchInfo ?
-                            <div className="activeUser" onClick={async () => await handleClickSidebar({ userId: matchInfo.tradeWithUserId, username: matchInfo.tradeWithUsername })}>
+                            <div className={activeUser === -1 ? "activeUser" : ""} onClick={async () => await handleClickSidebar({ userId: matchInfo.tradeWithUserId, username: matchInfo.tradeWithUsername }, -1)}>
                                 <MessagesUser
                                     profilePic={ResolveUserIcon(matchInfo.tradeWithUserId)}
                                     username={matchInfo.tradeWithUsername}
@@ -120,10 +123,10 @@ function Messages() {
                                 return null;
                             }
                             if (messageList.length === 0 && idx === 0 && matchInfo === null) {
-                                handleClickSidebar(item);
+                                handleClickSidebar(item, idx);
                             }
                             return (
-                                <div key={item.id} onClick={async () => await handleClickSidebar(item)}>
+                                <div className={activeUser === idx ? "activeUser" : ""} key={item.id} onClick={async () => await handleClickSidebar(item, idx)}>
                                     <MessagesUser
                                         profilePic={ResolveUserIcon(item.userId)}
                                         username={item.username}
