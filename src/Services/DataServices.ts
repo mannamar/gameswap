@@ -160,7 +160,7 @@ async function sendMsg(message: any){
         throw new Error(message);
     }
     let data = await response.json();
-    console.log(data);
+    // console.log(data);
 }
 
 async function GetAllMsgPartners(userId: number){

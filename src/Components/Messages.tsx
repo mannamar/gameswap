@@ -26,7 +26,7 @@ function Messages() {
 
     const location = useLocation();
     let matchInfo = location.state;
-    console.log(matchInfo);
+    // console.log(matchInfo);
 
     // let defaultMatchData: any = sessionStorage.getItem('ChatWith');
     let defaultMatchJson: any, defaultMatchId: any, defaultMatchUsername: any;
@@ -41,13 +41,13 @@ function Messages() {
         async function getDiscussion() {
             if (defaultMatchId) {
                 let data = await getMessageHistory(userID, defaultMatchId);
-                console.log(data);
+                // console.log(data);
                 setMessageList(data);
             }
         }
         async function populateChatBar() {
             let data = await GetAllMsgPartners(userID);
-            console.log(data);
+            // console.log(data);
             setChatBar(data);
         }
         populateChatBar();
@@ -69,7 +69,7 @@ function Messages() {
 
     async function handleClickSidebar(item: any, idx: number) {
         let data = await getMessageHistory(userID, item.userId);
-        console.log(data);
+        // console.log(data);
         defaultMatchId = item.userId;
         defaultMatchUsername = item.username;
         setChatRecipient(item.username);
@@ -89,7 +89,7 @@ function Messages() {
         if (message != null && chatRecipientId != null && chatRecipient != null) {
             await sendMsg(sendMsgData);
             let data = await getMessageHistory(userID, chatRecipientId);
-            console.log(data);
+            // console.log(data);
             setMessageList(data);
             setInput('');
         }
