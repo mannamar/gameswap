@@ -46,7 +46,7 @@ function Matches() {
             </Container>
             <Container>
                 {matches.length === 0 ? <p className='mt-5'>You don't have any matches yet. Add more games to your wishlist to up your chances.</p> : null}
-                <div className='game-matches-row'>
+                <div className='game-matches-row mb-5'>
                     {matches.map((item, idx) => {
                         // console.log(matches[idx]);
                         return (

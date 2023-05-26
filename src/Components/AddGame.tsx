@@ -23,6 +23,7 @@ function AddGame() {
     let platformsArray = gameInfo.allPlatforms.split(', ');
 
     const [dropPlat, setDropPlat] = useState(gameInfo.platform);
+    const [newPlat, setNewPlat] = useState(gameInfo.platform);
 
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
@@ -134,6 +135,7 @@ function AddGame() {
                             </Col>
                             <Col xs={3}>
                                 <div className='join-btn upd-btn' onClick={async () => {
+                                        setNewPlat(dropPlat);
                                         let didUpdate = await updateWishPlatform(gameInfo.wishId, dropPlat)
                                         if (didUpdate) {
                                             setShow(true);
@@ -192,7 +194,7 @@ function AddGame() {
                     <strong className="me-auto">{gameInfo.gameTitle}</strong>
                     <small>now</small>
                 </Toast.Header>
-                <Toast.Body>Platform updated to {dropPlat}</Toast.Body>
+                <Toast.Body>Platform updated to {newPlat}</Toast.Body>
             </Toast>
         </div>
     );
