@@ -106,7 +106,7 @@ function Messages() {
                 </Row>
             </Container>
             <Container fluid>
-                <Row className="">
+                <Row className="message-page-body">
                     <Col className='users-col g-0' xs={3}>
                         {matchInfo ?
                             <div className={activeUser === -1 ? "activeUser" : ""} onClick={async () => await handleClickSidebar({ userId: matchInfo.tradeWithUserId, username: matchInfo.tradeWithUsername }, -1)}>

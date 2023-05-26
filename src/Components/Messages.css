@@ -161,4 +161,10 @@
         display: flex;
         flex-direction: column;
     }
+
+    .users-col{
+        border-right: solid 2px;
+        height: calc(100vh - 25em);
+        overflow-y: auto;
+    }
 }
