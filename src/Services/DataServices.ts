@@ -55,6 +55,8 @@ async function getLoggedInUserData(username: any) {
     return userData;
 }
 
+// Wishlist
+
 async function addToWishlist(saveItem: any) {
     // console.log(saveItem);
     const response = await fetch('https://gameswapapi.azurewebsites.net/WishList/AddWishListItem', {
@@ -82,6 +84,14 @@ async function getWishListItems(UserId: number) {
 
 async function deleteWishItem(ItemId: number) {
     const response = await fetch(`https://gameswapapi.azurewebsites.net/WishList/DeleteWishListItem/${ItemId}`, {
+        method: "POST"
+    });
+    const data = response.json();
+    return data;
+}
+
+async function updateWishPlatform(ItemId: number, newPlatform: string) {
+    const response = await fetch(`https://gameswapapi.azurewebsites.net/WishList/UpdateWishItemPlatform/${ItemId}/${newPlatform}`, {
         method: "POST"
     });
     const data = response.json();
@@ -159,4 +169,4 @@ async function GetAllMsgPartners(userId: number){
     return data;
 }
 
-export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, addToTrades, getTradeItems, deleteTradeItem, getMatches, getMessageHistory, sendMsg, GetAllMsgPartners, userData };
+export { createAccount, loginAccount, getLoggedInUserData, addToWishlist, getWishListItems, deleteWishItem, updateWishPlatform ,addToTrades, getTradeItems, deleteTradeItem, getMatches, getMessageHistory, sendMsg, GetAllMsgPartners, userData };

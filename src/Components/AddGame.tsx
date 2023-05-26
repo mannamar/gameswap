@@ -5,7 +5,7 @@ import { platform } from "os";
 import { useEffect, useState } from "react";
 import { searchForGames } from "../Services/IgdbServices";
 import SearchResult from "./SearchResult";
-import { addToTrades, getTradeItems } from "../Services/DataServices";
+import { updateWishPlatform, addToTrades, getTradeItems } from "../Services/DataServices";
 import WishItem from "./WishItem";
 import TradeItem from "./TradeItem";
 
@@ -133,7 +133,7 @@ function AddGame() {
                                 </Form.Select>
                             </Col>
                             <Col xs={3}>
-                                <div className='join-btn upd-btn'>
+                                <div className='join-btn upd-btn' onClick={() => updateWishPlatform(gameInfo.wishId, dropPlat)}>
                                     Update
                                 </div>
                             </Col>
