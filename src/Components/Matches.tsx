@@ -2,11 +2,11 @@ import { Container, Col, Row } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { MatchItem } from './MatchItem/MatchItem';
-import Navbar from './Navbar';
+import Navbar from './GSNavbar';
 import './Matches.css';
 import { useEffect, useState } from 'react';
 import { getMatches } from '../Services/DataServices';
-import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
+import { GetDigitalRoot, ResolveUserIcon } from './GSNavbar';
 
 function Matches() {
 

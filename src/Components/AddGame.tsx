@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./GSNavbar";
 import { platform } from "os";
 import { useEffect, useState } from "react";
 import { searchForGames } from "../Services/IgdbServices";

@@ -4,7 +4,7 @@ import { createAccount, loginAccount, getLoggedInUserData } from '../Services/Da
 import { useNavigate } from 'react-router-dom';
 import { EventKey } from '@restart/ui/esm/types';
 import './SignUp.css';
-import Navbar from './Navbar';
+import Navbar from './GSNavbar';
 import { FileX } from '@phosphor-icons/react';
 
 interface Props {
@@ -90,7 +90,7 @@ function SignUp(props: Props) {
 
                     <Col xl={8} lg={7} md={6} sm={5} xs={12} className="signup-page-left-side mx-0">
                         <Row>
-                            <Col style={{ marginBottom: "40%" }}>
+                            <Col>
                                 <div className="login-screen-slogan">
                                     <span>By Gamers.</span><br />
                                     <span style={{ color: '#AB83ED' }}>For Gamers.</span>
@@ -100,7 +100,7 @@ function SignUp(props: Props) {
                         </Row>
                     </Col>
 
-                    <Col xl={4} lg={5} md={6} sm={5} xs={12} className='form-section overflow-auto d-flex justify-content-center'>
+                    <Col xl={4} lg={5} md={6} sm={7} xs={12} className='form-section overflow-auto d-flex justify-content-center'>
                         <div style={{width: '90%'}}>
                         <Tabs defaultActiveKey={props.loginSignup} id="uncontrolled-tab-example">
 
