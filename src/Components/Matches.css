@@ -10,11 +10,10 @@
     text-decoration: none;
     color: black;
 }
-
-.no-decoration:hover{
-    text-decoration: none;
-    color: #420D98;
-}
+    .no-decoration:hover{
+        text-decoration: none;
+        color: #420D98;
+    }
 
 .pointer-hover:hover{
     cursor: pointer;
@@ -24,5 +23,5 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
-
