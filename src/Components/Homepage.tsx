@@ -111,13 +111,13 @@ function HomePage() {
                     <div className={"home-new-release-header"} style={{color: 'white'}}>Trending</div>
 
                         {/* Beginning of New Releases Carousel */}
-                        <Carousel>
+                        <Carousel className="mb-4">
                             <Carousel.Item>
                                 <Row className="game-row">
                                     <Col className="game-row-item">
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Mario Kart 1.png')} alt="Cover for Mario Kart 8" onClick={handleClick} />
                                     </Col>
-                                    <Col className="game-row-item">
+                                    <Col>
                                         <img src={require('../Assets/Images/GameCoverPlaceholders/Elden Ring 1.png')} alt="Cover for Elden Ring" onClick={handleClick} />
                                     </Col>
                                     <Col className="game-row-item">
