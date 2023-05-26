@@ -2,11 +2,11 @@ import { Container, Col, Row } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { MatchItem } from './MatchItem/MatchItem';
-import Navbar from './Navbar';
+import Navbar from './GSNavbar';
 import './Matches.css';
 import { useEffect, useState } from 'react';
 import { getMatches } from '../Services/DataServices';
-import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
+import { GetDigitalRoot, ResolveUserIcon } from './GSNavbar';
 
 function Matches() {
 
@@ -44,7 +44,7 @@ function Matches() {
                     </Col>
                 </Row>
             </Container>
-            <Container>
+            <Container fluid>
                 {matches.length === 0 ? <p className='mt-5'>You don't have any matches yet. Add more games to your wishlist to up your chances.</p> : null}
                 <div className='game-matches-row mb-5'>
                     {matches.map((item, idx) => {

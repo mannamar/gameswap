@@ -22,6 +22,13 @@
     justify-content: center;
     align-items: center; 
 }
+    @media only screen and (max-width: 575px) {
+        .signup-page-left-side {
+            height: auto;
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+    }
 
 .login-screen-slogan {
     font-size: 64px;
@@ -42,6 +49,11 @@
     height: 100vh;
     padding-top: calc(5% + 5vmin);
 }
+    @media only screen and (max-width: 575px) {
+        .form-section {
+            height: auto;
+        }
+    }
 
 .form-control {
     border: 1px solid #9A9A9A !important;

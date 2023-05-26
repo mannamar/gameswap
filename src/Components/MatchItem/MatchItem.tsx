@@ -28,52 +28,40 @@ interface MatchProps {
 
 function MatchItem({ youRecieveCover, youRecieveTitle, theyRecieveCover, theyRecieveTitle, userProfilePic, username, starRating, mi, onClick, className }: MatchProps) {
     return (
-        <div onClick={onClick} className='pointer-hover matchBox'>
+        <div onClick={onClick} className='game-trade-matches'>
             {/* This is the start of a game trade item */}
-            <Row className='game-trade-matches'>
-                <Col className='game-match'>
-                    <Row>
-                        <Col xs={6} className='center-matches'>
-                            <img className='matches-game-cover' alt='Game Cover' src={youRecieveCover} />
-                        </Col>
-                        <Col xs={6} className='center-matches'>
-                            <img className='matches-game-cover' alt='Game Cover' src={theyRecieveCover} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <p className='pt-4'>You Receive: <span className='lightPurp'>{youRecieveTitle}</span></p>
-                            <p className=''>They Receive: <span className='lightPurp'>{theyRecieveTitle}</span></p>
-                        </Col>
-                    </Row>
-                    <Row className='post-info-row'>
-                        <Col xs={3}>
-                            <img src={userProfilePic} className='userIcon' alt='Icon of trade partner'/>
-                        </Col>
-                        <Col>
-                            <Row>
-                                <Col xs={10}>
-                                    <p><strong>{username}</strong></p>
-                                </Col>
-                                <Col>
-                                    <Row className='star-rating'>
-                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
-                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
-                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
-                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
-                                        <Col xs={2}><img src={require('../../Assets/Images/starIcon.png')} /></Col>
-                                    </Row>
-                                    
-                                    
-                                </Col>
-                            </Row>
-                        </Col>
-                        <Col>
-                            {/* <p>{mi}mi</p> */}
-                        </Col>
-                    </Row>
+            <Row>
+                <Col className='d-flex justify-content-between'>
+                    <img className='matches-game-cover' alt='Game Cover' src={youRecieveCover} />
+                    <img className='matches-game-cover' alt='Game Cover' src={theyRecieveCover} />
                 </Col>
             </Row>
+            <div className="info-area">
+                <div style={{ marginTop: '16px' }}>
+                    <div className='recieve-txt'>You Receive: <span className='lightPurp'>{youRecieveTitle}</span></div>
+                    <div className='recieve-txt'>They Receive: <span className='lightPurp'>{theyRecieveTitle}</span></div>
+                </div>
+                <div className="">
+                    <div className="d-flex flex-row">
+                        <div style={{ marginRight: '14px' }}>
+                            <img src={userProfilePic} className='userIcon' alt='Icon of trade partner' />
+                        </div>
+                        <div className='d-flex flex-column justify-content-around'>
+                            <div className={"match-username"}>{username}</div>
+                            <div>
+                                <img style={{ marginRight: '2px' }} src={require('../../Assets/Images/starIcon.png')} />
+                                <img style={{ marginRight: '2px' }} src={require('../../Assets/Images/starIcon.png')} />
+                                <img style={{ marginRight: '2px' }} src={require('../../Assets/Images/starIcon.png')} />
+                                <img style={{ marginRight: '2px' }} src={require('../../Assets/Images/starIcon.png')} />
+                                <img style={{ marginRight: '2px' }} src={require('../../Assets/Images/starIcon.png')} />
+                            </div>
+                            <div>
+                                {/* <p>{mi}mi</p> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {/* This is the end of a game trade item */}
         </div>
     )

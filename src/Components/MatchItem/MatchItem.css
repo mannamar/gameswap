@@ -1,43 +1,50 @@
 /* CSS Data for Match Item */
 
 .game-trade-matches {
-  display: flex;
-  background-color: #e9e9e9;
-  flex-direction: column;
-  width: 25em;
-  padding: 1em;
-  justify-content: center;
-  align-items: center;
+  background-color: #E9E9E9;
+  width: 423px;
+  height: auto;
+  padding: 25px;
   box-shadow: 3px 3px 5px #dcd7e6;
-  /* margin: 1em; */
+  margin-top: calc(12px + 3vmin);
+  margin-left: calc(6px + 2vmin);
+  margin-right: calc(6px + 2vmin);
+  cursor: pointer;
 }
-
-.game-trade-matches:hover {
-  background-color: #cccccc;
-}
-
-.center-matches {
-  display: flex;
-  justify-content: center;
-}
+  .game-trade-matches:hover {
+    background-color: #CCCCCC;
+    transition: ease-in-out 100ms;
+  }
 
 .matches-game-cover {
-  height: 10em;
+  height: 210px;
+  width: auto;
 }
 
-.post-info-row {
+.info-area {
+  height: 200px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.matchBox {
-  padding-left: 45px;
-  margin-top: 25px;
+.recieve-txt {
+  font-size: 20px;
+  line-height: 24.2px;
+  margin-bottom: 6px;
+  font-weight: 400;
+  font-family: Inter;
+}
+
+.match-username {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.94px;
+  font-family: Inter;
 }
 
 .userIcon {
-  height: 55px;
-  width: 55px;
+  height: 51px;
+  width: auto;
   border-radius: 50%;
 }

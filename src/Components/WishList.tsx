@@ -6,7 +6,7 @@ import { userData, addToWishlist, getWishListItems } from "../Services/DataServi
 import WishItem from "./WishItem";
 import SearchResult from "./SearchResult";
 import './WishList.css';
-import Navbar from "./Navbar";
+import Navbar from "./GSNavbar";
 import { useNavigate } from "react-router-dom";
 
 declare module "*.png";

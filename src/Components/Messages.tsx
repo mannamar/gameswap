@@ -1,12 +1,12 @@
 import './Messages.css';
 import { useState, createElement, useEffect } from 'react';
 import { Container, Row, Col, Form } from "react-bootstrap";
-import Navbar from "./Navbar";
+import Navbar from "./GSNavbar";
 import { MessagesUser } from './MessagesUser';
 import { MessageTo } from './MessageTo';
 import { MessageFrom } from './MessageFrom';
 import { PaperPlaneTilt } from '@phosphor-icons/react';
-import { GetDigitalRoot, ResolveUserIcon } from './Navbar';
+import { GetDigitalRoot, ResolveUserIcon } from './GSNavbar';
 import { getMessageHistory, sendMsg, GetAllMsgPartners } from '../Services/DataServices';
 import { useLocation } from 'react-router-dom';
 
