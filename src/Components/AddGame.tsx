@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Form, Tab, Tabs } from "react-bootstrap";
+import { Container, Row, Col, Form, Toast } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import { platform } from "os";
@@ -27,8 +27,8 @@ function AddGame() {
     const [input, setInput] = useState('');
     const [results, setResults] = useState([]);
     const [tradeList, setTradelist] = useState([]);
-
     const [ownedPlatform, setOwnedPlatform] = useState('');
+    const [show, setShow] = useState(false);
 
     let userData: any = localStorage.getItem('LoggedInUser');
     let userJson = JSON.parse(userData);
@@ -89,13 +89,13 @@ function AddGame() {
     return (
         <div>
             <Container fluid className="hero-bg-add-game"
-                // style={{
-                //     background: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(' + gameInfo.bannerUrl + ')',
-                //     backgroundSize: 'cover',
-                //     backgroundPosition: 'center',
-                //     // filter: 'blur(4px)'
-                //     // backdropFilter: 'brightness(50%)'
-                // }}
+            // style={{
+            //     background: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(' + gameInfo.bannerUrl + ')',
+            //     backgroundSize: 'cover',
+            //     backgroundPosition: 'center',
+            //     // filter: 'blur(4px)'
+            //     // backdropFilter: 'brightness(50%)'
+            // }}
             >
                 <Navbar />
                 <Row className="header-and-description">
@@ -104,13 +104,13 @@ function AddGame() {
                     </Col>
                 </Row>
                 <div className="bannerImg"
-                style={{
-                    background: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(' + gameInfo.bannerUrl + ')',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(4px)'
-                    // backdropFilter: 'brightness(50%)'
-                }}
+                    style={{
+                        background: 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(' + gameInfo.bannerUrl + ')',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        filter: 'blur(4px)'
+                        // backdropFilter: 'brightness(50%)'
+                    }}
                 ></div>
             </Container>
             <br />
@@ -133,7 +133,11 @@ function AddGame() {
                                 </Form.Select>
                             </Col>
                             <Col xs={3}>
-                                <div className='join-btn upd-btn' onClick={() => updateWishPlatform(gameInfo.wishId, dropPlat)}>
+                                <div className='join-btn upd-btn' onClick={async () => {
+                                        let didUpdate = await updateWishPlatform(gameInfo.wishId, dropPlat)
+                                        if (didUpdate) {
+                                            setShow(true);
+                                }}}>
                                     Update
                                 </div>
                             </Col>
@@ -145,12 +149,12 @@ function AddGame() {
                     <h2 className="mb-4">Would Trade</h2>
                     {tradeList.length === 0 ? <p>You don't currently have any games up for trade. Search for a game below that you'd give in return.</p> : null}
                     <div className='wishBox'>
-                    {tradeList.map((item, idx) => {
-                        return (
-                            // <p>{item['gameName']}</p>
-                            <TradeItem setTradelist={setTradelist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} allPlatforms={item['allPlatforms']} imageUrl={item['imgUrl']} wishId={gameInfo.wishId} bannerUrl={item['bannerUrl']}/>
-                        )
-                    })}
+                        {tradeList.map((item, idx) => {
+                            return (
+                                // <p>{item['gameName']}</p>
+                                <TradeItem setTradelist={setTradelist} key={item['id']} id={item['id']} gameTitle={item['gameName']} releaseYear={item['releaseYear']} platform={item['gamePlatform']} allPlatforms={item['allPlatforms']} imageUrl={item['imgUrl']} wishId={gameInfo.wishId} bannerUrl={item['bannerUrl']} />
+                            )
+                        })}
                     </div>
                 </Row>
                 <Row>
@@ -159,7 +163,7 @@ function AddGame() {
                         <Col>
                             <Row className="mt-4 mb-5">
                                 <Col xs={3}>
-                                    <Form.Control type="text" placeholder="Search for games you'd trade" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyPress}/>
+                                    <Form.Control type="text" placeholder="Search for games you'd trade" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleKeyPress} />
                                 </Col>
                                 <Col xs={1}>
                                     <div className='join-btn' onClick={async () => setResults(await searchForGames(input))}>
@@ -178,6 +182,18 @@ function AddGame() {
                     </Col>
                 </Row>
             </Container>
+            <Toast className="toast" onClose={() => setShow(false)} show={show} delay={4000} autohide>
+                <Toast.Header>
+                    <img
+                        src="holder.js/20x20?text=%20"
+                        className="rounded me-2"
+                        alt=""
+                    />
+                    <strong className="me-auto">{gameInfo.gameTitle}</strong>
+                    <small>now</small>
+                </Toast.Header>
+                <Toast.Body>Platform updated to {dropPlat}</Toast.Body>
+            </Toast>
         </div>
     );
 }
