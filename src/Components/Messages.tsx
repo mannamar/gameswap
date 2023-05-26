@@ -99,7 +99,7 @@ function Messages() {
         <div>
             <Container fluid className="hero-bg-messages">
                 <Navbar />
-                <Row className="header-and-description">
+                <Row className="header-and-description-messages">
                     <Col>
                         <h1>Messages</h1>
                     </Col>
@@ -107,7 +107,7 @@ function Messages() {
             </Container>
             <Container fluid>
                 <Row className="message-page-body">
-                    <Col className='users-col g-0' xs={3}>
+                    <Col className='users-col g-0' xs={12} sm={3}>
                         {matchInfo ?
                             <div className={activeUser === -1 ? "activeUser" : ""} onClick={async () => await handleClickSidebar({ userId: matchInfo.tradeWithUserId, username: matchInfo.tradeWithUsername }, -1)}>
                                 <MessagesUser
@@ -156,7 +156,7 @@ function Messages() {
                             <Col>
 
                                 <Row className={chatRecipientId && chatRecipient ? "" : "d-none"}>
-                                    <Col xs={11}>
+                                    <Col xs={10} sm={11}>
                                         <Form.Control as="textarea" placeholder='Type a message' rows={1}
                                             onChange={handleMessage} value={input}/>
                                     </Col>
