@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 5px #dcd7e6;
-    margin: 1em;
+    /* margin: 1em; */
   }
 
 .center-matches{
@@ -27,3 +27,13 @@
   justify-content: space-between;
 }
 
+.matchBox {
+  padding-left: 45px;
+  margin-top: 25px;
+}
+
+.userIcon {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+}

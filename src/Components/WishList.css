@@ -1,3 +1,11 @@
+.hero-bg-wish{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url('../Assets/Images/WishlistBG.jpg');
+    color: #FFFFFF;
+    height: 30em;
+    background-size: cover;
+    background-position: center;
+  }
+
 .wishBox {
     display: flex;
     flex-wrap: wrap;

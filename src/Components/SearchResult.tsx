@@ -8,28 +8,39 @@ interface WishListItemProps {
     platform: string;
     imageUrl: string;
     onImgClick: any;
+    setOwnedPlatform: any;
+    section: string;
 }
 
-export default function SearchResult({ gameTitle, releaseYear, platform, imageUrl, onImgClick }: WishListItemProps) {
+export default function SearchResult({ gameTitle, releaseYear, platform, imageUrl, onImgClick, setOwnedPlatform, section }: WishListItemProps) {
 
+    let platformArray = platform.split(', ');
+
+    const [gamePlatform, setGamePlatform] = useState(platformArray[0]);
+
+    function handleChange(e : any) {
+        // console.log(e.target.value);
+        setGamePlatform(e.target.value);
+        setOwnedPlatform(e.target.value);
+    }
 
     return (
         <div className="itemBox">
             <div className="imgContainer">
                 <img className="gameImg" alt="Game cover" src={imageUrl} />
                 <div className="overlay" onClick={onImgClick}>
-                    <div className="overlayText">+ Add To Wishlist</div>
-                    <select className="platDrpDwn"name="cars" id="cars">
-                        <option value="Xbox">Xbox</option>
-                        <option value="Switch">Switch</option>
-                        <option value="PC">PC</option>
-                        <option value="PS5">PS5</option>
+                    <div className="overlayText" onClick={onImgClick}>+ Add To {section}</div>
+                    <select className="platDrpDwn"name="cars" id="cars" value={gamePlatform} onChange={handleChange}>
+                        {platformArray.map((item, idx) => 
+                            <option key={idx} value={item}>{item}</option>
+                        )};
                     </select>
                 </div>
             </div>
             <h5>{gameTitle}</h5>
-            <p>Released: <span>{releaseYear}</span></p>
-            <p>Platforms: <span>{platform}</span></p>
+            <span>Released: <span className="lightPurp">{releaseYear}</span></span>
+            <br/>
+            <span>Platforms: <span className="lightPurp">{platform}</span></span>
         </div>
     )
 }
