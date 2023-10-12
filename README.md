@@ -11,7 +11,7 @@
 **Gameswap** is an online marketplace where users can find members of their local community to trade games with
 
 ## Technology
-Frontend built in React using Typescript. Backend API written in C# using the .NET framework. Database hosted on Azure via Microsoft SQL Server. Design and layout was fully prototyped in Figma
+Frontend built in React using Typescript. [Backend API](https://github.com/mannamar/gameswap-backend) written in C# using the .NET framework. Database hosted on Azure via Microsoft SQL Server. Layout and design were fully prototyped in Figma
 
 ## Features
 - Ability to sign-up and create a user account 
