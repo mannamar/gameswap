@@ -6,7 +6,9 @@
 <a href="https://www.figma.com/file/ghliT7Nqlq9fKNaj36s1Wm/GameSwap-(Prototype)?type=design&node-id=186-617&mode=design&t=DCdVVjzr45GD8Vr1-0" target="_blank"><img src="https://img.shields.io/badge/Prototype-Mobile-Green?logo=figma&logoColor=lightgray" alt="Prototype Badge" /></a>
 </p>
 
-<p style="color:red;">Unfortunately we've exceeded our Azure student hosting allowance for the month. Please bear with us as we migrate our deployment to a new hosting provider.</p
+```diff
+- Unfortunately we've exceeded our Azure student hosting allowance for the month. Please bear with us as we migrate our deployment to a new hosting provider. -
+```
 
 **Gameswap** is an online marketplace where users can find members of their local community to trade games with
 
